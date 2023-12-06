@@ -1,0 +1,9 @@
+*.gem
+.localgems/
+.bundle
+Gemfile.lock
+.yardoc/
+.dev/
+doc/
+pkg/
+.gems/
