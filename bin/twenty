@@ -1,1 +1,19 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
+libdir = File.join(__dir__, "..", "lib")
+require File.join(libdir, "twenty", "libexec")
+
+case ARGV[0]
+when "up"
+  wait spawn("up", *ARGV[1..])
+  exit $?.exitstatus
+when "down"
+  wait spawn("down", *ARGV[1..])
+  exit $?.exitstatus
+else
+  warn "Usage: twenty COMMAND [OPTIONS]\n\n" \
+       "Commands:\n" \
+       "  up             Start the twenty web server.\n" \
+       "  down           Stop the twenty web server.\n" \
+end
