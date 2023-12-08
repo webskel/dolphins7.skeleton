@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |gem|
-  gem.name = "twenty"
+  gem.name = "twenty-cli"
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.licenses = ["0BSD"]
   gem.files = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
-  gem.summary = "Local project management"
+  gem.summary = "twenty: command-line interface"
   gem.description = gem.summary
   gem.add_runtime_dependency "cmd.rb", "~> 0.2"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
