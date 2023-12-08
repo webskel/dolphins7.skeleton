@@ -1,3 +1,3 @@
 module Twenty
-  require_relative "twenty/command"
+  require_relative "command"
 end

@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.summary = "twenty: command-line interface"
   gem.description = gem.summary
+  gem.executables = "twenty"
   gem.add_runtime_dependency "cmd.rb", "~> 0.2"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "yard", "~> 0.9"
