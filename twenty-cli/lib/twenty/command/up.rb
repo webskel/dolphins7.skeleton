@@ -10,6 +10,16 @@ class Twenty::Command::Up < Twenty::Command
   private
 
   def run_command
-    warn "[twenty] up..."
+    server = WEBrick::HTTPServer.new(server_options)
+    trap(:SIGINT) { server.shutdown }
+    server.start
+  end
+
+  def server_options
+    {
+      DocumentRoot: Twenty.build,
+      BindAddress: "127.0.0.1",
+      Port: 7778
+    }
   end
 end
