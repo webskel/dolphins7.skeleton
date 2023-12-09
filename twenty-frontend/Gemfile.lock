@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/0x1eef/nanoc-tidy.rb.git
+  revision: fa8cf9ba1aa6efd39a840d48e82dbd7267e56c2d
+  specs:
+    nanoc-tidy.rb (0.2.0)
+
+GIT
   remote: https://github.com/0x1eef/nanoc-webpack.rb.git
   revision: b32bec747998f06969f045274b28126c3b540369
   specs:
@@ -94,6 +100,7 @@ PLATFORMS
 
 DEPENDENCIES
   nanoc (~> 4.12)
+  nanoc-tidy.rb!
   nanoc-webpack.rb!
   ryo.rb!
   sass (~> 3.7)
