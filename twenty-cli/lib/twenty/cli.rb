@@ -9,8 +9,6 @@ module Twenty
     # both twenty-cli, and twenty-backend. Eventually
     # they should be moved into their own package.
 
-    extend self
-
     def home
       File.join Dir.home, ".local", "share", "twenty"
     end
