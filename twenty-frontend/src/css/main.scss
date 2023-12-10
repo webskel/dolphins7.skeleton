@@ -1,0 +1,21 @@
+@import "fonts";
+@import "colors";
+
+body {
+  font-family: "Dhurjati Regular";
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 0 auto;
+  width: 75%;
+  max-width: 678px;
+  h1 {
+    color: $black;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    line-height: 1;
+  }
+}

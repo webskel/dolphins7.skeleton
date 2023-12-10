@@ -1,10 +1,15 @@
 #!/usr/bin/env ruby
-
+require "nanoc-webpack"
 compile("/layouts/*") { write(nil) }
+compile("/fonts/*.ttf") { write(item.identifier.to_s) }
 compile("/css/main.scss") do
   filter(:sass, syntax: :scss)
   filter(:rainpress)
   write("/css/main.css")
+end
+compile("/js/index.tsx") do
+  filter(:webpack)
+  write("/js/index.js")
 end
 compile '/**/*.html' do
   layout '/default.*'

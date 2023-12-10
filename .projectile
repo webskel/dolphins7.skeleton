@@ -1,2 +1,7 @@
 +.
 -.git/
+-twenty-frontend/build/
+-twenty-frontend/node_modules/
+-.gems/
+-crash.log
+
