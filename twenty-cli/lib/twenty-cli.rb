@@ -29,7 +29,7 @@ module Twenty
     end
   end
 
-  require "twenty/backend"
+  require "twenty-backend"
   require "twenty/frontend"
   require_relative "twenty-cli/command"
 end
