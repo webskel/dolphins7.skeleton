@@ -14,7 +14,7 @@ module Twenty
     end
 
     def database
-      Ryo.from DEFAULTS.dup.merge(JSON.parse(database_path))
+      Ryo.from DEFAULTS.dup.merge(JSON.parse(File.binread(database_path)))
     rescue
       Ryo.from(DEFAULTS.dup)
     end
