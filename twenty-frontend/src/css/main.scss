@@ -7,15 +7,23 @@ body {
   padding: 0;
 }
 
-header {
+header, .body {
   margin: 0 auto;
+  color: $black;
   width: 75%;
-  max-width: 678px;
+  max-width: 1024px;
+}
+
+header {
   h1 {
-    color: $black;
     margin: 0;
     padding: 0;
-    font-weight: normal;
     line-height: 1;
+    font-weight: normal;
   }
+}
+
+.body {
+  font-size: larger;
+
 }
