@@ -1,3 +1,4 @@
+lib/**/*.rb
 build/**/*.html
 build/css/*.css
 build/js/*.js
