@@ -1,2 +1,4 @@
-build/index.html
-build/stylesheet.css
+build/**/*.html
+build/css/*.css
+build/js/*.js
+build/fonts/*.ttf

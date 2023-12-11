@@ -7,7 +7,9 @@ Gem::Specification.new do |gem|
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
   gem.version = "0.1.0"
   gem.licenses = ["0BSD"]
-  gem.files = File.binread("./MANIFEST").each_line.map(&:chomp)
+  gem.files = File.binread("./MANIFEST")
+                  .each_line
+                  .flat_map { Dir.glob(_1.chomp) }
   gem.require_paths = ["lib"]
   gem.summary = "twenty: frontend"
   gem.description = gem.summary
