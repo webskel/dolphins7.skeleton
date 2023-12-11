@@ -6,9 +6,9 @@ GIT
 
 GIT
   remote: https://github.com/0x1eef/nanoc-webpack.rb.git
-  revision: b32bec747998f06969f045274b28126c3b540369
+  revision: 3fb4042377e3659b374496c6468e4bb35dedb255
   specs:
-    nanoc-webpack.rb (0.4.3)
+    nanoc-webpack.rb (0.4.4)
       ryo.rb (~> 0.3)
 
 GIT
