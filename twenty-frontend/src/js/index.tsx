@@ -1,13 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-function Connections() {
-  return (
-    <>
-      <span className="connections">Connections</span>
-    </>
-  )
-}
+import { Connections } from "/components/Connections";
 
 (function() {
   const root = document.getElementById("reactapp")!;
