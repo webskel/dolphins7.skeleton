@@ -1,22 +1,3 @@
-GIT
-  remote: https://github.com/0x1eef/nanoc-tidy.rb.git
-  revision: fa8cf9ba1aa6efd39a840d48e82dbd7267e56c2d
-  specs:
-    nanoc-tidy.rb (0.2.0)
-
-GIT
-  remote: https://github.com/0x1eef/nanoc-webpack.rb.git
-  revision: 3fb4042377e3659b374496c6468e4bb35dedb255
-  specs:
-    nanoc-webpack.rb (0.4.4)
-      ryo.rb (~> 0.3)
-
-GIT
-  remote: https://github.com/0x1eef/ryo.rb.git
-  revision: 70a975e0fad895c0460818c878586d398f32fbdb
-  specs:
-    ryo.rb (0.4.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,10 +82,7 @@ PLATFORMS
 
 DEPENDENCIES
   nanoc (~> 4.12)
-  nanoc-tidy.rb!
-  nanoc-webpack.rb!
   rainpress (~> 1.0)
-  ryo.rb!
   sass (~> 3.7)
 
 BUNDLED WITH
