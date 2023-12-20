@@ -11,4 +11,9 @@ class Twenty::Issue < Twenty::Model
   ##
   # Associations
   belongs_to :connection, class_name: 'Twenty::Connection'
+
+  def to_json(options = {})
+    {id:, title:, content:, state:,
+     connection_id:}.to_json(options)
+  end
 end
