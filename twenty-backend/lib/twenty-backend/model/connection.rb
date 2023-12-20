@@ -1,4 +1,6 @@
 class Twenty::Connection < Twenty::Model
+  self.table_name = 'connections'
+
   ##
   # Validations
   validates :name, presence: true

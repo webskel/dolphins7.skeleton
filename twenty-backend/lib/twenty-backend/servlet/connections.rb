@@ -7,6 +7,6 @@ class Twenty::Servlet::Connections < Twenty::Servlet
   private
 
   def body
-    JSON.dump database.connections.map { Ryo.table_of(_1,recursive: true) }
+    JSON.dump(Twenty::Connection.all)
   end
 end

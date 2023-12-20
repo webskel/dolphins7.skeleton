@@ -1,4 +1,6 @@
 class Twenty::Issue < Twenty::Model
+  self.table_name = 'issues'
+
   ##
   # Validations
   validates :title, presence: true
