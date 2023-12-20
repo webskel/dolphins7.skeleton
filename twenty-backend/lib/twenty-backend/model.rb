@@ -40,7 +40,7 @@ class Twenty::Model < ActiveRecord::Base
 
   prepare
   connect
+  Twenty::Migration.run!
   require_relative "model/connection"
   require_relative "model/issue"
-  Twenty::Migration.run!
 end

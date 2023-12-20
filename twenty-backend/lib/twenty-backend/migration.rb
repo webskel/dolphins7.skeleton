@@ -1,11 +1,17 @@
 module Twenty::Migration
-  require_relative "migration/create_connections"
-  require_relative "migration/create_issues"
-
-  def self.run!
-    CreateConnections.migrate(:up)
-    CreateIssues.migrate(:up)
-  rescue
-    warn "#{$!.class}: #{$!.message}"
+  ##
+  # @return [String]
+  #  Returns the path to twenty's migrations.
+  def self.migrations_path
+    [File.join(__dir__, "migration")]
   end
+
+  ##
+  # Runs migrations (if neccessary).
+  # @return [void]
+  def self.run!
+    context = ActiveRecord::MigrationContext.new(migrations_path)
+    context.migrate
+  end
+  ActiveRecord.timestamped_migrations = false
 end
