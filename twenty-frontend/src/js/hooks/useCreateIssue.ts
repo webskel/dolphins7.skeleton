@@ -13,6 +13,7 @@ export function useCreateIssue() {
           body: JSON.stringify(params)
         };
         return fetch('/servlet/issues', req)
+          .then((res) => res.json())
           .then(accept)
           .catch(reject);
       });
