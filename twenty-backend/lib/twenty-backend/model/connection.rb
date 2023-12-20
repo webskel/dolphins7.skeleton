@@ -9,4 +9,8 @@ class Twenty::Connection < Twenty::Model
   ##
   # Associations
   has_many :issues, class_name: 'Twenty::Issue'
+
+  def to_json(options = {})
+    {id:, name:, path:}.to_json(options)
+  end
 end
