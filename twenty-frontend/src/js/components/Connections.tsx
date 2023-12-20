@@ -1,22 +1,11 @@
-import React, {useEffect, useState} from "react";
-
-type Connection = {
-  name: string;
-  path: string;
-}
+import React from "react";
+import { useConnections } from "/hooks/useConnections";
 
 export function Connections() {
-  const [connections, setConnections] = useState<Connection[]>([]);
+  const connections = useConnections();
   const items = connections.map((conn, i) => {
     return (<li key={i}>{conn.name}</li>);
   })
-
-  useEffect(() => {
-    fetch("/servlet/connections")
-    .then((res) => res.json())
-    .then((conns: Connection[]) => setConnections(conns))
-  }, []);
-
 
   return (
     <>
