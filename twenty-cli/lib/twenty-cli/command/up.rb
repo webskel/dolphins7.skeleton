@@ -11,7 +11,8 @@ class Twenty::Command::Up < Twenty::Command
 
   def run_command
     server = WEBrick::HTTPServer.new(server_options)
-    server.mount '/connections.json', Twenty::Servlet::Connections
+    server.mount '/servlet/connections', Twenty::Servlet::Connections
+    server.mount '/servlet/issues', Twenty::Servlet::Issues
     trap(:SIGINT) { server.shutdown }
     server.start
   end
