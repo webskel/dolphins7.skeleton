@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    twenty-frontend (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,6 +53,8 @@ GEM
       nanoc-checking (~> 1.0)
       nanoc-cli (~> 4.11, >= 4.11.15)
       nanoc-core (~> 4.11, >= 4.11.15)
+    nanoc-webpack.rb (0.4.5)
+      ryo.rb (~> 0.4)
     parallel (1.23.0)
     pastel (0.8.0)
       tty-color (~> 0.5)
@@ -59,6 +66,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rbtree (0.4.6)
+    ryo.rb (0.4.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -78,12 +86,15 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
+  amd64-freebsd-14
   x86_64-openbsd
 
 DEPENDENCIES
   nanoc (~> 4.12)
+  nanoc-webpack.rb (~> 0.4)
   rainpress (~> 1.0)
   sass (~> 3.7)
+  twenty-frontend!
 
 BUNDLED WITH
    2.4.10
