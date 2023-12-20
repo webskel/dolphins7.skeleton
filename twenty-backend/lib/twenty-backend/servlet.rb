@@ -1,6 +1,6 @@
 class Twenty::Servlet < WEBrick::HTTPServlet::AbstractServlet
-  include Twenty::DB
   require_relative "servlet/connections"
+  require_relative "servlet/issues"
 
   private
   def write(res, ary)

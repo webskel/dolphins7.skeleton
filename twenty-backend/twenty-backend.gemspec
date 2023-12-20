@@ -11,6 +11,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.summary = "twenty: backend"
   gem.description = gem.summary
+  gem.add_runtime_dependency "activerecord", "~> 7.1"
+  gem.add_runtime_dependency "sqlite3", "~> 1.6"
   gem.add_runtime_dependency "webrick", "~> 1.8"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "standard", "~> 1.13"

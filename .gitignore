@@ -4,6 +4,6 @@
 Gemfile.lock
 .yardoc/
 .dev/
-doc/
+.doc/
 pkg/
 .gems/

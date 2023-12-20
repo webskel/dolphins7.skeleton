@@ -1,8 +1,4 @@
 class Twenty::Command::Connect < Twenty::Command
-  require "fileutils"
-  include Twenty::DB
-  include FileUtils
-
   set_banner usage: "twenty connect [OPTIONS]",
              description: "Connect a project to twenty"
 
@@ -14,14 +10,9 @@ class Twenty::Command::Connect < Twenty::Command
   private
 
   def run_command(options)
-    mkdir_p File.dirname(database_path)
-    path = Dir.getwd
-    name = File.basename(path)
-    db.connections.push({name:, path:})
-    save!(db)
-  end
-
-  def db
-    @db ||= database
+    Twenty::Connection.new(
+      name: File.basename(Dir.getwd),
+      path: Dir.getwd,
+    ).save!
   end
 end
