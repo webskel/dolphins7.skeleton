@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+compile("/css/main.scss") do
+  filter(:sass, syntax: :scss)
+  filter(:rainpress)
+  write("/css/main.css")
+end
+
+compile("/fonts/*.ttf") do
+  write(item.identifier.to_s)
+end

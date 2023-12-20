@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+##
+# GET /
+compile '/html/connections/index.html.erb' do
+  layout "/default.*"
+  filter(:erb)
+  write('/index.html')
+end
+
+##
+# GET /js/entry-point/connections.js
+compile("/js/entry-point/connections.tsx") do
+  filter(:webpack, depend_on: %w[/js/components/])
+  write("/js/entry-point/connections.js")
+end

@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+##
+# GET /issues/new/
+compile '/html/issues/new/index.html.erb' do
+  layout "/default.*"
+  filter(:erb)
+  write("/issues/new/index.html")
+end
+
+##
+# GET /js/entry-point/new-issue.js
+compile("/js/entry-point/new-issue.tsx") do
+  filter(:webpack, depend_on: %w[/js/components/])
+  write("/js/entry-point/new-issue.js")
+end

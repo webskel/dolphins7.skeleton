@@ -1,19 +1,25 @@
 #!/usr/bin/env ruby
 require "nanoc-webpack"
-compile("/css/main.scss") do
-  filter(:sass, syntax: :scss)
-  filter(:rainpress)
-  write("/css/main.css")
+
+def require_rules(rules, locals = {}, target = binding)
+  locals.each { target.local_variable_set(_1, _2) }
+  path = File.join(Dir.getwd, rules)
+  target.eval(
+    if File.readable?(path)
+      File.read(path)
+    elsif File.readable?("#{path}.rb")
+      File.read("#{path}.rb")
+    elsif File.readable?("#{path}.rules")
+      File.read("#{path}.rules")
+    else
+      raise LoadError, "#{path} is not readable"
+    end
+  )
 end
-compile("/js/index.tsx") do
-  filter(:webpack, depend_on: %w[/js/components/])
-  write("/js/index.js")
-end
-compile '/*.html.erb' do
-  layout "/default.*"
-  filter(:erb)
-  write item.identifier.without_ext
-end
-compile("/fonts/*.ttf") { write(item.identifier.to_s) }
+
+require_rules "nanoc/rules/assets"
+require_rules "nanoc/rules/connections"
+require_rules "nanoc/rules/issues"
+
 compile("/**/*") { write(nil) }
 layout '/**/*', :erb
