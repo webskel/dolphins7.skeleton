@@ -7,12 +7,11 @@ html, html body, .form {
 }
 
 body {
-  font-family: "Dhurjati Regular";
   margin: 0;
   padding: 0;
 }
 
-header, .body {
+header, #reactapp {
   margin: 0 auto;
   color: $black;
   width: 75%;
@@ -26,26 +25,22 @@ header {
     line-height: 1;
     font-weight: normal;
   }
+  min-height: 64px;
 }
 
-.body {
-  height: 100%;
-  font-size: larger;
-  ul.connections {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  .form {
-    .row {
-      display: flex;
-      width: 100%;
-      textarea, input {
-        width: 100%;
-      }
+form.new-issue {
+  .pure-u-1-1 {
+    display: flex;
+    margin: 0 0 15px 0;
+
+    .left {
+      width: 20%;
+      select { width: 100%; }
+      margin: 0 1% 0 0;
     }
-    .row.content {
-      height: 55%;
+    .right {
+      width: 75%;
+      input, textarea { width: 100%; }
     }
   }
 }
