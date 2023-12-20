@@ -12,7 +12,7 @@ export function NewIssueForm() {
           <input name="title" type="text" placeholder="Title" />
         </div>
       </div>
-      <div className="pure-u-1-1">
+      <div className="pure-u-1-1 issue-content">
         <div className="left"></div>
         <div className="right">
           <textarea name="content" placeholder="Add your description here"/>

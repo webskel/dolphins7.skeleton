@@ -2,7 +2,7 @@
 @import "colors";
 @import "pure";
 
-html, html body, .form {
+html, html body, .pure-g {
   height: 100%;
 }
 
@@ -29,6 +29,7 @@ header {
 }
 
 form.new-issue {
+  height: 100%;
   .pure-u-1-1 {
     display: flex;
     margin: 0 0 15px 0;
@@ -41,6 +42,10 @@ form.new-issue {
     .right {
       width: 75%;
       input, textarea { width: 100%; }
+      textarea { height: 100%; }
     }
+  }
+  .pure-u-1-1.issue-content {
+    height: 45%;
   }
 }
