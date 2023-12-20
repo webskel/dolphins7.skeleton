@@ -7,6 +7,6 @@ class Twenty::Servlet::Connections < Twenty::Servlet
   private
 
   def body
-    JSON.dump(Twenty::Connection.all)
+    JSON.dump(Twenty::Connection.all.to_a)
   end
 end
