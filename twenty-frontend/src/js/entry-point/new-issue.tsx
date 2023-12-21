@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { NewIssueForm } from "/components/forms/NewIssueForm";
+import { NewIssue } from "/components/forms/NewIssue";
 
-(function() {
+(function () {
   const root = document.getElementById("reactapp")!;
-  ReactDOM.createRoot(root).render(
-    <NewIssueForm />
-  );
+  ReactDOM.createRoot(root).render(<NewIssue />);
 })();

@@ -1,22 +1,23 @@
 type Params = {
-  title: string,
-  content: string,
-  connection_id: number
+  title: string;
+  content: string;
+  connectionId: number;
 };
 
 export function useCreateIssue() {
   return [
-    function({params}: {params: Params}) {
+    function ({ input }: { input: Params }) {
       return new Promise((accept, reject) => {
+        const {connectionId: connection_id, title, content} = input;
         const req = {
-          method: 'POST',
-          body: JSON.stringify(params)
+          method: "POST",
+          body: JSON.stringify({connection_id, title, content})
         };
-        return fetch('/servlet/issues', req)
-          .then((res) => res.json())
+        return fetch("/servlet/issues", req)
+          .then(res => res.json())
           .then(accept)
           .catch(reject);
       });
-    }
+    },
   ];
 }

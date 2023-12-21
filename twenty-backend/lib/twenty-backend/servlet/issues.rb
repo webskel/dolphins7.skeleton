@@ -4,11 +4,9 @@ class Twenty::Servlet::Issues < Twenty::Servlet
       JSON.parse(req.body)
     ).tap(&:save!)
     write res,
-          {"content-type" => "application/json"},
-          {"ok": true, errors: [], issue:}.to_json
+          [200, {"content-type" => "application/json"}, {"ok": true, errors: [], issue:}.to_json]
   rescue
     write res,
-          {"content-type" => "application/json"},
-          {"ok": false, errors: [$!.class]}.to_json
+          [200, {"content-type" => "application/json"}, {"ok": false, errors: ["#{$!.class}: #{$!.message}"]}.to_json]
   end
 end
