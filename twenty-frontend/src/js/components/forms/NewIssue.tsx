@@ -16,8 +16,8 @@ export function NewIssue() {
   const [create] = useCreateIssue();
   const [connections] = useConnections();
   const onSave = (input: Inputs) => {
-    create({input});
-  }
+    create({ input });
+  };
 
   useEffect(() => {
     set("connectionId", 1);
@@ -27,7 +27,11 @@ export function NewIssue() {
     <form className="new-issue pure-form" onSubmit={handleSubmit(onSave)}>
       <div className="pure-u-1-1">
         <div className="left">
-          <Select defaultValue={1} {...register("connectionId")} ref={selectRef}>
+          <Select
+            defaultValue={1}
+            {...register("connectionId")}
+            ref={selectRef}
+          >
             {connections.map((conn, key) => {
               return (
                 <option key={key} value={conn.id}>
