@@ -16,6 +16,7 @@ compile("/js/entry-point/new-issue.tsx") do
 end
 
 ##
+# GET /
 # GET /issues/
 compile("/html/issues/index.html.erb") do
   layout "/default.*"
