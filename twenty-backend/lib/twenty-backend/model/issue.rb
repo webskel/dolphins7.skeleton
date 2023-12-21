@@ -12,6 +12,11 @@ class Twenty::Issue < Twenty::Model
   # Associations
   belongs_to :connection, class_name: 'Twenty::Connection'
 
+  ##
+  # Scopes
+  scope :open, -> { where(state: "open") }
+  scope :closed, -> { where(state: "closed") }
+
   def to_json(options = {})
     {id:, title:, content:, state:,
      connection_id:}.to_json(options)
