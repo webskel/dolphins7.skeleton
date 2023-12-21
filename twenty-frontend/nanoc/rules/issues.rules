@@ -31,7 +31,7 @@ compile("/js/entry-point/issues.tsx") do
 end
 
 ##
-# GET /issues/show#<issue-id>
+# GET /issues/read#<issue-id>
 compile("/html/issues/read/index.html.erb") do
   layout "/default.*"
   filter(:erb)
@@ -39,7 +39,7 @@ compile("/html/issues/read/index.html.erb") do
 end
 
 ##
-# GET /js/entry-point/show-issue.js
+# GET /js/entry-point/read-issue.js
 compile("/js/entry-point/read-issue.tsx") do
   filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
   write("/js/entry-point/read-issue.js")
