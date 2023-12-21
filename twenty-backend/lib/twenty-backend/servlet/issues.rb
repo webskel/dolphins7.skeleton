@@ -3,9 +3,10 @@ class Twenty::Servlet::Issues < Twenty::Servlet
     case req.path_info
     when ""
       # GET /servlet/issues/
+      issues = Twenty::Issue.open.order(updated_at: :desc)
       Response.new(res)
         .set_status(200)
-        .set_body(issues: Twenty::Issue.open)
+        .set_body(issues:)
     when %r|^/([\d]+)/?$|
       # GET /servlet/issues/<issue-id>/
       issue = Twenty::Issue.find_by(id: $1)

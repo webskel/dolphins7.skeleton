@@ -16,7 +16,10 @@ export function NewIssue() {
   const [create] = useCreateIssue();
   const [connections] = useConnections();
   const onSave = (input: Inputs) => {
-    create({ input });
+    create({ input })
+      .then(() => {
+        location.href = '/issues/';
+      });
   };
 
   useEffect(() => {
