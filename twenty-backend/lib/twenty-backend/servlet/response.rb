@@ -10,6 +10,15 @@ class Twenty::Servlet::Response
   end
 
   ##
+  # Marks a response as a 404 (Not Found).
+  # @return [Twenty::Servlet::Response]
+  #  Returns self.
+  def not_found
+    set_status(404)
+    set_body({errors: ["The requested path was not found"]})
+  end
+
+  ##
   # Sets the response status.
   # @param [Integer] status
   #  A status code.

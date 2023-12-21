@@ -9,15 +9,15 @@ class Twenty::Servlet::Issues < Twenty::Servlet
     when %r|^/([\d]+)/?$|
       # GET /servlet/issues/<issue-id>/
       issue = Twenty::Issue.find_by(id: $1)
-      status = issue ? 200 : 404
-      body = issue ? {issue:} : {issue:, errors: ["Bad path"]}
-      Response.new(res)
-        .set_status(status)
-        .set_body(body)
+      if issue
+        Response.new(res)
+          .set_status(200)
+          .set_body(issue:)
+      else
+        Response.new(res).not_found
+      end
     else
-      Response.new(res)
-        .set_status(404)
-        .set_body(errors: ["Bad path"])
+      Response.new(res).not_found
     end
   end
 
@@ -31,15 +31,13 @@ class Twenty::Servlet::Issues < Twenty::Servlet
           .set_status(200)
           .set_body(issue:)
       else
-        errors =  issue.errors.full_messages
+        errors = issue.errors.full_messages
         Response.new(res)
           .set_status(422)
           .set_body(errors:)
       end
     else
-      Response.new(res)
-        .set_status(404)
-        .set_body(errors: ["Bad path"])
+      Response.new(res).not_found
     end
   end
 end

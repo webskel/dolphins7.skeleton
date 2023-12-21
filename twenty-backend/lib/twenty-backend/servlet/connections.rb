@@ -7,9 +7,7 @@ class Twenty::Servlet::Connections < Twenty::Servlet
         .set_status(200)
         .set_body(connections: Twenty::Connection.all)
     else
-      Response.new(res)
-        .set_status(404)
-        .set_body(errors: ["Bad path"])
+      Response.new(res).not_found
     end
   end
 end
