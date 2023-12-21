@@ -5,7 +5,7 @@
 compile '/html/connections/index.html.erb' do
   layout "/default.*"
   filter(:erb)
-  write('/index.html')
+  write('/connections/index.html')
 end
 
 ##

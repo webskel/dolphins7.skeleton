@@ -21,6 +21,7 @@ compile("/html/issues/index.html.erb") do
   layout "/default.*"
   filter(:erb)
   write("/issues/index.html")
+  write("/index.html")
 end
 
 ##
