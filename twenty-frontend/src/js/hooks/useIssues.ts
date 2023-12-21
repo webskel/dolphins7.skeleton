@@ -7,7 +7,7 @@ export function useIssues() {
   useEffect(() => {
     fetch("/servlet/issues")
       .then(res => res.json())
-      .then((res) => setIssues(res.issues));
+      .then(res => setIssues(res.issues));
   }, []);
 
   return [issues];

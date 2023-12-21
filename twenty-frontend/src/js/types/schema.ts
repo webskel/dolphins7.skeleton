@@ -5,9 +5,9 @@ export type Connection = {
 };
 
 export type Issue = {
-  id: number,
-  title: string,
-  content: string,
-  state: "open" | "closed",
-  connection_id: number
-}
+  id: number;
+  title: string;
+  content: string;
+  state: "open" | "closed";
+  connection_id: number;
+};

@@ -27,10 +27,7 @@ export function NewIssue() {
     <form className="new-issue pure-form" onSubmit={handleSubmit(onSave)}>
       <div className="pure-u-1-1">
         <div className="left">
-          <Select
-            {...register("connectionId")}
-            ref={selectRef}
-          >
+          <Select {...register("connectionId")} ref={selectRef}>
             {connections.map((conn, key) => {
               return (
                 <option key={key} value={conn.id}>

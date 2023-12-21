@@ -29,3 +29,18 @@ compile("/js/entry-point/issues.tsx") do
   filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types])
   write("/js/entry-point/issues.js")
 end
+
+##
+# GET /issues/show#<issue-id>
+compile("/html/issues/show/index.html.erb") do
+  layout "/default.*"
+  filter(:erb)
+  write("/issues/show/index.html")
+end
+
+##
+# GET /js/entry-point/show-issue.js
+compile("/js/entry-point/show-issue.tsx") do
+  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types])
+  write("/js/entry-point/show-issue.js")
+end

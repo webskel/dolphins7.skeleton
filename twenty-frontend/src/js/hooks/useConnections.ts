@@ -12,7 +12,7 @@ export function useConnections() {
   useEffect(() => {
     fetch("/servlet/connections")
       .then(res => res.json())
-      .then((res) => setConns(res.connections));
+      .then(res => setConns(res.connections));
   }, []);
 
   return [conns];
