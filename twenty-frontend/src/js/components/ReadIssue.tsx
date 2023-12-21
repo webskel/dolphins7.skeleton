@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Issue } from "/types/schema";
-import { useLocationHash } from "/hooks/useLocationHash";
+import { useParams } from "/hooks/useParams";
 
 export function ReadIssue() {
-  const { id } = useLocationHash();
+  const { id } = useParams();
   const [issue, setIssue] = useState<Issue | null>(null);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useLocationHash() {
+export function useParams() {
   const [params, setParams] = useState<Record<string, string>>({});
 
   function set() {
