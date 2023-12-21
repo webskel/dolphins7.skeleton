@@ -10,7 +10,7 @@ export function Issues() {
       </div>
       <div className="pure-u-3-5 new-issue-btn">
         <button className="pure-button pure-button-primary">
-          <a href={`/issues/new`}>New Issue</a>
+          <a href="/issues/new">New Issue</a>
         </button>
       </div>
       <ul className="pure-u-5-5">
