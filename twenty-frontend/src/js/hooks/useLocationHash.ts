@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 
 export function useLocationHash() {
-  const [hash, setHash] = useState<string>("");
+  const [params, setParams] = useState<Record<string, string>>({});
 
   function set() {
-    const normalized = location.hash.substring(1, location.hash.length);
-    setHash(normalized);
+    const entries = Object.fromEntries(
+      location.hash
+        .substring(1, location.hash.length)
+        .split(",")
+        .map(e => e.split("=")),
+    );
+    setParams(entries);
   }
 
   useEffect(set, [location.hash]);
@@ -14,5 +19,5 @@ export function useLocationHash() {
     return () => window.removeEventListener("hashchange", set);
   }, []);
 
-  return [hash];
+  return params;
 }

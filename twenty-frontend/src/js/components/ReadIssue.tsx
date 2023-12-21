@@ -3,7 +3,7 @@ import { Issue } from "/types/schema";
 import { useLocationHash } from "/hooks/useLocationHash";
 
 export function ReadIssue() {
-  const [id] = useLocationHash();
+  const { id } = useLocationHash();
   const [issue, setIssue] = useState<Issue | null>(null);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export function ReadIssue() {
       .then(res => setIssue(res.issue));
   }, [id]);
 
-  if (id.length && issue) {
+  if (id?.length && issue) {
     return <>{issue.title}</>;
   } else {
     return <>No issue</>;
