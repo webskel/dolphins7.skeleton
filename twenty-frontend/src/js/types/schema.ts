@@ -9,5 +9,7 @@ export type Issue = {
   title: string;
   content: string;
   state: "open" | "closed";
+  created_at: string;
+  updated_at: string;
   connection_id: number;
 };

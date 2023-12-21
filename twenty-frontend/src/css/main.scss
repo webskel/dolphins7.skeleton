@@ -9,6 +9,8 @@ html, html body, .pure-g {
 body {
   margin: 0;
   padding: 0;
+  font-family: "SF Mono","Segoe UI Mono","Roboto Mono",Menlo,Courier,monospace;
+  font-weight: normal;
 }
 
 header, #reactapp {
@@ -19,13 +21,21 @@ header, #reactapp {
 }
 
 header {
+  background: $black;
+  color: #FFF;
+  text-align: center;
+  margin-bottom: 25px;
   h1 {
     margin: 0;
-    padding: 0;
+    padding: 5px;
     line-height: 1;
-    font-weight: normal;
+    font-weight: bold;
+    font-size: large;
+    a, a:active, a:hover, a:focus, a:link {
+      color: #FFF;
+      text-decoration: none;
+    }
   }
-  min-height: 64px;
 }
 
 form.new-issue {
@@ -46,7 +56,7 @@ form.new-issue {
     }
   }
   .pure-u-1-1.issue-content {
-    height: 45%;
+    height: 100%;
   }
 }
 
@@ -58,4 +68,21 @@ form.new-issue {
 }
 .issue-index {
   .new-issue-btn { text-align: right; }
+  .issue-row {
+    display: flex;
+    align-items: center;
+    .issues-text {
+      font-size: large;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  ul.issue-items {
+    li .updated-at {
+      text-align: right;
+    }
+  }
 }

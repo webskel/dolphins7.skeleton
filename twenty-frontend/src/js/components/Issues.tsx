@@ -1,23 +1,35 @@
 import React from "react";
 import { useIssues } from "/hooks/useIssues";
+import { DateTime } from "luxon";
 
 export function Issues() {
   const [issues] = useIssues();
   return (
     <div className="pure-u-1-1 issue-index">
-      <div className="pure-u-2-5">
-        <span>Issues</span>
+      <div className="pure-u-5-5 issue-row">
+        <div className="pure-u-2-5 issues-text">
+          <strong>Issues</strong>
+        </div>
+        <div className="pure-u-3-5 new-issue-btn">
+          <a href="/issues/new" className="pure-button pure-button-primary">
+            New Issue
+          </a>
+        </div>
       </div>
-      <div className="pure-u-3-5 new-issue-btn">
-        <button className="pure-button pure-button-primary">
-          <a href="/issues/new">New Issue</a>
-        </button>
-      </div>
-      <ul className="pure-u-5-5">
+      <hr />
+      <ul className="pure-u-5-5 issue-items">
         {issues.map((issue, key) => {
+          const { updated_at: updatedAt } = issue;
+          const datetime = DateTime.fromISO(updatedAt);
           return (
-            <li key={key}>
-              <a href={`/issues/read#id=${issue.id}/`}>{issue.title}</a>
+            <li className="pure-u-5-5" key={key}>
+              <a className="pure-u-2-5" href={`/issues/read#id=${issue.id}/`}>
+                {issue.title}
+              </a>
+              <div className="pure-u-3-5 updated-at">
+                {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                {datetime.toFormat("HH:mm")}
+              </div>
             </li>
           );
         })}

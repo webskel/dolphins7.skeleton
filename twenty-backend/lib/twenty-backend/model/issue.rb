@@ -19,6 +19,6 @@ class Twenty::Issue < Twenty::Model
 
   def to_json(options = {})
     {id:, title:, content:, state:,
-     connection_id:}.to_json(options)
+     connection_id:, created_at:, updated_at:}.to_json(options)
   end
 end

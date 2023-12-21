@@ -8,14 +8,19 @@ export function ReadIssue() {
 
   useEffect(() => {
     if (!id) return;
-    fetch(`/servlet/issues/${id}/`)
+    fetch(`/servlet/issues/${id}`)
       .then(res => res.json())
       .then(res => setIssue(res.issue));
   }, [id]);
 
   if (id?.length && issue) {
-    return <>{issue.title}</>;
+    return (
+      <div className="pure-u-5-5">
+        <div className="pure-u-1-1">{issue.title}</div>
+        <p className="pure-u-3-5">{issue.content}</p>
+      </div>
+    );
   } else {
-    return <>No issue</>;
+    return null;
   }
 }
