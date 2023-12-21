@@ -28,7 +28,6 @@ export function NewIssue() {
       <div className="pure-u-1-1">
         <div className="left">
           <Select
-            defaultValue={1}
             {...register("connectionId")}
             ref={selectRef}
           >

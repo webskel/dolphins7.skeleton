@@ -14,3 +14,18 @@ compile("/js/entry-point/new-issue.tsx") do
   filter(:webpack, depend_on: %w[/js/components/])
   write("/js/entry-point/new-issue.js")
 end
+
+##
+# GET /issues/
+compile("/html/issues/index.html.erb") do
+  layout "/default.*"
+  filter(:erb)
+  write("/issues/index.html")
+end
+
+##
+# GET /js/entry-point/issues.js
+compile("/js/entry-point/issues.tsx") do
+  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types])
+  write("/js/entry-point/issues.js")
+end
