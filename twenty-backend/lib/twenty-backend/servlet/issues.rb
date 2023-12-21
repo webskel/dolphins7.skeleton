@@ -8,9 +8,12 @@ class Twenty::Servlet::Issues < Twenty::Servlet
         .set_body(issues: Twenty::Issue.open)
     when %r|^/([\d]+)/?$|
       # GET /servlet/issues/<issue-id>/
+      issue = Twenty::Issue.find_by(id: $1)
+      status = issue ? 200 : 404
+      body = issue ? {issue:} : {issue:, errors: ["Bad path"]}
       Response.new(res)
-        .set_status(200)
-        .set_body(issue: Twenty::Issue.find($1))
+        .set_status(status)
+        .set_body(body)
     else
       Response.new(res)
         .set_status(404)
