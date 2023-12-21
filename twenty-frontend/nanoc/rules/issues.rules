@@ -11,7 +11,7 @@ end
 ##
 # GET /js/entry-point/new-issue.js
 compile("/js/entry-point/new-issue.tsx") do
-  filter(:webpack, depend_on: %w[/js/components/])
+  filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
   write("/js/entry-point/new-issue.js")
 end
 
@@ -26,21 +26,21 @@ end
 ##
 # GET /js/entry-point/issues.js
 compile("/js/entry-point/issues.tsx") do
-  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types])
+  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
   write("/js/entry-point/issues.js")
 end
 
 ##
 # GET /issues/show#<issue-id>
-compile("/html/issues/show/index.html.erb") do
+compile("/html/issues/read/index.html.erb") do
   layout "/default.*"
   filter(:erb)
-  write("/issues/show/index.html")
+  write("/issues/read/index.html")
 end
 
 ##
 # GET /js/entry-point/show-issue.js
-compile("/js/entry-point/show-issue.tsx") do
-  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types])
-  write("/js/entry-point/show-issue.js")
+compile("/js/entry-point/read-issue.tsx") do
+  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
+  write("/js/entry-point/read-issue.js")
 end

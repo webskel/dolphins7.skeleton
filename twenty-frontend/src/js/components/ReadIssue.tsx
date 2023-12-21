@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Issue } from "/types/schema";
 import { useLocationHash } from "/hooks/useLocationHash";
 
-export function ShowIssue() {
+export function ReadIssue() {
   const [id] = useLocationHash();
   const [issue, setIssue] = useState<Issue | null>(null);
 
