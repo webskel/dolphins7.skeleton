@@ -8,7 +8,11 @@ export function Issues() {
       <span>Issues</span>
       <ul className="connections">
         {issues.map((issue, key) => {
-          return <li key={key}>{issue.title}</li>;
+          return (
+            <li key={key}>
+              <a href={`/issues/read#id=${issue.id}/`}>{issue.title}</a>
+            </li>
+          );
         })}
       </ul>
     </>
