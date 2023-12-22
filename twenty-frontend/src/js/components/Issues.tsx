@@ -1,19 +1,25 @@
 import React from "react";
 import { useIssues } from "/hooks/useIssues";
 import { useDestroyIssue } from "/hooks/useDestroyIssue";
-import { TrashIcon } from "/components/Icons";
+import { TrashIcon, DoneIcon } from "/components/Icons";
 import { DateTime } from "luxon";
 import { Issue } from "/types/schema";
+import { useUpsertIssue } from "hooks/useUpsertIssue";
 
 export function Issues() {
   const { issues, setIssues } = useIssues();
+  const upsertIssue = useUpsertIssue();
   const destroyIssue = useDestroyIssue();
   const onDestroy = (issue: Issue) => {
     destroyIssue({id: issue.id})
       .then(() => issues.filter((i) => i.id !== issue.id))
       .then((issues) => setIssues(issues));
   }
-
+  const onDone = (issue: Issue) => {
+    upsertIssue({input: {id: issue.id, state: "closed"}})
+      .then(() => issues.filter((i) => i.id !== issue.id))
+      .then((issues) => setIssues(issues));
+  }
   return (
     <div className="table">
       <div className="table div">Issues</div>
@@ -28,7 +34,10 @@ export function Issues() {
                   <a href={`/issues/edit#id=${issue.id}`}>
                     <span className="item title">{issue.title}</span>
                   </a>
-                  <span><TrashIcon onClick={() => onDestroy(issue)} /></span>
+                  <div className="actions">
+                    <DoneIcon onClick={() => onDone(issue)} />
+                    <TrashIcon onClick={() => onDestroy(issue)}/>
+                  </div>
                 </div>
                 <div className="bottom">
                   <span>

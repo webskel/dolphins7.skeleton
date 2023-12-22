@@ -1,8 +1,9 @@
 type Params = {
   id?: number;
-  title: string;
-  content: string;
-  connectionId: number;
+  state?: "open" | "closed";
+  title?: string;
+  content?: string;
+  connectionId?: number;
 };
 
 export function useUpsertIssue() {
