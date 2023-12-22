@@ -8,8 +8,8 @@ type Params = {
 
 export function useUpsertIssue() {
   const normalize = (input: Params) => {
-    const { id, title, content, connectionId } = input;
-    return { id, title, content, connection_id: connectionId };
+    const { id, title, content, state, connectionId } = input;
+    return { id, title, content, state, connection_id: connectionId };
   };
   return function ({ input }: { input: Params }) {
     return new Promise((accept, reject) => {

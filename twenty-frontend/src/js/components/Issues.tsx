@@ -22,7 +22,7 @@ export function Issues() {
   }
   return (
     <div className="table">
-      <div className="table div">Issues</div>
+      <div className="table div">Tasks</div>
       <div className="table content">
         <ul className="items">
           {issues.map((issue: Issue, key: number) => {
