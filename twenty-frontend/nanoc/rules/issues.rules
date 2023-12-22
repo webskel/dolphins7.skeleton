@@ -33,11 +33,11 @@ compile("/js/entry-point/issues.tsx") do
 end
 
 ##
-# GET /issues/read#<issue-id>
-compile("/html/issues/read/index.html.erb") do
+# GET /issues/id#id=X
+compile("/html/issues/edit/index.html.erb") do
   layout "/default.*"
   filter(:erb)
-  write("/issues/read/index.html")
+  write("/issues/edit/index.html")
 end
 
 ##

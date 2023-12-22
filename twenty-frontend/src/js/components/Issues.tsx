@@ -25,7 +25,7 @@ export function Issues() {
             return (
               <li className="item" key={key}>
                 <div className="top">
-                  <a href={`/issues/read#id=${issue.id}`}>
+                  <a href={`/issues/edit#id=${issue.id}`}>
                     <span className="item title">{issue.title}</span>
                   </a>
                   <span><TrashIcon onClick={() => onDestroy(issue)} /></span>
