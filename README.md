@@ -1,6 +1,6 @@
 ## About
 
-...
+Twenty helps you manage your hobby projects.
 
 ## Features
 
