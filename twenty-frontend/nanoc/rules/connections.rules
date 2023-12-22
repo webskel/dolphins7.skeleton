@@ -9,8 +9,8 @@ compile '/html/connections/index.html.erb' do
 end
 
 ##
-# GET /js/entry-point/connections.js
-compile("/js/entry-point/connections.tsx") do
+# GET /js/main/connections.js
+compile("/js/main/connections.tsx") do
   filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
-  write("/js/entry-point/connections.js")
+  write("/js/main/connections.js")
 end

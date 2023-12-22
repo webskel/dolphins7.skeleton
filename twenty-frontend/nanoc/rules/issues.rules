@@ -9,10 +9,10 @@ compile '/html/issues/new/index.html.erb' do
 end
 
 ##
-# GET /js/entry-point/new-issue.js
-compile("/js/entry-point/new-issue.tsx") do
+# GET /js/main/issue/new.js
+compile("/js/main/new-issue.tsx") do
   filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
-  write("/js/entry-point/new-issue.js")
+  write("/js/main/issue/new.js")
 end
 
 ##
@@ -26,14 +26,14 @@ compile("/html/issues/index.html.erb") do
 end
 
 ##
-# GET /js/entry-point/issues.js
-compile("/js/entry-point/issues.tsx") do
+# GET /js/main/issue/index.js
+compile("/js/main/issues.tsx") do
   filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
-  write("/js/entry-point/issues.js")
+  write("/js/main/issue/index.js")
 end
 
 ##
-# GET /issues/id#id=X
+# GET /issues/edit#id=X
 compile("/html/issues/edit/index.html.erb") do
   layout "/default.*"
   filter(:erb)
@@ -41,8 +41,8 @@ compile("/html/issues/edit/index.html.erb") do
 end
 
 ##
-# GET /js/entry-point/read-issue.js
-compile("/js/entry-point/read-issue.tsx") do
+# GET /js/main/issue/edit.js
+compile("/js/main/read-issue.tsx") do
   filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
-  write("/js/entry-point/read-issue.js")
+  write("/js/main/issue/edit.js")
 end
