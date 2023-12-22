@@ -24,15 +24,18 @@ body header {
   border-bottom: 1px solid $gray3;
 }
 
-.maxw, .root {
-  margin: 0 auto;
-  color: $black;
+.max-width {
   width: 75%;
-  padding: 20px 0 20px 0;
   max-width: 1024px;
+  padding: 20px 0 20px 0;
+}
+
+.align-center {
+  margin: 0 auto;
 }
 
 .root {
+  color: $black;
   .issue {
     .content {
       padding: 10px;
