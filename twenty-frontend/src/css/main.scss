@@ -1,8 +1,12 @@
 @import "fonts";
 @import "colors";
-@import "normalize";
+@import "forms";
 
-html, html body {
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, html body, .root {
   height: 100%;
 }
 
@@ -11,7 +15,7 @@ body {
   font-weight: normal;
 }
 
-header, #reactapp {
+header, .root {
   margin: 0 auto;
   color: $black;
   width: 75%;
@@ -36,51 +40,19 @@ header {
   }
 }
 
-form.new-issue {
-  height: 100%;
-  .pure-u-1-1 {
-    display: flex;
-    margin: 0 0 15px 0;
-
-    .left {
-      width: 20%;
-      select { width: 100%; }
-      margin: 0 1% 0 0;
-    }
-    .right {
-      width: 75%;
-      input, textarea { width: 100%; }
-      textarea { height: 100%; }
-    }
-  }
-  .pure-u-1-1.issue-content {
+.root {
+  .react-mount-point, #reactapp {
     height: 100%;
   }
-}
+  form {
+    margin: 0 auto;
+    height: 100%;
+    width: 80%;
 
-.pure-button {
-  a, a:hover, h:active, a:focus, a:link {
-    color: #FFF;
-    text-decoration: none;
-  }
-}
-.issue-index {
-  .new-issue-btn { text-align: right; }
-  .issue-row {
-    display: flex;
-    align-items: center;
-    .issues-text {
-      font-size: large;
-    }
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  ul.issue-items {
-    li .updated-at {
-      text-align: right;
+    .textarea {
+      margin: 0 0 10px 0;
+      height: 50%;
+      textarea { height: 100%; }
     }
   }
 }

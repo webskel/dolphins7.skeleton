@@ -2,14 +2,15 @@ import React, { forwardRef, Ref } from "react";
 
 type Props = {
   children: JSX.Element[];
+  className?: string;
 };
 
 const Select = forwardRef(function (
-  { children, ...rest }: Props,
+  { children, className, ...rest }: Props,
   ref: Ref<HTMLSelectElement>,
 ) {
   return (
-    <select ref={ref} {...rest}>
+    <select className={className} {...rest} ref={ref}>
       {...children}
     </select>
   );

@@ -26,45 +26,39 @@ export function NewIssue() {
   }, []);
 
   return (
-    <form className="new-issue pure-form" onSubmit={handleSubmit(onSave)}>
-      <div className="pure-u-1-1">
-        <div className="left">
-          <Select {...register("connectionId")} ref={selectRef}>
-            {connections.map((conn, key) => {
-              return (
-                <option key={key} value={conn.id}>
-                  {conn.name}
-                </option>
-              );
-            })}
-          </Select>
-        </div>
-        <div className="right">
-          <input
-            type="text"
-            placeholder="Title"
-            {...register("title", { required: true })}
-          />
-        </div>
+    <form onSubmit={handleSubmit(onSave)}>
+      <div className="row">
+        <Select {...register("connectionId")} ref={selectRef} className="form">
+          {connections.map((conn, key) => {
+            return (
+              <option key={key} value={conn.id}>
+                {conn.name}
+              </option>
+            );
+          })}
+        </Select>
       </div>
-      <div className="pure-u-1-1 issue-content">
-        <div className="left" />
-        <div className="right">
-          <textarea
-            placeholder="Add your description here"
-            {...register("content", { required: true })}
-          />
-        </div>
+      <div className="row">
+        <input
+          className="form"
+          type="text"
+          placeholder="Title"
+          {...register("title", { required: true })}
+        />
       </div>
-      <div className="pure-u-1-1">
-        <div className="left" />
-        <div className="right">
-          <input
-            className="pure-button pure-button-primary"
-            type="submit"
-            value="Save"
-          />
-        </div>
+      <div className="row textarea">
+        <textarea
+          className="form"
+          placeholder="Add your description here"
+          {...register("content", { required: true })}
+        />
+      </div>
+      <div className="row">
+        <input
+          className="form"
+          type="submit"
+          value="Save"
+        />
       </div>
     </form>
   );
