@@ -2,6 +2,17 @@
 
 ...
 
+## Features
+
+* Provides a web application that manages hobby projects.
+* Provides a command-line utility to start / stop a web server.
+* The web server binds to localhost:7778 by default.
+* Works online, or offline.
+* Lightweight: Ruby, and SQLite3 are the primary dependencies.
+* Database: `~/.local/share/twenty/twenty.sqlite`.
+* Easy to install: `gem install twenty`.
+* Easy to use: `$ twenty up`.
+
 ## Usage
 
     Usage: twenty COMMAND [OPTIONS]
