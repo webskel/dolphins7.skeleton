@@ -6,20 +6,12 @@ class Twenty::Servlet::Issues < Twenty::Servlet
     case req.path_info
     when ""
       issues = Twenty::Issue.open.order(updated_at: :desc)
-      Response.new(res)
-        .set_status(200)
-        .set_body(issues:)
+      ok(res, issues:)
     when %r|^/([\d]+)/?$|
       issue = Twenty::Issue.find_by(id: $1)
-      if issue
-        Response.new(res)
-          .set_status(200)
-          .set_body(issue:)
-      else
-        Response.new(res).not_found
-      end
+      issue ? ok(res, issue:) : not_found(res)
     else
-      Response.new(res).not_found
+      not_found(res)
     end
   end
 
@@ -30,9 +22,7 @@ class Twenty::Servlet::Issues < Twenty::Servlet
     when ""
       issue = Twenty::Issue.new(JSON.parse(req.body))
       if issue.save
-        Response.new(res)
-          .set_status(200)
-          .set_body(issue:)
+        ok(res, issue:)
       else
         errors = issue.errors.full_messages
         Response.new(res)
@@ -40,7 +30,7 @@ class Twenty::Servlet::Issues < Twenty::Servlet
           .set_body(errors:)
       end
     else
-      Response.new(res).not_found
+      not_found(res)
     end
   end
 
@@ -52,15 +42,9 @@ class Twenty::Servlet::Issues < Twenty::Servlet
       body = JSON.parse(req.body)
       id = body.delete("id")
       issue = Twenty::Issue.find_by(id:)
-      if issue.update(body)
-        Response.new(res)
-          .set_status(200)
-          .set_body(issue:)
-      else
-        Response.new(res).not_found
-      end
+      issue.update(body) ? ok(res, issue:) : not_found(res)
     else
-      Response.new(res).not_found
+      not_found(res)
     end
   end
 
@@ -70,15 +54,9 @@ class Twenty::Servlet::Issues < Twenty::Servlet
     case req.path_info
     when %r|^/([\d]+)/?$|
       issue = Twenty::Issue.find_by(id: $1)
-      if issue.destroy
-        Response.new(res)
-          .set_status(200)
-          .set_body({ok: true})
-      else
-        Response.new(res).not_found
-      end
+      issue.destroy ? ok(res) : not_found(res)
     else
-      Response.new(res).not_found
+      not_found(res)
     end
   end
 end
