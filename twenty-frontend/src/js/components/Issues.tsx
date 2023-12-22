@@ -23,7 +23,7 @@ export function Issues() {
           const datetime = DateTime.fromISO(updatedAt);
           return (
             <li className="pure-u-5-5" key={key}>
-              <a className="pure-u-2-5" href={`/issues/read#id=${issue.id}/`}>
+              <a className="pure-u-2-5" href={`/issues/read#id=${issue.id}`}>
                 {issue.title}
               </a>
               <div className="pure-u-3-5 updated-at">
