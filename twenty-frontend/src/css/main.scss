@@ -2,6 +2,7 @@
 @import "colors";
 @import "forms";
 @import "tables";
+@import "items";
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -34,38 +35,12 @@ body {
     }
   }
 
-  .react-mount.issues {
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      li {
-        margin: 0 0 15px 0;
-        .item.row {
-          display: flex;
-          background: #f4f0ec;
-          border: #cfcfc4 1px solid;
-          border-radius: 10px;
-          padding: 10px;
-          flex-wrap: wrap;
-          .header {
-            .item.id {
-              border: 1px #cfcfc4 solid;
-              border-radius: 10px;
-              padding: 5px;
-              margin-right: 5px;
-              background: #FFF;
-            }
-          }
-          .footer {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            margin: 10px 0 0 0;
-            font-size: small;
-          }
-        }
-      }
+  .trash.icon {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    g {
+      fill: #d9534f;
     }
   }
 }

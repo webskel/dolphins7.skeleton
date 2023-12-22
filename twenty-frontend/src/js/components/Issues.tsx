@@ -1,33 +1,40 @@
 import React from "react";
 import { useIssues } from "/hooks/useIssues";
+import { useDestroyIssue } from "/hooks/useDestroyIssue";
 import { TrashIcon } from "/components/Icons";
 import { DateTime } from "luxon";
 import { Issue } from "/types/schema";
 
 export function Issues() {
-  const { issues } = useIssues();
+  const { issues, setIssues } = useIssues();
+  const destroyIssue = useDestroyIssue();
+  const onDestroy = (issue: Issue) => {
+    destroyIssue({id: issue.id})
+      .then(() => issues.filter((i) => i.id !== issue.id))
+      .then((issues) => setIssues(issues));
+  }
+
   return (
     <div className="table">
       <div className="table div">Issues</div>
       <div className="table content">
-        <ul>
+        <ul className="items">
           {issues.map((issue: Issue, key: number) => {
             const { updated_at: updatedAt } = issue;
             const datetime = DateTime.fromISO(updatedAt);
             return (
-              <li key={key}>
-                <div className="item row">
-                  <div className="header">
-                    <a href={`/issues/read#id=${issue.id}`}>
-                      <span className="item title">{issue.title}</span>
-                    </a>
-                  </div>
-                  <div className="footer">
-                    <span>
-                      {datetime.toFormat("dd LLL, yyyy")} at{" "}
-                      {datetime.toFormat("HH:mm")}
-                    </span>
-                  </div>
+              <li className="item" key={key}>
+                <div className="top">
+                  <a href={`/issues/read#id=${issue.id}`}>
+                    <span className="item title">{issue.title}</span>
+                  </a>
+                  <span><TrashIcon onClick={() => onDestroy(issue)} /></span>
+                </div>
+                <div className="bottom">
+                  <span>
+                    {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                    {datetime.toFormat("HH:mm")}
+                  </span>
                 </div>
               </li>
             );
