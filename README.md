@@ -5,7 +5,7 @@ Twenty helps you manage your hobby projects.
 ## Features
 
 * Provides a web application that manages hobby projects.
-* Provides a command-line utility to start / stop a web server.
+* Provides a command-line utility to start / stop a web server, connect / disconnect a project.
 * The web server binds to localhost:7778 by default.
 * Works online, or offline.
 * Lightweight: Ruby, and SQLite3 are the primary dependencies.
