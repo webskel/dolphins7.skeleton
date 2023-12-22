@@ -1,9 +1,13 @@
 import React from "react";
 import { useIssues } from "/hooks/useIssues";
+import { useDestroyIssue } from "/hooks/useDestroyIssue";
 import { DateTime } from "luxon";
+import { Issue } from "/types/schema";
 
 export function Issues() {
-  const [issues] = useIssues();
+  const { issues, refetch } = useIssues();
+  const destroyIssue = useDestroyIssue();
+
   return (
     <div className="pure-u-1-1 issue-index">
       <div className="pure-u-5-5 issue-row">
@@ -18,7 +22,7 @@ export function Issues() {
       </div>
       <hr />
       <ul className="pure-u-5-5 issue-items">
-        {issues.map((issue, key) => {
+        {issues.map((issue: Issue, key: number) => {
           const { updated_at: updatedAt } = issue;
           const datetime = DateTime.fromISO(updatedAt);
           return (
@@ -29,6 +33,17 @@ export function Issues() {
               <div className="pure-u-3-5 updated-at">
                 {datetime.toFormat("dd LLL, yyyy")} at{" "}
                 {datetime.toFormat("HH:mm")}
+              </div>
+              <div>
+                <button
+                  onClick={() =>
+                    destroyIssue({ id: issue.id }).then(() => {
+                      refetch();
+                    })
+                  }
+                >
+                  Destroy
+                </button>
               </div>
             </li>
           );

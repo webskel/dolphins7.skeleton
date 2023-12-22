@@ -54,11 +54,7 @@ export function NewIssue() {
         />
       </div>
       <div className="row">
-        <input
-          className="form"
-          type="submit"
-          value="Save"
-        />
+        <input className="form" type="submit" value="Save" />
       </div>
     </form>
   );

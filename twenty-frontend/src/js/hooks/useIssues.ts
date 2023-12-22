@@ -1,14 +1,26 @@
 import { useState, useEffect } from "react";
 import { Issue } from "/types/schema";
 
-export function useIssues() {
-  const [issues, setIssues] = useState<Issue[]>([]);
+type Result = {
+  issues: Issue[];
+  refetch: () => Promise<Issue[]>;
+};
 
+export function useIssues(): Result {
+  const [issues, setIssues] = useState<Issue[]>([]);
+  const set = (ary: Issue[]) => {
+    setIssues(ary);
+    return ary;
+  };
+  const refetch = async function (): Promise<Issue[]> {
+    return await fetch("/servlet/issues")
+      .then((res: Response) => res.json())
+      .then((res: { issues: Issue[] }) => set(res.issues))
+      .catch(() => null);
+  };
   useEffect(() => {
-    fetch("/servlet/issues")
-      .then(res => res.json())
-      .then(res => setIssues(res.issues));
+    refetch();
   }, []);
 
-  return [issues];
+  return { issues, refetch };
 }
