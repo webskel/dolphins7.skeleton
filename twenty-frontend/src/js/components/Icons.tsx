@@ -1,6 +1,6 @@
 import React from "react";
 
-export function TrashIcon({onClick}: {onClick?: () => unknown}) {
+export function TrashIcon({ onClick }: { onClick: () => unknown }) {
   return (
     <svg
       height="512"
@@ -16,6 +16,27 @@ export function TrashIcon({onClick}: {onClick?: () => unknown}) {
         <path d="m79.333 95.541a1.75 1.75 0 0 0 1.75-1.75v-36.166a1.75 1.75 0 0 0 -3.5 0v36.166a1.75 1.75 0 0 0 1.75 1.75z" />
         <path d="m48.666 95.541a1.75 1.75 0 0 0 1.75-1.75v-36.166a1.75 1.75 0 0 0 -3.5 0v36.166a1.75 1.75 0 0 0 1.75 1.75z" />
       </g>
+    </svg>
+  );
+}
+
+export function DoneIcon({ onClick }: { onClick: () => unknown }) {
+  return (
+    <svg
+      enable-background="new 0 0 24 24"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      onClick={onClick}
+      className="done icon"
+    >
+      <switch>
+        <g>
+          <path
+            d="m12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm4.3 7.6-4.6 6c-.2.2-.5.4-.8.4s-.6-.1-.8-.4l-2.4-3.1c-.3-.4-.3-1.1.2-1.4s1.1-.3 1.4.2l1.6 2.1 3.8-5c.3-.4 1-.5 1.4-.2.5.3.5.9.2 1.4z"
+            fill="#02bc7d"
+          />
+        </g>
+      </switch>
     </svg>
   );
 }
