@@ -17,7 +17,14 @@ body {
   font-family: "Noto Sans Serif";
 }
 
-.root {
+body header {
+  width: 100%;
+  background: $gray1;
+  min-height: 40px;
+  border-bottom: 1px solid $gray3;
+}
+
+.maxw, .root {
   margin: 0 auto;
   color: $black;
   width: 75%;

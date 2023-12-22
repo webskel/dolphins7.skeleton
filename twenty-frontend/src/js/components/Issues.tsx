@@ -22,7 +22,10 @@ export function Issues() {
   }
   return (
     <div className="table">
-      <div className="table div">Tasks</div>
+      <div className="table div">
+        <span>Tasks</span>
+        <a href="/issues/new">New task</a>
+      </div>
       <div className="table content">
         <ul className="items">
           {issues.map((issue: Issue, key: number) => {
