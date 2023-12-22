@@ -45,6 +45,26 @@ class Twenty::Servlet::Issues < Twenty::Servlet
   end
 
   ##
+  # PUT /servlet/issues
+  def do_PUT(req, res)
+    case req.path_info
+    when ""
+      body = JSON.parse(req.body)
+      id = body.delete("id")
+      issue = Twenty::Issue.find_by(id:)
+      if issue.update(body)
+        Response.new(res)
+          .set_status(200)
+          .set_body(issue:)
+      else
+        Response.new(res).not_found
+      end
+    else
+      Response.new(res).not_found
+    end
+  end
+
+  ##
   # DELETE /servlet/issues/<id>/
   def do_DELETE(req, res)
     case req.path_info
