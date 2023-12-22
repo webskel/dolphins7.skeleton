@@ -1,0 +1,41 @@
+@import "colors";
+
+.table {
+  .table.div {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    color: #FFF;
+    background: $gray1;
+    color: $black;
+    border-radius: 2px;
+    border: #cfcfc4 1px solid;
+    border-bottom: none;
+  }
+
+  .table.div.tabbed {
+    padding: 5px 5px 0 5px;
+    ul.tabs {
+      list-style-type: none;
+      display: flex;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      li {
+        height: 100%;
+        border: 1px solid #cfcfc4;
+        border-bottom: none;
+        padding: 10px;
+        background: #FFF;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .table.content {
+    background: $gray2;
+    padding: 10px;
+    border: #cfcfc4 1px solid;
+  }
+}

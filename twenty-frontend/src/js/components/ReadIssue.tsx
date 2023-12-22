@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Issue } from "/types/schema";
 import { useParams } from "/hooks/useParams";
+import { Issue } from "/types/schema";
+import { Issue as Component } from "/components/Issue";
 
 export function ReadIssue() {
   const { id } = useParams();
@@ -14,12 +15,7 @@ export function ReadIssue() {
   }, [id]);
 
   if (id?.length && issue) {
-    return (
-      <div className="pure-u-5-5">
-        <div className="pure-u-1-1">{issue.title}</div>
-        <p className="pure-u-3-5">{issue.content}</p>
-      </div>
-    );
+    return <Component issue={issue} />;
   } else {
     return null;
   }

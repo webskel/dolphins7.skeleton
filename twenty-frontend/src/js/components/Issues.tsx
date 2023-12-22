@@ -10,34 +10,39 @@ export function Issues() {
     setIssues(issues.filter(i => i.id !== issue.id));
   };
   return (
-    <ul>
-      {issues.map((issue: Issue, key: number) => {
-        const { updated_at: updatedAt } = issue;
-        const datetime = DateTime.fromISO(updatedAt);
-        return (
-          <li key={key}>
-            <div className="item row">
-              <div className="header">
-                <a href={`/issues/read#id=${issue.id}`}>
-                  <span className="item title">{issue.title}</span>
-                </a>
-              </div>
-              <div className="footer">
-                <div>
-                  <DestroyIssueButton
-                    issue={issue}
-                    onSuccess={onDestroySuccess}
-                  />
+    <div className="table">
+      <div className="table div">Issues</div>
+      <div className="table content">
+        <ul>
+          {issues.map((issue: Issue, key: number) => {
+            const { updated_at: updatedAt } = issue;
+            const datetime = DateTime.fromISO(updatedAt);
+            return (
+              <li key={key}>
+                <div className="item row">
+                  <div className="header">
+                    <a href={`/issues/read#id=${issue.id}`}>
+                      <span className="item title">{issue.title}</span>
+                    </a>
+                  </div>
+                  <div className="footer">
+                    <div>
+                      <DestroyIssueButton
+                        issue={issue}
+                        onSuccess={onDestroySuccess}
+                      />
+                    </div>
+                    <span>
+                      {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                      {datetime.toFormat("HH:mm")}
+                    </span>
+                  </div>
                 </div>
-                <span>
-                  {datetime.toFormat("dd LLL, yyyy")} at{" "}
-                  {datetime.toFormat("HH:mm")}
-                </span>
-              </div>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
   );
 }

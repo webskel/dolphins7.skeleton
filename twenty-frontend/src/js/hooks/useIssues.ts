@@ -23,5 +23,5 @@ export function useIssues(): Result {
     req();
   }, []);
 
-  return { issues, setIssues, req };
+  return { issues, setIssues: set, req };
 }
