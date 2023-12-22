@@ -10,7 +10,7 @@ end
 
 ##
 # GET /js/main/issue/new.js
-compile("/js/main/new-issue.tsx") do
+compile("/js/main/issue/new.tsx") do
   filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
   write("/js/main/issue/new.js")
 end
@@ -26,10 +26,10 @@ compile("/html/issues/index.html.erb") do
 end
 
 ##
-# GET /js/main/issue/index.js
+# GET /js/main/issues.js
 compile("/js/main/issues.tsx") do
   filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
-  write("/js/main/issue/index.js")
+  write("/js/main/issues.js")
 end
 
 ##
@@ -42,7 +42,7 @@ end
 
 ##
 # GET /js/main/issue/edit.js
-compile("/js/main/read-issue.tsx") do
+compile("/js/main/issue/edit.tsx") do
   filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
   write("/js/main/issue/edit.js")
 end
