@@ -1,54 +1,38 @@
 import React from "react";
 import { useIssues } from "/hooks/useIssues";
-import { useDestroyIssue } from "/hooks/useDestroyIssue";
+import { DestroyIssueButton } from "/components/DestroyIssueButton";
 import { DateTime } from "luxon";
 import { Issue } from "/types/schema";
 
 export function Issues() {
   const { issues, refetch } = useIssues();
-  const destroyIssue = useDestroyIssue();
 
   return (
-    <div className="pure-u-1-1 issue-index">
-      <div className="pure-u-5-5 issue-row">
-        <div className="pure-u-2-5 issues-text">
-          <strong>Issues</strong>
-        </div>
-        <div className="pure-u-3-5 new-issue-btn">
-          <a href="/issues/new" className="pure-button pure-button-primary">
-            New Issue
-          </a>
-        </div>
-      </div>
-      <hr />
-      <ul className="pure-u-5-5 issue-items">
-        {issues.map((issue: Issue, key: number) => {
-          const { updated_at: updatedAt } = issue;
-          const datetime = DateTime.fromISO(updatedAt);
-          return (
-            <li className="pure-u-5-5" key={key}>
-              <a className="pure-u-2-5" href={`/issues/read#id=${issue.id}`}>
-                {issue.title}
-              </a>
-              <div className="pure-u-3-5 updated-at">
-                {datetime.toFormat("dd LLL, yyyy")} at{" "}
-                {datetime.toFormat("HH:mm")}
+    <ul>
+      {issues.map((issue: Issue, key: number) => {
+        const { updated_at: updatedAt } = issue;
+        const datetime = DateTime.fromISO(updatedAt);
+        return (
+          <li key={key}>
+            <div className="item row">
+              <div className="header">
+                <a href={`/issues/read#id=${issue.id}`}>
+                  <span className="item title">{issue.title}</span>
+                </a>
               </div>
-              <div>
-                <button
-                  onClick={() =>
-                    destroyIssue({ id: issue.id }).then(() => {
-                      refetch();
-                    })
-                  }
-                >
-                  Destroy
-                </button>
+              <div className="footer">
+                <div>
+                  <DestroyIssueButton issue={issue} onSuccess={refetch} />
+                </div>
+                <span>
+                  {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                  {datetime.toFormat("HH:mm")}
+                </span>
               </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
