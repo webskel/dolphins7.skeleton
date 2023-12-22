@@ -1,14 +1,11 @@
 import React from "react";
 import { useIssues } from "/hooks/useIssues";
-import { DestroyIssueButton } from "/components/DestroyIssueButton";
+import { TrashIcon } from "/components/Icons";
 import { DateTime } from "luxon";
 import { Issue } from "/types/schema";
 
 export function Issues() {
-  const { issues, setIssues } = useIssues();
-  const onDestroySuccess = (issue: Issue) => {
-    setIssues(issues.filter(i => i.id !== issue.id));
-  };
+  const { issues } = useIssues();
   return (
     <div className="table">
       <div className="table div">Issues</div>
@@ -26,12 +23,6 @@ export function Issues() {
                     </a>
                   </div>
                   <div className="footer">
-                    <div>
-                      <DestroyIssueButton
-                        issue={issue}
-                        onSuccess={onDestroySuccess}
-                      />
-                    </div>
                     <span>
                       {datetime.toFormat("dd LLL, yyyy")} at{" "}
                       {datetime.toFormat("HH:mm")}
