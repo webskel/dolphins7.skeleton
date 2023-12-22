@@ -5,8 +5,10 @@ import { DateTime } from "luxon";
 import { Issue } from "/types/schema";
 
 export function Issues() {
-  const { issues, refetch } = useIssues();
-
+  const { issues, setIssues } = useIssues();
+  const onDestroySuccess = (issue: Issue) => {
+    setIssues(issues.filter(i => i.id !== issue.id));
+  };
   return (
     <ul>
       {issues.map((issue: Issue, key: number) => {
@@ -22,7 +24,10 @@ export function Issues() {
               </div>
               <div className="footer">
                 <div>
-                  <DestroyIssueButton issue={issue} onSuccess={refetch} />
+                  <DestroyIssueButton
+                    issue={issue}
+                    onSuccess={onDestroySuccess}
+                  />
                 </div>
                 <span>
                   {datetime.toFormat("dd LLL, yyyy")} at{" "}

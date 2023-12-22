@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { Issue } from "/types/schema";
 
 type Result = {
+  setIssues: (issues: Issue[]) => unknown;
   issues: Issue[];
-  refetch: () => Promise<Issue[]>;
+  req: () => Promise<Issue[]>;
 };
 
 export function useIssues(): Result {
@@ -12,15 +13,15 @@ export function useIssues(): Result {
     setIssues(ary);
     return ary;
   };
-  const refetch = async function (): Promise<Issue[]> {
+  const req = async function (): Promise<Issue[]> {
     return await fetch("/servlet/issues")
       .then((res: Response) => res.json())
       .then((res: { issues: Issue[] }) => set(res.issues))
       .catch(() => null);
   };
   useEffect(() => {
-    refetch();
+    req();
   }, []);
 
-  return { issues, refetch };
+  return { issues, setIssues, req };
 }

@@ -4,13 +4,13 @@ import { useDestroyIssue } from "/hooks/useDestroyIssue";
 
 type Props = {
   issue: Issue;
-  onSuccess: () => unknown;
+  onSuccess: (issue: Issue) => unknown;
 };
 
 export function DestroyIssueButton({ issue, onSuccess }: Props) {
   const destroy = useDestroyIssue();
   const onClick = () => {
-    destroy({ id: issue.id }).then(onSuccess);
+    destroy({ id: issue.id }).then(() => onSuccess(issue));
   };
 
   return <button onClick={onClick}>Destroy</button>;

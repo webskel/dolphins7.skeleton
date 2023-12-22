@@ -7,5 +7,5 @@ export function NavBar() {
         <a href="/issues/new">New issue</a>
       </div>
     </div>
-  )
+  );
 }
