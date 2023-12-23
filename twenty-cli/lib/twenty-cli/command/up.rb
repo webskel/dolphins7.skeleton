@@ -21,7 +21,7 @@ class Twenty::Command::Up < Twenty::Command
     {
       DocumentRoot: Twenty.build,
       BindAddress: "127.0.0.1",
-      Port: 7778
+      Port: 2020
     }
   end
 end
