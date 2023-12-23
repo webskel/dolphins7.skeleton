@@ -17,11 +17,15 @@ when "connect"
 when "disconnect"
   wait spawn("disconnect", *ARGV[1..])
   exit $?.exitstatus
+when "migrate"
+  wait spawn("migrate", *ARGV[1..])
+  exit $?.exitstatus
 else
   warn "Usage: twenty COMMAND [OPTIONS]\n\n" \
        "Commands:\n" \
        "  up             Start the twenty web server.\n" \
        "  down           Stop the twenty web server.\n" \
        "  connect        Connect a project to twenty.\n" \
-       "  disconnect     Disconnect a project from twenty.\n"
+       "  disconnect     Disconnect a project from twenty.\n" \
+       "  migrate        Migrate the database.\n" \
 end
