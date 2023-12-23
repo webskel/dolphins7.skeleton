@@ -8,7 +8,9 @@ Gem::Specification.new do |gem|
   gem.version = "0.1.0"
   gem.licenses = ["0BSD"]
   gem.files = []
-  gem.summary = "twenty provides simple task management on http://localhost"
+  gem.summary = "twenty helps you manage projects with a solution " \
+                "that runs on your computer rather than in the " \
+                "cloud."
   gem.description = gem.summary
   gem.add_runtime_dependency "twenty-backend", "~> 0.1"
   gem.add_runtime_dependency "twenty-frontend", "~> 0.1"
