@@ -11,15 +11,15 @@ export function Tasks() {
   const upsertTask = useUpsertTask();
   const destroyTask = useDestroyTask();
   const onDestroy = (task: Task) => {
-    destroyTask({id: task.id})
+    destroyTask({ id: task.id })
       .then(() => tasks.filter((t: Task) => t.id !== task.id))
       .then((tasks: Task[]) => setTasks(tasks));
-  }
+  };
   const onDone = (task: Task) => {
-    upsertTask({input: {id: task.id, state: "closed"}})
+    upsertTask({ input: { id: task.id, state: "closed" } })
       .then(() => tasks.filter((t: Task) => t.id !== task.id))
-      .then((tasks) => setTasks(tasks));
-  }
+      .then(tasks => setTasks(tasks));
+  };
   return (
     <div className="table">
       <div className="table div">
@@ -39,7 +39,7 @@ export function Tasks() {
                   </a>
                   <div className="actions">
                     <DoneIcon onClick={() => onDone(task)} />
-                    <TrashIcon onClick={() => onDestroy(task)}/>
+                    <TrashIcon onClick={() => onDestroy(task)} />
                   </div>
                 </div>
                 <div className="bottom">
