@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+##
+# GET /
+compile '/html/projects/index.html.erb' do
+  layout "/default.*"
+  filter(:erb)
+  write('/projects/index.html')
+end
+
+##
+# GET /js/main/projects.js
+compile("/js/main/projects.tsx") do
+  filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
+  write("/js/main/projects.js")
+end

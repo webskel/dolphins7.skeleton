@@ -1,5 +1,5 @@
-class Twenty::Connection < Twenty::Model
-  self.table_name = 'connections'
+class Twenty::Project < Twenty::Model
+  self.table_name = 'projects'
 
   ##
   # Validations

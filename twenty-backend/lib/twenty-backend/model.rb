@@ -40,6 +40,6 @@ class Twenty::Model < ActiveRecord::Base
 
   prepare
   connect
-  require_relative "model/connection"
+  require_relative "model/project"
   require_relative "model/task"
 end

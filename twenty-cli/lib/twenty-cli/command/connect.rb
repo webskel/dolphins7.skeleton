@@ -10,7 +10,7 @@ class Twenty::Command::Connect < Twenty::Command
   private
 
   def run_command(options)
-    Twenty::Connection.new(
+    Twenty::Project.new(
       name: File.basename(Dir.getwd),
       path: Dir.getwd,
     ).save!

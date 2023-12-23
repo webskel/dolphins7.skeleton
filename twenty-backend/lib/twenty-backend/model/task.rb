@@ -6,11 +6,11 @@ class Twenty::Task < Twenty::Model
   validates :title, presence: true
   validates :content, presence: true
   validates :state, inclusion: {in: %w[open closed]}
-  validates :connection, presence: true
+  validates :project, presence: true
 
   ##
   # Associations
-  belongs_to :connection, class_name: 'Twenty::Connection'
+  belongs_to :project, class_name: 'Twenty::Project'
 
   ##
   # Scopes
@@ -19,6 +19,6 @@ class Twenty::Task < Twenty::Model
 
   def to_json(options = {})
     {id:, title:, content:, state:,
-     connection_id:, created_at:, updated_at:}.to_json(options)
+     project_id:, created_at:, updated_at:}.to_json(options)
   end
 end

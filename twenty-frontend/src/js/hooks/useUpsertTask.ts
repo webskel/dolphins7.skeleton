@@ -3,13 +3,13 @@ type Params = {
   state?: "open" | "closed";
   title?: string;
   content?: string;
-  connectionId?: number;
+  projectId?: number;
 };
 
 export function useUpsertTask() {
   const normalize = (input: Params) => {
-    const { id, title, content, state, connectionId } = input;
-    return { id, title, content, state, connection_id: connectionId };
+    const { id, title, content, state, projectId } = input;
+    return { id, title, content, state, project_id: projectId };
   };
   return function ({ input }: { input: Params }) {
     return new Promise((accept, reject) => {

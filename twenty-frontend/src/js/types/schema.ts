@@ -1,4 +1,4 @@
-export type Connection = {
+export type Project = {
   id: number;
   name: string;
   path: string;
@@ -11,5 +11,5 @@ export type Task = {
   state: "open" | "closed";
   created_at: string;
   updated_at: string;
-  connection_id: number;
+  project_id: number;
 };

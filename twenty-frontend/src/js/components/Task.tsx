@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Select } from "/components/forms/Select";
 import { useUpsertTask } from "/hooks/useUpsertTask";
-import { useConnections } from "/hooks/useConnections";
+import { useProjects } from "/hooks/useProjects";
 import { Task } from "/types/schema";
 import showdown from "showdown";
 
@@ -10,7 +10,7 @@ type Inputs = {
   id?: number;
   title: string;
   content: string;
-  connectionId: number;
+  projectId: number;
 };
 
 export function Task({ task }: { task?: Task }) {
@@ -18,7 +18,7 @@ export function Task({ task }: { task?: Task }) {
   const [isEditable, setIsEditable] = useState<boolean>(!task);
   const selectRef = useRef<HTMLSelectElement>(null);
   const upsert = useUpsertTask();
-  const [connections] = useConnections();
+  const projects = useProjects();
   const c = new showdown.Converter();
   const content = watch("content");
   const onSave = (input: Inputs) => {
@@ -28,7 +28,7 @@ export function Task({ task }: { task?: Task }) {
   };
 
   useEffect(() => {
-    set("connectionId", 1);
+    set("projectId", 1);
   }, []);
 
   return (
@@ -44,14 +44,14 @@ export function Task({ task }: { task?: Task }) {
         <div className="table content">
           <div>
             <Select
-              {...register("connectionId")}
+              {...register("projectId")}
               ref={selectRef}
               className="form"
             >
-              {connections.map((conn, key) => {
+              {projects.map((project, key) => {
                 return (
-                  <option key={key} value={conn.id}>
-                    {conn.name}
+                  <option key={key} value={project.id}>
+                    {project.name}
                   </option>
                 );
               })}
