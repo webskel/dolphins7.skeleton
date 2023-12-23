@@ -1,13 +1,12 @@
 class Twenty::Servlet::Connections < Twenty::Servlet
+  ##
+  # GET /servlet/connections
   def do_GET(req, res)
     case req.path_info
     when ""
-      # GET /
-      Response.new(res)
-        .set_status(200)
-        .set_body(connections: Twenty::Connection.all)
+      ok(res, connections: Twenty::Connection.all)
     else
-      Response.new(res).not_found
+      not_found(res)
     end
   end
 end
