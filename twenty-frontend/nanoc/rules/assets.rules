@@ -9,3 +9,7 @@ end
 compile("/fonts/*.ttf") do
   write(item.identifier.to_s)
 end
+
+compile("/favicon.svg") do
+  write(item.identifier.to_s)
+end
