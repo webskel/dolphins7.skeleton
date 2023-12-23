@@ -22,6 +22,7 @@ rather than in the cloud.
       down           Stop the twenty web server.
       connect        Connect a project to twenty.
       disconnect     Disconnect a project from twenty.
+      migrate        Migrate the database.
 
 ## Install
 
