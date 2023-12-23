@@ -111,70 +111,31 @@
   }
 }
 /* Specials */
-@-webkit-keyframes flash {
-  from,
-  50%,
-  to {
+@-webkit-keyframes rotateOutDownLeft {
+  from {
     opacity: 1;
   }
 
-  25%,
-  75% {
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
     opacity: 0;
   }
 }
-@keyframes flash {
-  from,
-  50%,
-  to {
+@keyframes rotateOutDownLeft {
+  from {
     opacity: 1;
   }
 
-  25%,
-  75% {
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
     opacity: 0;
   }
 }
-.animate__flash {
-  -webkit-animation-name: flash;
-  animation-name: flash;
-}
-/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-@-webkit-keyframes pulse {
-  from {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  to {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes pulse {
-  from {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  to {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-}
-.animate__pulse {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
+.animate__rotateOutDownLeft {
+  -webkit-animation-name: rotateOutDownLeft;
+  animation-name: rotateOutDownLeft;
+  -webkit-transform-origin: left bottom;
+  transform-origin: left bottom;
 }
