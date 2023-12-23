@@ -14,4 +14,10 @@ class Twenty::Servlet < WEBrick::HTTPServlet::AbstractServlet
       .set_status(404)
       .set_body({errors: ["The requested path was not found"]})
   end
+
+  def bad_request(res, body = {})
+    Response.new(res)
+      .set_status(400)
+      .set_body({errors: ["Bad request"]}.merge(body))
+  end
 end

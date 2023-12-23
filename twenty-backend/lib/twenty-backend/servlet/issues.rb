@@ -25,9 +25,7 @@ class Twenty::Servlet::Issues < Twenty::Servlet
         ok(res, issue:)
       else
         errors = issue.errors.full_messages
-        Response.new(res)
-          .set_status(422)
-          .set_body(errors:)
+        bad_request(res, errors:)
       end
     else
       not_found(res)
