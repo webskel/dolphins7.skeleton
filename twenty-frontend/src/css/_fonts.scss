@@ -1,9 +1,9 @@
 @font-face {
-  font-family: "Dhurjati Regular";
-  src: local("Dhurjati Regular"), url("/fonts/dhurjati-regular.ttf") format("truetype");
+  @font-family: "Noto Sans Regular";
+  src: local("Noto Sans Regular"), url("/fonts/noto-sans-regular.ttf") format("truetype");
 }
 
 @font-face {
-  @font-family: "Noto Sans Regular";
-  src: local("Noto Sans Regular"), url("/fonts/noto-sans-regular.ttf") format("truetype");
+  @font-family: "Noto Serif Regular";
+  src: local("Noto Serif Regular"), url("/fonts/noto-serif-regular.ttf") format("truetype");
 }
