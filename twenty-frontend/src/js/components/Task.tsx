@@ -4,7 +4,7 @@ import { Select } from "/components/forms/Select";
 import { useUpsertTask } from "/hooks/useUpsertTask";
 import { useProjects } from "/hooks/useProjects";
 import { Task } from "/types/schema";
-import showdown from "showdown";
+import { rendermd } from "/lib/markdown-utils";
 
 type Inputs = {
   id?: number;
@@ -19,7 +19,6 @@ export function Task({ task }: { task?: Task }) {
   const selectRef = useRef<HTMLSelectElement>(null);
   const upsert = useUpsertTask();
   const projects = useProjects();
-  const c = new showdown.Converter();
   const content = watch("content");
   const onSave = (input: Inputs) => {
     upsert({ input }).then(() => {
@@ -84,7 +83,7 @@ export function Task({ task }: { task?: Task }) {
             <div
               className="task content"
               dangerouslySetInnerHTML={{
-                __html: c.makeHtml(content || task?.content),
+                __html: rendermd(content || task?.content),
               }}
             />
           )}
