@@ -24,10 +24,14 @@ body header {
   border-bottom: 1px solid $gray3;
 }
 
+.pt-20 { padding-top: 20px; }
+.pb-20 { padding-bottom: 20px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-50 { margin-bottom: 50px; }
+
 .max-width {
   width: 75%;
   max-width: 1024px;
-  padding: 20px 0 20px 0;
 }
 
 .align-center {
