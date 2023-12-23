@@ -1,6 +1,7 @@
 ## About
 
-Twenty helps you manage your hobby projects.
+Twenty helps you manage projects with a solution that runs on your computer
+rather than in the cloud.
 
 ## Features
 
