@@ -111,98 +111,70 @@
   }
 }
 /* Specials */
-@-webkit-keyframes hinge {
-  0% {
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-
-  20%,
-  60% {
-    -webkit-transform: rotate3d(0, 0, 1, 80deg);
-    transform: rotate3d(0, 0, 1, 80deg);
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-
-  40%,
-  80% {
-    -webkit-transform: rotate3d(0, 0, 1, 60deg);
-    transform: rotate3d(0, 0, 1, 60deg);
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
+@-webkit-keyframes flash {
+  from,
+  50%,
+  to {
     opacity: 1;
   }
 
-  to {
-    -webkit-transform: translate3d(0, 700px, 0);
-    transform: translate3d(0, 700px, 0);
+  25%,
+  75% {
     opacity: 0;
   }
 }
-@keyframes hinge {
-  0% {
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-
-  20%,
-  60% {
-    -webkit-transform: rotate3d(0, 0, 1, 80deg);
-    transform: rotate3d(0, 0, 1, 80deg);
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-
-  40%,
-  80% {
-    -webkit-transform: rotate3d(0, 0, 1, 60deg);
-    transform: rotate3d(0, 0, 1, 60deg);
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
+@keyframes flash {
+  from,
+  50%,
+  to {
     opacity: 1;
   }
 
-  to {
-    -webkit-transform: translate3d(0, 700px, 0);
-    transform: translate3d(0, 700px, 0);
+  25%,
+  75% {
     opacity: 0;
   }
 }
-.animate__hinge {
-  -webkit-animation-duration: calc(1s * 2);
-  animation-duration: calc(1s * 2);
-  -webkit-animation-duration: calc(var(--animate-duration) * 2);
-  animation-duration: calc(var(--animate-duration) * 2);
-  -webkit-animation-name: hinge;
-  animation-name: hinge;
-  -webkit-transform-origin: top left;
-  transform-origin: top left;
+.animate__flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
 }
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-@-webkit-keyframes rollOut {
+@-webkit-keyframes pulse {
   from {
-    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
   }
 
   to {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
-    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
-@keyframes rollOut {
+@keyframes pulse {
   from {
-    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
   }
 
   to {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
-    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
-.animate__rollOut {
-  -webkit-animation-name: rollOut;
-  animation-name: rollOut;
+.animate__pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
 }
