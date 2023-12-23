@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Select } from "/components/forms/Select";
-import { useUpsertIssue } from "/hooks/useUpsertIssue";
+import { useUpsertTask } from "/hooks/useUpsertTask";
 import { useConnections } from "/hooks/useConnections";
-import { Issue } from "/types/schema";
+import { Task } from "/types/schema";
 import showdown from "showdown";
 
 type Inputs = {
@@ -13,17 +13,17 @@ type Inputs = {
   connectionId: number;
 };
 
-export function Issue({ issue }: { issue?: Issue }) {
+export function Task({ task }: { task?: Task }) {
   const { register, handleSubmit, watch, setValue: set } = useForm<Inputs>();
-  const [isEditable, setIsEditable] = useState<boolean>(!issue);
+  const [isEditable, setIsEditable] = useState<boolean>(!task);
   const selectRef = useRef<HTMLSelectElement>(null);
-  const upsert = useUpsertIssue();
+  const upsert = useUpsertTask();
   const [connections] = useConnections();
   const c = new showdown.Converter();
   const content = watch("content");
   const onSave = (input: Inputs) => {
     upsert({ input }).then(() => {
-      location.href = "/issues/";
+      location.href = "/tasks/";
     });
   };
 
@@ -32,8 +32,8 @@ export function Issue({ issue }: { issue?: Issue }) {
   }, []);
 
   return (
-    <form className="issue" onSubmit={handleSubmit(onSave)}>
-      <input type="hidden" value={issue?.id} {...register("id")} />
+    <form className="task" onSubmit={handleSubmit(onSave)}>
+      <input type="hidden" value={task?.id} {...register("id")} />
       <div className="table">
         <div className="table tabbed div">
           <ul className="tabs">
@@ -62,7 +62,7 @@ export function Issue({ issue }: { issue?: Issue }) {
               className="form"
               type="text"
               placeholder="Title"
-              defaultValue={issue?.title}
+              defaultValue={task?.title}
               {...register("title", { required: true })}
             />
           </div>
@@ -72,7 +72,7 @@ export function Issue({ issue }: { issue?: Issue }) {
                 <textarea
                   className="form"
                   placeholder="Add your description heren"
-                  defaultValue={issue?.content}
+                  defaultValue={task?.content}
                   {...register("content", { required: true })}
                 />
               </div>
@@ -82,9 +82,9 @@ export function Issue({ issue }: { issue?: Issue }) {
             </>
           ) : (
             <div
-              className="issue content"
+              className="task content"
               dangerouslySetInnerHTML={{
-                __html: c.makeHtml(content || issue?.content),
+                __html: c.makeHtml(content || task?.content),
               }}
             />
           )}

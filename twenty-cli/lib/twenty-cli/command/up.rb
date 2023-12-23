@@ -12,7 +12,7 @@ class Twenty::Command::Up < Twenty::Command
   def run_command
     server = WEBrick::HTTPServer.new(server_options)
     server.mount '/servlet/connections', Twenty::Servlet::Connections
-    server.mount '/servlet/issues', Twenty::Servlet::Issues
+    server.mount '/servlet/tasks', Twenty::Servlet::Tasks
     trap(:SIGINT) { server.shutdown }
     server.start
   end

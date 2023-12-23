@@ -1,7 +1,7 @@
 class Twenty::Servlet < WEBrick::HTTPServlet::AbstractServlet
   require_relative "servlet/response"
   require_relative "servlet/connections"
-  require_relative "servlet/issues"
+  require_relative "servlet/tasks"
 
   def ok(res, body = {})
     Response.new(res)

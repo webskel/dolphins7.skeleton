@@ -19,7 +19,7 @@ end
 
 require_rules "nanoc/rules/assets"
 require_rules "nanoc/rules/connections"
-require_rules "nanoc/rules/issues"
+require_rules "nanoc/rules/tasks"
 
 compile("/**/*") { write(nil) }
 layout '/**/*', :erb

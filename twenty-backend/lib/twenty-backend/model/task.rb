@@ -1,4 +1,4 @@
-class Twenty::Issue < Twenty::Model
+class Twenty::Task < Twenty::Model
   self.table_name = 'issues'
 
   ##

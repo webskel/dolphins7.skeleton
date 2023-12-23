@@ -6,7 +6,7 @@ type Params = {
   connectionId?: number;
 };
 
-export function useUpsertIssue() {
+export function useUpsertTask() {
   const normalize = (input: Params) => {
     const { id, title, content, state, connectionId } = input;
     return { id, title, content, state, connection_id: connectionId };
@@ -17,7 +17,7 @@ export function useUpsertIssue() {
         method: input.id ? "PUT" : "POST",
         body: JSON.stringify(normalize(input)),
       };
-      return fetch("/servlet/issues", req)
+      return fetch("/servlet/tasks", req)
         .then(res => res.json())
         .then(accept)
         .catch(reject);

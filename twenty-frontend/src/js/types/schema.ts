@@ -4,7 +4,7 @@ export type Connection = {
   path: string;
 };
 
-export type Issue = {
+export type Task = {
   id: number;
   title: string;
   content: string;

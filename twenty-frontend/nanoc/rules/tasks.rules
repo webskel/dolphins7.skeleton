@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+
+##
+# GET /tasks/new/
+compile '/html/tasks/new/index.html.erb' do
+  layout "/default.*"
+  filter(:erb)
+  write("/tasks/new/index.html")
+end
+
+##
+# GET /js/main/task/new.js
+compile("/js/main/task/new.tsx") do
+  filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
+  write("/js/main/task/new.js")
+end
+
+##
+# GET /
+# GET /tasks/
+compile("/html/tasks/index.html.erb") do
+  layout "/default.*"
+  filter(:erb)
+  write("/tasks/index.html")
+  write("/index.html")
+end
+
+##
+# GET /js/main/tasks.js
+compile("/js/main/tasks.tsx") do
+  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
+  write("/js/main/tasks.js")
+end
+
+##
+# GET /tasks/edit#id=X
+compile("/html/tasks/edit/index.html.erb") do
+  layout "/default.*"
+  filter(:erb)
+  write("/tasks/edit/index.html")
+end
+
+##
+# GET /js/main/task/edit.js
+compile("/js/main/task/edit.tsx") do
+  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
+  write("/js/main/task/edit.js")
+end
