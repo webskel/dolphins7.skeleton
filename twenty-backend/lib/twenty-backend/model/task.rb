@@ -1,5 +1,5 @@
 class Twenty::Task < Twenty::Model
-  self.table_name = 'issues'
+  self.table_name = 'tasks'
 
   ##
   # Validations
