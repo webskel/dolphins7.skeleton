@@ -7,7 +7,7 @@ rather than in the cloud.
 
 * Provides a web application that manages hobby projects.
 * Provides a command-line utility to start / stop a web server, connect / disconnect a project.
-* Works online, or offline. Binds to `http//:localhost:7778` by default.
+* Works online, or offline. Binds to `http//:localhost:2020` by default.
 * Lightweight: Ruby, and SQLite3 are the primary runtime dependencies.
 * Database: `~/.local/share/twenty/twenty.sqlite`.
 * Easy to install: `gem install twenty`.
