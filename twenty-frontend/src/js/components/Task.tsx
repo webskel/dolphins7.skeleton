@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Select } from "/components/forms/Select";
 import { useUpsertTask } from "/hooks/useUpsertTask";
@@ -16,7 +16,6 @@ type Inputs = {
 export function Task({ task }: { task?: Task }) {
   const { register, handleSubmit, watch, setValue: set } = useForm<Inputs>();
   const [isEditable, setIsEditable] = useState<boolean>(!task);
-  const selectRef = useRef<HTMLSelectElement>(null);
   const upsert = useUpsertTask();
   const projects = useProjects();
   const content = watch("content");
@@ -42,7 +41,7 @@ export function Task({ task }: { task?: Task }) {
         </div>
         <div className="table content">
           <div>
-            <Select {...register("projectId")} ref={selectRef} className="form">
+            <Select {...register("projectId")} className="form">
               {projects.map((project, key) => {
                 return (
                   <option key={key} value={project.id}>
