@@ -5,6 +5,7 @@ import { useUpsertTask } from "/hooks/useUpsertTask";
 import { useProjects } from "/hooks/useProjects";
 import { Task } from "/types/schema";
 import { rendermd } from "/lib/markdown-utils";
+import classnames from "classnames";
 
 type Inputs = {
   id?: number;
@@ -47,8 +48,18 @@ export function Task({ task }: { task?: Task }) {
       <div className="table">
         <div className="table tabbed div">
           <ul className="tabs">
-            <li onClick={() => setIsEditable(true)}>Write</li>
-            <li onClick={() => setIsEditable(false)}>Preview</li>
+            <li
+              className={classnames({ active: isEditable })}
+              onClick={() => setIsEditable(true)}
+            >
+              Write
+            </li>
+            <li
+              className={classnames({ active: !isEditable })}
+              onClick={() => setIsEditable(false)}
+            >
+              Preview
+            </li>
           </ul>
         </div>
         <div className="table content">

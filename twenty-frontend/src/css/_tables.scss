@@ -15,21 +15,37 @@
   }
 
   .table.div.tabbed {
-    padding: 5px 5px 0 5px;
+    padding: 5px 5px 0 0px;
     ul.tabs {
       list-style-type: none;
       display: flex;
       height: 100%;
       margin: 0;
       padding: 0;
+      li:first-child {
+        border-left: none;
+      }
       li {
+        font-size: small;
         height: 100%;
-        border: 1px solid #cfcfc4;
+        margin-right: 5px;
+        border: 1px solid $gray3;
         border-bottom: none;
-        padding: 10px;
+        padding: 10px 5px 5px 10px;
         background: #FFF;
-        margin-right: 10px;
         border-radius: 5px;
+        min-width: 120px;
+        text-align: center;
+        background: darken($gray1, 10%);
+        color: lighten($black, 15%);
+        cursor: pointer;
+        opacity: 0.5;
+      }
+      li.active, li:hover {
+        font-weight: bold;
+        background: #FFF;
+        color: $black;
+        opacity: 1;
       }
     }
   }
