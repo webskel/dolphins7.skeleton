@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Twenty::Servlet::ResponseMixin
+  Response = Twenty::Servlet::Response
+
   ##
   # Sets 200 response.
   # @param [WEBrick::HTTPResponse] res
