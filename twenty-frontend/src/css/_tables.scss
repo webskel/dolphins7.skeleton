@@ -38,5 +38,14 @@
     background: $gray2;
     padding: 10px;
     border: #cfcfc4 1px solid;
+    .task.content {
+      p:first-child strong:first-child {
+        margin: 0 0 5px 0;
+      }
+      p strong:first-child {
+        display: block;
+        margin: 10px 0 5px 0;
+      }
+    }
   }
 }
