@@ -13,6 +13,18 @@ type Inputs = {
   projectId: number;
 };
 
+const DEFAULT_TASK_CONTENT = [
+  "## Subtasks",
+  "",
+  "* [] Task 1",
+  "* [] Task 2",
+  "* [] ...",
+  "",
+  "## Description",
+  "",
+  "Add a description here....",
+].join("\n");
+
 export function Task({ task }: { task?: Task }) {
   const { register, handleSubmit, watch, setValue: set } = useForm<Inputs>();
   const [isEditable, setIsEditable] = useState<boolean>(!task);
@@ -66,7 +78,7 @@ export function Task({ task }: { task?: Task }) {
                 <textarea
                   className="form"
                   placeholder="Add your description heren"
-                  defaultValue={task?.content}
+                  defaultValue={task?.content || DEFAULT_TASK_CONTENT}
                   {...register("content", { required: true })}
                 />
               </div>

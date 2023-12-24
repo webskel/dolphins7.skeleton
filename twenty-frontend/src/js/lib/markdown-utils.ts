@@ -6,6 +6,8 @@ const DEFAULT_RENDER_OPTIONS = {
   strikethrough: true,
   tables: true,
   tasklists: true,
+  ghCodeBlocks: true,
+  headerLevelStart: 3,
 };
 
 export function rendermd(str: string, options = {}) {
