@@ -43,7 +43,7 @@ class Twenty::Servlet::Tasks < Twenty::Servlet
       body = parse_body(req, except: ["id"])
       id = parse_body(req, only: ["id"]).fetch("id", nil)
       task = Twenty::Task.find_by(id:)
-      task?.update(body) ? ok(res, task:) : not_found(res)
+      task&.update(body) ? ok(res, task:) : not_found(res)
     else
       not_found(res)
     end
