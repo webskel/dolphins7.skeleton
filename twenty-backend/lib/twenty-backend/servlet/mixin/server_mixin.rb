@@ -1,5 +1,9 @@
 module Twenty::Servlet::ServerMixin
   ##
+  # @param [Hash] options
+  #  Server options that take precedence over
+  #  {ServerMixin#server_options ServerMixin#server_options}.
+  #
   # @return [WEBrick::HTTPServer]
   #  Returns an instance of WEBrick::HTTPServer.
   def server(options = {})
