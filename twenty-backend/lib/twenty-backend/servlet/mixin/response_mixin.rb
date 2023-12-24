@@ -1,6 +1,6 @@
 module Twenty::Servlet::ResponseMixin
   ##
-  # Sets a 200 OK response.
+  # Sets 200 response.
   # @param [WEBrick::HTTPResponse] res
   #  An instance of {WEBrick::HTTPResponse WEBrick::HTTPResponse}
   # @param [#to_json] body
@@ -13,7 +13,7 @@ module Twenty::Servlet::ResponseMixin
   end
 
   ##
-  # Sets a 400 Bad Request response.
+  # Sets 400 response.
   # @param [WEBrick::HTTPResponse] res
   #  An instance of {WEBrick::HTTPResponse WEBrick::HTTPResponse}
   # @param [#to_json] body
@@ -26,7 +26,7 @@ module Twenty::Servlet::ResponseMixin
   end
 
   ##
-  # Set a 404 Not Found response.
+  # Sets 404 response.
   # @param [WEBrick::HTTPResponse] res
   #  An instance of {WEBrick::HTTPResponse WEBrick::HTTPResponse}
   # @return [void]
