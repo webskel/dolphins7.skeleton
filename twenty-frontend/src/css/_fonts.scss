@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  @font-family: "Noto Sans Mono Regular";
+  src: local("Noto Sans Mono Regular"), url("/fonts/noto-sans-mono-regular.ttf") format("truetype");
+}
+
+@font-face {
   @font-family: "Noto Serif Regular";
   src: local("Noto Serif Regular"), url("/fonts/noto-serif-regular.ttf") format("truetype");
 }
