@@ -1,5 +1,5 @@
 export const TASK_READY = "ready";
-export const TASK_IN_PROGRESS = "in_progress";
+export const TASK_INPROGRESS = "in_progress";
 export const TASK_COMPLETE = "complete";
 export type TASK_STATUS = "ready" | "in_progress" | "complete";
 
