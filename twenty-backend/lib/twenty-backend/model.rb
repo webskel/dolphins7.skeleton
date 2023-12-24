@@ -20,7 +20,7 @@ class Twenty::Model < ActiveRecord::Base
   # Establishes a database connection.
   # @return [void]
   # @api private
-  def self.connect
+  def self.connect_database
     ActiveRecord::Base.establish_connection(
       adapter: 'sqlite3',
       database:,
@@ -29,17 +29,17 @@ class Twenty::Model < ActiveRecord::Base
   end
 
   ##
-  # Creates the {home home} directory.
+  # Prepares the database environment.
   # @return [void]
   # @api private
-  def self.prepare
+  def self.prepare_database
     return if File.exist?(database)
     mkdir_p(home)
     touch(database)
   end
 
-  prepare
-  connect
+  prepare_database
+  connect_database
   require_relative "model/project"
   require_relative "model/task"
 end
