@@ -7,7 +7,7 @@ class Twenty::Servlet::Tasks < Twenty::Servlet
   def do_GET(req, res)
     case req.path_info
     when ""
-      tasks = Twenty::Task.open.order(updated_at: :desc)
+      tasks = Twenty::Task.ready.order(updated_at: :desc)
       ok(res, tasks:)
     when %r{\A/([\d]+)/?\z}
       task = Twenty::Task.find_by(id: $1)
@@ -22,7 +22,8 @@ class Twenty::Servlet::Tasks < Twenty::Servlet
   def do_POST(req, res)
     case req.path_info
     when ""
-      task = Twenty::Task.new(JSON.parse(req.body))
+      body = parse_body(req.body, only: ["title", "content", "project_id"])
+      task = Twenty::Task.new(body)
       if task.save
         ok(res, task:)
       else
@@ -39,10 +40,10 @@ class Twenty::Servlet::Tasks < Twenty::Servlet
   def do_PUT(req, res)
     case req.path_info
     when ""
-      body = JSON.parse(req.body)
-      id = body.delete("id")
+      body = parse_body(req, except: ["id"])
+      id = parse_body(req, only: ["id"]).fetch("id", nil)
       task = Twenty::Task.find_by(id:)
-      task.update(body) ? ok(res, task:) : not_found(res)
+      task?.update(body) ? ok(res, task:) : not_found(res)
     else
       not_found(res)
     end

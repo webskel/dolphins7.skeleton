@@ -1,13 +1,17 @@
 import React from "react";
 
-export function TrashIcon({ onClick }: { onClick: () => unknown }) {
+export function TrashIcon({
+  onClick,
+}: {
+  onClick: (e: React.MouseEvent) => void;
+}) {
   return (
     <svg
       height="512"
       viewBox="0 0 128 128"
       width="512"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={onClick}
+      onClick={e => onClick(e)}
       className="trash icon"
     >
       <g>
@@ -20,13 +24,17 @@ export function TrashIcon({ onClick }: { onClick: () => unknown }) {
   );
 }
 
-export function DoneIcon({ onClick }: { onClick: () => unknown }) {
+export function DoneIcon({
+  onClick,
+}: {
+  onClick: (e: React.MouseEvent) => void;
+}) {
   return (
     <svg
-      enable-background="new 0 0 24 24"
+      enableBackground="new 0 0 24 24"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      onClick={onClick}
+      onClick={e => onClick(e)}
       className="done icon"
     >
       <switch>

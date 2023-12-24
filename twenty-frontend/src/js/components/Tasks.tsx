@@ -3,7 +3,7 @@ import { useTasks } from "/hooks/useTasks";
 import { useDestroyTask } from "/hooks/useDestroyTask";
 import { TrashIcon, DoneIcon } from "/components/Icons";
 import { DateTime } from "luxon";
-import { Task } from "/types/schema";
+import { Task, TASK_COMPLETE } from "/types/schema";
 import { useUpsertTask } from "/hooks/useUpsertTask";
 import classnames from "classnames";
 
@@ -40,7 +40,7 @@ export function Tasks() {
   };
   const onComplete = (task: Task) => {
     const action = () =>
-      upsertTask({ input: { id: task.id, state: "closed" } });
+      upsertTask({ input: { id: task.id, status: TASK_COMPLETE } });
     perform(action, { on: task, tasks, setTask: setCompletedTask });
   };
 
@@ -58,15 +58,30 @@ export function Tasks() {
             const wasDestroyed = task === destroyedTask;
             const wasCompleted = task === completedTask;
             const classes = { completed: wasCompleted, removed: wasDestroyed };
+            const editHref = `/tasks/edit#id=${task.id}`;
             return (
-              <li className={classnames("item", classes)} key={key}>
+              <li
+                onClick={() => (location.href = editHref)}
+                className={classnames("item", classes)}
+                key={key}
+              >
                 <div className="top">
-                  <a href={`/tasks/edit#id=${task.id}`}>
+                  <a href={editHref}>
                     <span className="item title">{task.title}</span>
                   </a>
                   <div className="actions">
-                    <DoneIcon onClick={() => onComplete(task)} />
-                    <TrashIcon onClick={() => onDestroy(task)} />
+                    <DoneIcon
+                      onClick={(e: React.MouseEvent) => [
+                        e.stopPropagation(),
+                        onComplete(task),
+                      ]}
+                    />
+                    <TrashIcon
+                      onClick={(e: React.MouseEvent) => [
+                        e.stopPropagation(),
+                        onDestroy(task),
+                      ]}
+                    />
                   </div>
                 </div>
                 <div className="bottom">

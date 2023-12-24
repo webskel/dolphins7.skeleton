@@ -4,11 +4,13 @@ ul.items {
   list-style-type: none;
 
   li.item {
-    margin: 0 0 15px 0;
+    &:hover {
+      background: $gray1;
+      border-radius: 10px;
+      cursor: pointer;
+    }
     display: flex;
-    background: #f4f0ec;
-    border: #cfcfc4 1px solid;
-    border-radius: 10px;
+    border-bottom: 1px solid $gray1;
     padding: 10px;
     flex-wrap: wrap;
     .top, .bottom {
@@ -20,6 +22,16 @@ ul.items {
         grid-gap: 5px;
       }
      }
+    .top {
+      a {
+        $blue: #008cff;
+        color: darken($blue, 10%);
+        &:active, &:visited, &:link, &:hover {
+          color: darken($blue, 10%);
+          text-decoration: none;
+        }
+      }
+    }
     .bottom {
       margin: 10px 0 0 0;
       font-size: small;
