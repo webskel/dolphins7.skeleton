@@ -31,7 +31,7 @@ export function Tasks() {
         setTimeout(() => {
           setTasks(tasks);
           setTask(null);
-        }, 750);
+        }, 500);
       });
   };
   const onDestroy = (task: Task) => {
