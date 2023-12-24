@@ -42,11 +42,7 @@ export function Task({ task }: { task?: Task }) {
         </div>
         <div className="table content">
           <div>
-            <Select
-              {...register("projectId")}
-              ref={selectRef}
-              className="form"
-            >
+            <Select {...register("projectId")} ref={selectRef} className="form">
               {projects.map((project, key) => {
                 return (
                   <option key={key} value={project.id}>

@@ -25,4 +25,12 @@ ul.items {
       font-size: small;
     }
   }
+  li.item.removed {
+    animation: bounceOutDown;
+    animation-duration: 0.5s;
+  }
+  li.item.completed {
+    animation: bounceOutUp;
+    animation-duration: 0.5s;
+  }
 }

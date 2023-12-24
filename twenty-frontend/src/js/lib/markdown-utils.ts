@@ -5,12 +5,12 @@ const DEFAULT_RENDER_OPTIONS = {
   simplifiedAutoLink: true,
   strikethrough: true,
   tables: true,
-  tasklists: true
-}
+  tasklists: true,
+};
 
 export function rendermd(str: string, options = {}) {
   const renderer = new showdown.Converter(
-    Object.assign({}, DEFAULT_RENDER_OPTIONS, options)
+    Object.assign({}, DEFAULT_RENDER_OPTIONS, options),
   );
   return renderer.makeHtml(str);
 }

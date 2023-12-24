@@ -3,6 +3,7 @@
 @import "forms";
 @import "tables";
 @import "items";
+@import "animations";
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -59,5 +60,4 @@ body header {
       fill: #d9534f;
     }
   }
-
 }

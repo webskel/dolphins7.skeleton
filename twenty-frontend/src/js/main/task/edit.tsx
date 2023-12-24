@@ -12,7 +12,7 @@ import { Task } from "/types/schema";
   );
   fetch(`/servlet/tasks/${params.id}`)
     .then(res => res.json())
-    .then(({task}: {task: Task}) => {
+    .then(({ task }: { task: Task }) => {
       const root = document.querySelector(".react-mount.edit-task")!;
       ReactDOM.createRoot(root).render(<Component task={task} />);
     });
