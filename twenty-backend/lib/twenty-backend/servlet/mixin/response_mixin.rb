@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::Servlet::ResponseMixin
   ##
   # Sets 200 response.

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Servlet::Projects < Twenty::Servlet
   ##
   # GET /servlet/projects

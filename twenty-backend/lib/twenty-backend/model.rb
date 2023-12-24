@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Model < ActiveRecord::Base
   require "fileutils"
   extend FileUtils
@@ -22,7 +24,7 @@ class Twenty::Model < ActiveRecord::Base
   # @api private
   def self.connect_database
     ActiveRecord::Base.establish_connection(
-      adapter: 'sqlite3',
+      adapter: "sqlite3",
       database:,
       pool: 3
     )

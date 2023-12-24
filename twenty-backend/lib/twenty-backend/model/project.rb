@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Twenty::Project < Twenty::Model
-  self.table_name = 'projects'
+  self.table_name = "projects"
 
   ##
   # Validations
@@ -8,7 +10,7 @@ class Twenty::Project < Twenty::Model
 
   ##
   # Associations
-  has_many :tasks, class_name: 'Twenty::Task'
+  has_many :tasks, class_name: "Twenty::Task"
 
   def to_json(options = {})
     {id:, name:, path:}.to_json(options)

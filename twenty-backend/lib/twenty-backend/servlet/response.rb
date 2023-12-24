@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Servlet::Response
   ##
   # @param [WEBrick::HTTPResponse] res
@@ -52,6 +54,7 @@ class Twenty::Servlet::Response
   end
 
   private
+
   attr_reader :res
   def default_body_for(status)
     case status

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameConnectionsToProjects < ActiveRecord::Migration[7.1]
   def up
     rename_table :connections, :projects

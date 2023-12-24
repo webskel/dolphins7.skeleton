@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Twenty::Task < Twenty::Model
-  self.table_name = 'tasks'
+  self.table_name = "tasks"
 
   ##
   # Validations
@@ -10,7 +12,7 @@ class Twenty::Task < Twenty::Model
 
   ##
   # Associations
-  belongs_to :project, class_name: 'Twenty::Project'
+  belongs_to :project, class_name: "Twenty::Project"
 
   ##
   # Scopes

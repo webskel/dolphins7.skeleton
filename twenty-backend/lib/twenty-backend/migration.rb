@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::Migration
   ##
   # @return [String]

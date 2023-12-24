@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Servlet::Tasks < Twenty::Servlet
   ##
   # GET /servlet/tasks/
@@ -7,7 +9,7 @@ class Twenty::Servlet::Tasks < Twenty::Servlet
     when ""
       tasks = Twenty::Task.open.order(updated_at: :desc)
       ok(res, tasks:)
-    when %r|^/([\d]+)/?$|
+    when %r{^/([\d]+)/?$}
       task = Twenty::Task.find_by(id: $1)
       task ? ok(res, task:) : not_found(res)
     else
@@ -50,7 +52,7 @@ class Twenty::Servlet::Tasks < Twenty::Servlet
   # DELETE /servlet/tasks/<id>/
   def do_DELETE(req, res)
     case req.path_info
-    when %r|^/([\d]+)/?$|
+    when %r{^/([\d]+)/?$}
       task = Twenty::Task.find_by(id: $1)
       task.destroy ? ok(res) : not_found(res)
     else
