@@ -40,6 +40,9 @@
     border: #cfcfc4 1px solid;
     .task.content {
       padding: 10px;
+      ul li {
+        line-height: 1.7em;
+      }
       h3,h4,h5 {
         &:first-child {
           margin: 0 0 5px 0;
@@ -47,13 +50,13 @@
         margin: 15px 0 5px 0;
       }
       code {
-        padding: 2px;
+        padding: 0px 5px 0px 5px;
         font-family: "Noto Sans Mono Regular";
-        font-size: small;
+        font-size: smaller;
         font-weight: bold;
-        color: #F77379;
+        color: lighten(#FF0000, 25%);
         border-radius: 5px;
-        border: 1px solid $gray3;
+        border: 1px solid darken($gray3, 5%);
         background: $gray1;
       }
     }
