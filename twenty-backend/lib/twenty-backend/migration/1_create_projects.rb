@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateConnections < ActiveRecord::Migration[7.1]
+class CreateProjects < ActiveRecord::Migration[7.1]
   def up
-    create_table(:connections) do |t|
+    create_table(:projects) do |t|
       t.string :name, null: false
       t.string :path, null: false
       t.timestamps
@@ -10,6 +10,6 @@ class CreateConnections < ActiveRecord::Migration[7.1]
   end
 
   def down
-    drop_table(:connections)
+    drop_table(:projects)
   end
 end
