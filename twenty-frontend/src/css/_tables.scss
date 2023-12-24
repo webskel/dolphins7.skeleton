@@ -40,12 +40,21 @@
     border: #cfcfc4 1px solid;
     .task.content {
       padding: 10px;
-
       h3,h4,h5 {
         &:first-child {
           margin: 0 0 5px 0;
         }
         margin: 15px 0 5px 0;
+      }
+      code {
+        padding: 2px;
+        font-family: "Noto Sans Mono Regular";
+        font-size: small;
+        font-weight: bold;
+        color: #F77379;
+        border-radius: 5px;
+        border: 1px solid $gray3;
+        background: $gray1;
       }
     }
   }
