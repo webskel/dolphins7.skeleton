@@ -11,7 +11,7 @@ end
 ##
 # GET /js/main/task/new.js
 compile("/js/main/task/new.tsx") do
-  filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
+  filter(:webpack, depend_on: %w[/js/lib/ /js/components/ /js/hooks/ /js/types/])
   write("/js/main/task/new.js")
 end
 
@@ -28,7 +28,7 @@ end
 ##
 # GET /js/main/tasks.js
 compile("/js/main/tasks.tsx") do
-  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
+  filter(:webpack, depend_on: %w[/js/lib/ /js/components /js/hooks/ /js/types/])
   write("/js/main/tasks.js")
 end
 
@@ -43,6 +43,6 @@ end
 ##
 # GET /js/main/task/edit.js
 compile("/js/main/task/edit.tsx") do
-  filter(:webpack, depend_on: %w[/js/components /js/hooks/ /js/types/])
+  filter(:webpack, depend_on: %w[/js/lib/ /js/components /js/hooks/ /js/types/])
   write("/js/main/task/edit.js")
 end
