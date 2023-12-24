@@ -10,18 +10,8 @@ class Twenty::Command::Up < Twenty::Command
   private
 
   def run_command
-    server = WEBrick::HTTPServer.new(server_options)
-    server.mount '/servlet/projects', Twenty::Servlet::Projects
-    server.mount '/servlet/tasks', Twenty::Servlet::Tasks
+    server = Twenty::Servlet.server
     trap(:SIGINT) { server.shutdown }
     server.start
-  end
-
-  def server_options
-    {
-      DocumentRoot: Twenty.build,
-      BindAddress: "127.0.0.1",
-      Port: 2020
-    }
   end
 end

@@ -2,6 +2,8 @@ class Twenty::Servlet < WEBrick::HTTPServlet::AbstractServlet
   require_relative "servlet/response"
   require_relative "servlet/projects"
   require_relative "servlet/tasks"
+  require_relative "servlet/mixin/server_mixin"
+  extend ServerMixin
 
   def ok(res, body = {})
     Response.new(res)
