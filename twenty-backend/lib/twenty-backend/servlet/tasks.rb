@@ -22,7 +22,7 @@ class Twenty::Servlet::Tasks < Twenty::Servlet
   def do_POST(req, res)
     case req.path_info
     when ""
-      body = parse_body(req.body, only: ["title", "content", "project_id"])
+      body = parse_body(req, only: ["title", "content", "project_id"])
       task = Twenty::Task.new(body)
       if task.save
         ok(res, task:)
