@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "allowJs": true,
-    "lib": [ "ES2020", "DOM" ],
+    "lib": [ "ES2022", "DOM" ],
 
     "baseUrl": "src/",
     "paths": { "*": ["js/*"] },

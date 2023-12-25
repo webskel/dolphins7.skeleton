@@ -1,3 +1,4 @@
+import receiveResponse from "/lib/fetch/receive-response";
 import { TASK_STATUS } from "/types/schema";
 
 type Params = {
@@ -14,14 +15,15 @@ export function useUpsertTask() {
     return { id, title, content, status, project_id: projectId };
   };
   return function ({ input }: { input: Params }) {
-    return new Promise((accept, reject) => {
+    return new Promise((resolve, reject) => {
       const req = {
         method: input.id ? "PUT" : "POST",
         body: JSON.stringify(normalize(input)),
       };
       return fetch("/servlet/tasks", req)
+        .then(receiveResponse)
         .then(res => res.json())
-        .then(accept)
+        .then(resolve)
         .catch(reject);
     });
   };
