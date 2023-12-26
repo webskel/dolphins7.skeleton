@@ -71,6 +71,7 @@ export function Tasks() {
                 <ul className="actions">
                   <li>
                     <DoneIcon
+                      title="Complete task"
                       onClick={(e: React.MouseEvent) => [
                         e.stopPropagation(),
                         onComplete(task),
@@ -79,6 +80,7 @@ export function Tasks() {
                   </li>
                   <li>
                     <TrashIcon
+                      title="Delete task"
                       onClick={(e: React.MouseEvent) => [
                         e.stopPropagation(),
                         onDestroy(task),
