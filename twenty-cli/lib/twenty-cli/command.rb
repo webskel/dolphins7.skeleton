@@ -6,4 +6,5 @@ class Twenty::Command < Cmd
   require_relative "command/connect"
   require_relative "command/disconnect"
   require_relative "command/migrate"
+  require_relative "command/console"
 end

@@ -20,6 +20,9 @@ when "disconnect"
 when "migrate"
   wait spawn("migrate", *ARGV[1..])
   exit $?.exitstatus
+when "console"
+  wait spawn("console", *ARGV[1..])
+  exit $?.exitstatus
 else
   warn "Usage: twenty COMMAND [OPTIONS]\n\n" \
        "Commands:\n" \
@@ -28,4 +31,5 @@ else
        "  connect        Connect a project to twenty.\n" \
        "  disconnect     Disconnect a project from twenty.\n" \
        "  migrate        Migrate the database.\n" \
+       "  console        Start the twenty developer console.\n" \
 end

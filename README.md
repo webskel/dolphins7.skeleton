@@ -23,6 +23,7 @@ rather than in the cloud.
       connect        Connect a project to twenty.
       disconnect     Disconnect a project from twenty.
       migrate        Migrate the database.
+      console        Start the twenty developer console.
 
 ## Install
 
