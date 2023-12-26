@@ -65,31 +65,31 @@ export function Tasks() {
                 className={classnames("item", classes)}
                 key={key}
               >
-                <div className="top">
-                  <a href={editHref}>
-                    <span className="item title">{task.title}</span>
-                  </a>
-                  <div className="actions">
+                <a href={editHref}>
+                  <span className="item title">{task.title}</span>
+                  <span className="date">
+                    {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                    {datetime.toFormat("HH:mm")}
+                  </span>
+                </a>
+                <ul className="actions">
+                  <li>
                     <DoneIcon
                       onClick={(e: React.MouseEvent) => [
                         e.stopPropagation(),
                         onComplete(task),
                       ]}
                     />
+                  </li>
+                  <li>
                     <TrashIcon
                       onClick={(e: React.MouseEvent) => [
                         e.stopPropagation(),
                         onDestroy(task),
                       ]}
                     />
-                  </div>
-                </div>
-                <div className="bottom">
-                  <span>
-                    {datetime.toFormat("dd LLL, yyyy")} at{" "}
-                    {datetime.toFormat("HH:mm")}
-                  </span>
-                </div>
+                  </li>
+                </ul>
               </li>
             );
           })}
