@@ -17,8 +17,10 @@ ul.items {
       $blue: #008cff;
       color: $blue;
       padding: 10px 10px 0px 10px;
+      border: 1px solid #FFF;
       &:hover {
         background: $gray1;
+        border: 1px solid $gray3;
         cursor: pointer;
         text-decoration: none;
         color: $blue;
