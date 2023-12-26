@@ -60,11 +60,7 @@ export function Tasks() {
             const classes = { completed: wasCompleted, removed: wasDestroyed };
             const editHref = `/tasks/edit#id=${task.id}`;
             return (
-              <li
-                onClick={() => (location.href = editHref)}
-                className={classnames("item", classes)}
-                key={key}
-              >
+              <li className={classnames("item", classes)} key={key}>
                 <a href={editHref}>
                   <span className="item title">{task.title}</span>
                   <span className="date">
