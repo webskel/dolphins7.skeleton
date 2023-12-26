@@ -7,6 +7,7 @@ class CreateProjects < ActiveRecord::Migration[7.1]
       t.string :path, null: false
       t.timestamps
     end
+    add_index :projects, [:name, :path], unique: true
   end
 
   def down
