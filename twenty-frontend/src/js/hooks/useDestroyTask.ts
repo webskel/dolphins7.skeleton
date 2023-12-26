@@ -1,4 +1,4 @@
-import receiveResponse from "/lib/fetch/receive-response";
+import fetch from "/lib/fetch";
 
 type Params = {
   id: number;
@@ -7,9 +7,8 @@ type Params = {
 export function useDestroyTask() {
   return function ({ id }: Params) {
     return new Promise((resolve, reject) => {
-      const req = { method: "DELETE" };
-      return fetch(`/servlet/tasks/${id}`, req)
-        .then(receiveResponse)
+      const reqinit = { method: "DELETE" };
+      return fetch(`/servlet/tasks/${id}`, reqinit)
         .then(res => res.json())
         .then(resolve)
         .catch(reject);
