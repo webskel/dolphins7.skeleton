@@ -1,9 +1,9 @@
 @import "fonts";
 @import "colors";
-@import "forms";
 @import "tables";
 @import "items";
-@import "animations";
+@import "vendor/forms";
+@import "vendor/animations";
 
 *, *:before, *:after {
   box-sizing: border-box;
