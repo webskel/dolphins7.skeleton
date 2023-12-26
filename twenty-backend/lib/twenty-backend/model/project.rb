@@ -15,4 +15,11 @@ class Twenty::Project < Twenty::Model
   def to_json(options = {})
     {id:, name:, path:}.to_json(options)
   end
+
+  ##
+  # @return [String]
+  #  The path to a project.
+  def path
+    super&.sub(Dir.home, "~")
+  end
 end

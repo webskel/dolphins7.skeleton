@@ -16,7 +16,7 @@ ul.items {
       justify-content: space-between;
       $blue: #008cff;
       color: $blue;
-      padding: 10px 10px 0px 10px;
+      padding: 10px 10px 5px 10px;
       border: 1px solid #FFF;
       &:hover {
         background: $gray1;
@@ -30,7 +30,7 @@ ul.items {
         flex-wrap: wrap;
         width: 100%;
       }
-      span.date {
+      span.date, span.path {
         font-size: small;
         color: $black;
       }
@@ -49,5 +49,13 @@ ul.items {
   li.item.completed {
     animation: bounceOutUp;
     animation-duration: 0.5s;
+  }
+}
+
+ul.items.projects {
+  li.item {
+    a {
+      width: 100%;
+    }
   }
 }
