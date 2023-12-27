@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
   gem.version = "0.1.0"
   gem.licenses = ["0BSD"]
-  gem.files = []
+  gem.files = Dir.glob File.join(__dir__, "lib", "*.rb")
   gem.summary = "twenty helps you manage projects with a solution " \
                 "that runs on your computer rather than in the " \
                 "cloud."
