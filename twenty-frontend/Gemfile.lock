@@ -116,8 +116,8 @@ GEM
 
 PLATFORMS
   amd64-freebsd-14
-  x86_64-openbsd
   ruby
+  x86_64-openbsd
 
 DEPENDENCIES
   nanoc (~> 4.12)
