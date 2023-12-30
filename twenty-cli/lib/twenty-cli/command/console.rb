@@ -1,6 +1,7 @@
 class Twenty::Command::Console < Twenty::Command
   set_banner usage: "twenty console [OPTIONS]",
              description: "Start the twenty developer console"
+  prepend Twenty::Command::PendingMigrationMixin
 
   def run
     options = parse_options(argv)

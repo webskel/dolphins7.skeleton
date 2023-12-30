@@ -1,6 +1,7 @@
 class Twenty::Command::Down < Twenty::Command
   set_banner usage: "twenty down [OPTIONS]",
              description: "Stop the twenty web server"
+  prepend Twenty::Command::PendingMigrationMixin
 
   def run
     options = parse_options(argv)

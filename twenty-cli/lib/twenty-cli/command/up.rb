@@ -1,6 +1,7 @@
 class Twenty::Command::Up < Twenty::Command
   set_banner usage: "twenty up [OPTIONS]",
              description: "Start the twenty web server"
+  prepend Twenty::Command::PendingMigrationMixin
 
   def run
     options = parse_options(argv)

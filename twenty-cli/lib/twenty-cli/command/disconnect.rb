@@ -1,6 +1,7 @@
 class Twenty::Command::Disconnect < Twenty::Command
   set_banner usage: "twenty disconnect [OPTIONS]",
              description: "Disconnect a project from twenty"
+  prepend Twenty::Command::PendingMigrationMixin
 
   def run
     options = parse_options(argv)
