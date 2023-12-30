@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Command::Disconnect < Twenty::Command
   set_banner usage: "twenty disconnect [OPTIONS]",
              description: "Disconnect a project from twenty"

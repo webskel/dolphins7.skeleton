@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Command::Down < Twenty::Command
   set_banner usage: "twenty down [OPTIONS]",
              description: "Stop the twenty web server"

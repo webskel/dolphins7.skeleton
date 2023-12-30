@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "cmd"
 
 class Twenty::Command < Cmd

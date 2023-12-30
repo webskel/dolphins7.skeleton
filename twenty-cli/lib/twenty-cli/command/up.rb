@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Command::Up < Twenty::Command
   set_banner usage: "twenty up [OPTIONS]",
              description: "Start the twenty web server"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Command::Migrate < Twenty::Command
   set_banner usage: "twenty migrate [OPTIONS]",
              description: "Migrate the database"

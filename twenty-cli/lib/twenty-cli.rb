@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty
   require "json"
   require "twenty-backend"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::Command::PendingMigrationMixin
   def run_command(...)
     if pending_migrations?
@@ -8,6 +10,7 @@ module Twenty::Command::PendingMigrationMixin
       super(...)
     end
   end
+
   private
 
   def pending_migrations?

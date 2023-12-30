@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Command::Console < Twenty::Command
   set_banner usage: "twenty console [OPTIONS]",
              description: "Start the twenty developer console"
