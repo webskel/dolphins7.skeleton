@@ -4,20 +4,27 @@ ul.items {
   padding: 0;
   list-style-type: none;
 
+  li.item:first-child {
+    a {
+      border-top: 1px solid #FFF;
+    }
+  }
+
   li.item {
     display: flex;
-    border-bottom: 1px solid $gray1;
     flex-wrap: wrap;
     a {
       display: flex;
       flex-direction: column;
       height: 60px;
-      width: 95%;
       justify-content: space-between;
       $blue: #008cff;
       color: $blue;
       padding: 10px 10px 5px 10px;
+      border-radius: 10px;
       border: 1px solid #FFF;
+      border-top: 1px solid $gray1;
+
       &:hover {
         background: $gray1;
         border: 1px solid $gray3;
@@ -25,6 +32,7 @@ ul.items {
         text-decoration: none;
         color: $blue;
       }
+
       span {
         display: flex;
         flex-wrap: wrap;
@@ -40,6 +48,10 @@ ul.items {
       width: 5%;
       display: flex;
       place-content: flex-end;
+      li {
+        display: flex;
+        align-items: center;
+      }
     }
   }
   li.item.removed {
@@ -56,6 +68,14 @@ ul.items.projects {
   li.item {
     a {
       width: 100%;
+    }
+  }
+}
+
+ul.items.tasks {
+  li.item {
+    a {
+      width: 95%;
     }
   }
 }

@@ -51,7 +51,7 @@ export function Tasks() {
         <a href="/tasks/new">New task</a>
       </div>
       <div className="table content">
-        <ul className="items">
+        <ul className="items tasks">
           {tasks.map((task: Task, key: number) => {
             const { updated_at: updatedAt } = task;
             const datetime = DateTime.fromISO(updatedAt);
