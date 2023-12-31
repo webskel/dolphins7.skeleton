@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTasks } from "/hooks/useTasks";
 import { useDestroyTask } from "/hooks/useDestroyTask";
 import { TrashIcon, DoneIcon } from "/components/Icons";
@@ -43,6 +43,10 @@ export function Tasks() {
       upsertTask({ input: { id: task.id, status: TASK_COMPLETE } });
     perform(action, { on: task, tasks, setTask: setCompletedTask });
   };
+
+  useEffect(() => {
+    document.title = "Tasks";
+  }, []);
 
   return (
     <div className="table">

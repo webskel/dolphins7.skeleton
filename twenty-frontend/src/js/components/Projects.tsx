@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useProjects } from "/hooks/useProjects";
 
 export function Projects() {
   const projects = useProjects();
+
+  useEffect(() => {
+    document.title = "Projects";
+  }, []);
+
   return (
     <div className="table">
       <div className="table div">
