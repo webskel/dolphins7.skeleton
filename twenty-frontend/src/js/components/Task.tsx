@@ -39,6 +39,8 @@ export function Task({ task }: { task?: Task }) {
   };
 
   useEffect(() => {
+    const title = task ? task.title : 'New task';
+    document.title = title;
     set("projectId", 1);
   }, []);
 
