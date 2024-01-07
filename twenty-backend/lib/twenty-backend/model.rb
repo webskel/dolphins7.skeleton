@@ -24,18 +24,7 @@ class Twenty::Model < ActiveRecord::Base
       database: path,
       pool: 3
     )
-    require_models
   end
-
-  ##
-  # Require models.
-  # @return [void]
-  # @api private
-  def self.require_models
-    require_relative "model/project"
-    require_relative "model/task"
-  end
-  private_class_method :require_models
 
   ##
   # Prepares the parent directory of the database.
@@ -50,4 +39,7 @@ class Twenty::Model < ActiveRecord::Base
   end
   private_class_method :prepare_dir
   prepare_dir
+
+  require_relative "model/project"
+  require_relative "model/task"
 end
