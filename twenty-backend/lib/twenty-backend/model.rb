@@ -31,7 +31,6 @@ class Twenty::Model < ActiveRecord::Base
       database: path,
       pool: 3
     )
-    prepare_dir
     require_models
   end
 
@@ -53,8 +52,11 @@ class Twenty::Model < ActiveRecord::Base
     return if File.exist?(database)
     mkdir_p(home)
     touch(database)
+  rescue => ex
+    warn "[twenty] error in prepare_dir (#{ex.class}: #{ex.message})"
   end
   private_class_method :prepare_dir
 
+  prepare_dir
   connect(path: database)
 end
