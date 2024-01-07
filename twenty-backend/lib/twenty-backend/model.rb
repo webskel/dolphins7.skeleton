@@ -6,9 +6,9 @@ class Twenty::Model < ActiveRecord::Base
 
   ##
   # @return [String]
-  #  Returns the path to a SQLite database.
+  #  Returns the default SQLite database path.
   def self.database
-    File.join(home, "twenty.sqlite")
+    @database ||= File.join(home, "twenty.sqlite")
   end
 
   ##
@@ -20,28 +20,41 @@ class Twenty::Model < ActiveRecord::Base
 
   ##
   # Establishes a database connection.
+  #
+  # @param [String] path
+  #  The path to a SQLite3 database file.
+  #
   # @return [void]
-  # @api private
-  def self.connect_database
+  def self.connect(path:)
     ActiveRecord::Base.establish_connection(
       adapter: "sqlite3",
-      database:,
+      database: path,
       pool: 3
     )
+    prepare_dir
+    require_models
   end
 
   ##
-  # Prepares the database environment.
+  # Require models.
   # @return [void]
   # @api private
-  def self.prepare_database
+  def self.require_models
+    require_relative "model/project"
+    require_relative "model/task"
+  end
+  private_class_method :require_models
+
+  ##
+  # Prepares the parent directory of the database.
+  # @return [void]
+  # @api private
+  def self.prepare_dir
     return if File.exist?(database)
     mkdir_p(home)
     touch(database)
   end
+  private_class_method :prepare_dir
 
-  prepare_database
-  connect_database
-  require_relative "model/project"
-  require_relative "model/task"
+  connect(path: database)
 end
