@@ -8,14 +8,7 @@ class Twenty::Model < ActiveRecord::Base
   # @return [String]
   #  Returns the default SQLite database path.
   def self.database
-    @database ||= File.join(home, "twenty.sqlite")
-  end
-
-  ##
-  # @return [String]
-  #  Returns a path to the directory where twenty writes data.
-  def self.home
-    File.join(Dir.home, ".local", "share", "twenty")
+    @database ||= File.join(Twenty.home, "twenty.sqlite")
   end
 
   ##
@@ -50,7 +43,7 @@ class Twenty::Model < ActiveRecord::Base
   # @api private
   def self.prepare_dir
     return if File.exist?(database)
-    mkdir_p(home)
+    mkdir_p(Twenty.home)
     touch(database)
   rescue => ex
     warn "[twenty] error in prepare_dir (#{ex.class}: #{ex.message})"

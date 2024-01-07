@@ -8,7 +8,8 @@ class Twenty::Command::Up < Twenty::Command
              "The path to an alternate SQLite3 database",
              as: String,
              default: nil
-  extend Twenty::Command::PendingMigrationMixin
+  prepend Twenty::Command::PendingMigrationMixin
+  prepend Twenty::Command::SQLiteConnectionMixin
 
   def run
     options = parse_options(argv)
@@ -18,8 +19,6 @@ class Twenty::Command::Up < Twenty::Command
   private
 
   def run_command(options)
-    path = options.database || Twenty::Model.database
-    Twenty::Model.connect(path:)
     server = Twenty::Servlet.server
     trap(:SIGINT) { server.shutdown }
     server.start
