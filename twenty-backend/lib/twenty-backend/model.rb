@@ -49,7 +49,5 @@ class Twenty::Model < ActiveRecord::Base
     warn "[twenty] error in prepare_dir (#{ex.class}: #{ex.message})"
   end
   private_class_method :prepare_dir
-
   prepare_dir
-  connect(path: database)
 end
