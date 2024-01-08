@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 module Twenty
+  require "fileutils"
+  require "webrick"
+  require "active_record"
+  require_relative "twenty-backend/servlet"
+  require_relative "twenty-backend/migration"
+  require_relative "twenty-backend/model"
+
   ##
   # @return [String]
   #  Returns the path to the directory where twenty stores data.
@@ -8,9 +15,39 @@ module Twenty
     File.join(Dir.home, ".local", "share", "twenty")
   end
 
-  require "webrick"
-  require "active_record"
-  require_relative "twenty-backend/servlet"
-  require_relative "twenty-backend/migration"
-  require_relative "twenty-backend/model"
+  ##
+  # @return [String]
+  #  Returns the default SQLite database path.
+  def self.database_path
+    @database_path ||= File.join(home, "twenty.sqlite")
+  end
+
+  ##
+  # Establishes a database connection.
+  #
+  # @param [String] path
+  #  The path to a SQLite3 database file.
+  #
+  # @return [void]
+  def self.establish_connection(path:)
+    ActiveRecord::Base.establish_connection(
+      adapter: "sqlite3",
+      database: path,
+      pool: 3
+    )
+  end
+
+  ##
+  # Prepares the parent directory of the database.
+  # @return [void]
+  # @api private
+  def self.prepare_dir
+    return if File.exist?(database_path)
+    FileUtils.mkdir_p(home)
+    FileUtils.touch(database_path)
+  rescue => ex
+    warn "prepare_dir error: #{ex.message} (#{ex.class})"
+  end
+  private_class_method :prepare_dir
+  prepare_dir
 end
