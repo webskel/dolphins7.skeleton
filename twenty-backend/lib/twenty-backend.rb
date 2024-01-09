@@ -17,9 +17,9 @@ module Twenty
 
   ##
   # @return [String]
-  #  Returns the default SQLite database path.
-  def self.database_path
-    @database_path ||= File.join(home, "twenty.sqlite")
+  #  Returns the default SQLite database.
+  def self.default_database
+    @default_database ||= File.join(home, "twenty.sqlite")
   end
 
   ##
@@ -42,9 +42,9 @@ module Twenty
   # @return [void]
   # @api private
   def self.prepare_dir
-    return if File.exist?(database_path)
+    return if File.exist?(default_database)
     FileUtils.mkdir_p(home)
-    FileUtils.touch(database_path)
+    FileUtils.touch(default_database)
   rescue => ex
     warn "prepare_dir error: #{ex.message} (#{ex.class})"
   end
