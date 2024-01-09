@@ -47,8 +47,8 @@ export function Task({ task }: { task?: Task }) {
   return (
     <form className="task" onSubmit={handleSubmit(onSave)}>
       <input type="hidden" value={task?.id} {...register("id")} />
-      <div className="table">
-        <div className="table tabbed div">
+      <div className="panel">
+        <div className="panel-header panel-tabs">
           <ul className="tabs">
             <li
               className={classnames({ active: isEditable })}
@@ -64,7 +64,7 @@ export function Task({ task }: { task?: Task }) {
             </li>
           </ul>
         </div>
-        <div className="table content">
+        <div className="panel-body">
           <div>
             <Select {...register("projectId")} className="form">
               {projects.map((project, key) => {

@@ -1,7 +1,10 @@
 @import "fonts";
 @import "colors";
-@import "tables";
+@import "global";
+@import "layout";
+@import "panels";
 @import "lists";
+
 @import "vendor/forms";
 @import "vendor/animations";
 
@@ -9,39 +12,13 @@
   box-sizing: border-box;
 }
 
-html, html body, .root {
+html, html body, .wrapper {
   height: 100%;
 }
 
 body {
+  font-family: 'Courier new', serif;
   font-weight: normal;
-  font-family: "Noto Sans Regular";
-}
-
-body header {
-  width: 100%;
-  background: $gray1;
-  min-height: 40px;
-  border-bottom: 1px solid $gray3;
-  .wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    ul.nav {
-      display: flex;
-      flex-direction: row;
-      list-style-type: none;
-      column-gap: 10px;
-      align-items: center;
-      li a {
-        &:hover {
-          color: $blue;
-          text-decoration: none;
-          font-weight: bold;
-        }
-      }
-    }
-  }
 }
 
 .pt-20 { padding-top: 20px; }
@@ -50,24 +27,11 @@ body header {
 .mb-50 { margin-bottom: 50px; }
 .w-100 { width: 100%; }
 
-.max-width {
-  width: 75%;
-  max-width: 1024px;
-}
+.wrapper {
+  color: $secondary-color;
 
-.align-center {
-  margin: 0 auto;
-}
-
-.root {
-  color: $black;
-  .task {
-    .content {
-      padding: 10px;
-    }
-    .content, textarea {
-      min-height: 350px;
-    }
+  .react-mount {
+    padding-top: 25px;
   }
 
   .trash.icon, .done.icon {

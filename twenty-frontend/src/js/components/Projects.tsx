@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { NavBar } from "/components/NavBar";
 import { useProjects } from "/hooks/useProjects";
 
 export function Projects() {
@@ -9,23 +10,28 @@ export function Projects() {
   }, []);
 
   return (
-    <div className="table">
-      <div className="table div">
-        <span>Projects</span>
+    <div className="two-columns">
+      <div className="column-1">
+        <NavBar/>
       </div>
-      <div className="table content">
-        <ul className="items projects">
-          {projects.map((project, i) => {
-            return (
-              <li className="item" key={i}>
-                <a href={`/tasks#project_id=${project.id}`}>
-                  <span>{project.name}</span>
-                  <span className="path">{project.path}</span>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+      <div className="column-2">
+        <div className="panel">
+          <h1>Projects</h1>
+          <div className="panel-body">
+            <ul className="collection">
+              {projects.map((project, i) => {
+                return (
+                  <li className="item" key={i}>
+                    <a href={`/tasks#project_id=${project.id}`}>
+                      <span className="title">{project.name}</span>
+                      <span className="subtitle">{project.path}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

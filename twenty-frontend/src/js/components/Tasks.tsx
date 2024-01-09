@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTasks } from "/hooks/useTasks";
 import { useDestroyTask } from "/hooks/useDestroyTask";
 import { TrashIcon, DoneIcon } from "/components/Icons";
+import { NavBar } from "/components/NavBar";
 import { DateTime } from "luxon";
 import { Task, TASK_COMPLETE } from "/types/schema";
 import { useUpsertTask } from "/hooks/useUpsertTask";
@@ -49,53 +50,57 @@ export function Tasks() {
   }, []);
 
   return (
-    <div className="table">
-      <div className="table div">
-        <span>Tasks</span>
-        <a href="/tasks/new">New task</a>
+    <div className="two-columns">
+      <div className="column-1">
+        <NavBar/>
       </div>
-      <div className="table content">
-        <ul className="items tasks">
-          {tasks.map((task: Task, key: number) => {
-            const { updated_at: updatedAt } = task;
-            const datetime = DateTime.fromISO(updatedAt);
-            const wasDestroyed = task === destroyedTask;
-            const wasCompleted = task === completedTask;
-            const classes = { completed: wasCompleted, removed: wasDestroyed };
-            const editHref = `/tasks/edit#id=${task.id}`;
-            return (
-              <li className={classnames("item", classes)} key={key}>
-                <a href={editHref}>
-                  <span className="item title">{task.title}</span>
-                  <span className="date">
-                    {datetime.toFormat("dd LLL, yyyy")} at{" "}
-                    {datetime.toFormat("HH:mm")}
-                  </span>
-                </a>
-                <ul className="actions">
-                  <li>
-                    <DoneIcon
-                      title="Complete task"
-                      onClick={(e: React.MouseEvent) => [
-                        e.stopPropagation(),
-                        onComplete(task),
-                      ]}
-                    />
+      <div className="column-2">
+        <div className="panel">
+          <h1>Tasks</h1>
+          <div className="panel-body">
+            <ul className="collection">
+              {tasks.map((task: Task, key: number) => {
+                const { updated_at: updatedAt } = task;
+                const datetime = DateTime.fromISO(updatedAt);
+                const wasDestroyed = task === destroyedTask;
+                const wasCompleted = task === completedTask;
+                const classes = { completed: wasCompleted, removed: wasDestroyed };
+                const editHref = `/tasks/edit#id=${task.id}`;
+                return (
+                  <li className={classnames("item", classes)} key={key}>
+                    <a className="w-85" href={editHref}>
+                      <span className="title">{task.title}</span>
+                      <span className="subtitle">
+                        {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                        {datetime.toFormat("HH:mm")}
+                      </span>
+                    </a>
+                    <ul className="actions">
+                      <li>
+                        <DoneIcon
+                          title="Complete task"
+                          onClick={(e: React.MouseEvent) => [
+                            e.stopPropagation(),
+                            onComplete(task),
+                          ]}
+                        />
+                      </li>
+                      <li>
+                        <TrashIcon
+                          title="Delete task"
+                          onClick={(e: React.MouseEvent) => [
+                            e.stopPropagation(),
+                            onDestroy(task),
+                          ]}
+                        />
+                      </li>
+                    </ul>
                   </li>
-                  <li>
-                    <TrashIcon
-                      title="Delete task"
-                      onClick={(e: React.MouseEvent) => [
-                        e.stopPropagation(),
-                        onDestroy(task),
-                      ]}
-                    />
-                  </li>
-                </ul>
-              </li>
-            );
-          })}
-        </ul>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

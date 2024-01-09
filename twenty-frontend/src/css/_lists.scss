@@ -1,66 +1,108 @@
+/**
+ -----------------
+ | ul.collection |
+ -----------------
+**/
+
+ul.collection {
+  h1 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background: $primary-color;
+    color: $secondary-color;
+    height: 25px;
+    width: 100%;
+    font-size: medium;
+  }
+}
+
+ul.collection li.item {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+  a {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: space-between;
+    padding: 10px 10px 5px 0px;
+    .title {
+      display: flex;
+      padding-bottom: 5px;
+      font-size: smaller;
+    }
+    .subtitle {
+      font-size: small;
+      color: $secondary-color;
+    }
+  }
+  ul.actions {
+    list-style-type: none;
+    width: 5%;
+    display: flex;
+    place-content: flex-end;
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+ul.collection li.item.removed {
+  animation: bounceOutDown;
+  animation-duration: 0.5s;
+}
+
+ul.collection li.item.completed {
+  animation: bounceOutUp;
+  animation-duration: 0.5s;
+}
+
 ul.items {
   @import "colors";
   margin: 0;
   padding: 0;
   list-style-type: none;
 
-  li.item:first-child {
-    a {
-      border-top: 1px solid #FFF;
-    }
+
+}
+
+ul.items.nav {
+  border: 1px solid $secondary-color;
+  border-radius: 5px;
+  background: $secondary-color;
+  color: $primary-color;
+  width: 85%;
+  padding: 10px;
+
+  h1 {
+    height: unset;
+    font-size: smaller;
+    align-items: center;
+    background: $secondary-color;
+    color: $primary-color;
+    margin-top: 10px;
+  }
+  h1:first-child {
+    margin-top: unset;
   }
 
   li.item {
+    padding: 5px;
+    justify-content: space-between;
+    background: $primary-color;
+    color: $secondary-color;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    font-size: smaller;
+    height: 25px;
     a {
-      display: flex;
-      flex-direction: column;
-      height: 60px;
-      justify-content: space-between;
-      $blue: #008cff;
-      color: $blue;
-      padding: 10px 10px 5px 10px;
-      border-radius: 10px;
-      border: 1px solid #FFF;
-      border-top: 1px solid $gray1;
-
-      &:hover {
-        background: $gray1;
-        border: 1px solid $gray3;
-        cursor: pointer;
-        text-decoration: none;
-        color: $blue;
-      }
-
-      span {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-      span.date, span.path {
-        font-size: small;
-        color: $black;
-      }
+      display: inline;
+      height: unset;
+      padding: unset;
     }
-    ul.actions {
-      list-style-type: none;
-      width: 5%;
-      display: flex;
-      place-content: flex-end;
-      li {
-        display: flex;
-        align-items: center;
-      }
-    }
-  }
-  li.item.removed {
-    animation: bounceOutDown;
-    animation-duration: 0.5s;
-  }
-  li.item.completed {
-    animation: bounceOutUp;
-    animation-duration: 0.5s;
   }
 }
 

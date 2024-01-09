@@ -7,7 +7,7 @@
     width: 100%;
     color: #FFF;
     background: $gray1;
-    color: $black;
+    color: $secondary-color;
     border-radius: 2px;
     border: #cfcfc4 1px solid;
     border-bottom: none;
@@ -37,14 +37,14 @@
         min-width: 120px;
         text-align: center;
         background: darken($gray1, 10%);
-        color: lighten($black, 15%);
+        color: lighten($secondary-color, 15%);
         cursor: pointer;
         opacity: 0.5;
       }
       li.active, li:hover {
         font-weight: bold;
         background: #FFF;
-        color: $black;
+        color: $secondary-color;
         opacity: 1;
       }
     }

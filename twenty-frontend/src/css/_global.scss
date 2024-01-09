@@ -1,0 +1,17 @@
+body .wrapper {
+  a {
+    @import "colors";
+    color: $accent-color;
+    &:hover,
+    &:active,
+    &:visited {
+      color: $accent-color;
+      text-decoration: none;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  .w-85 { width: 85%; }
+}
