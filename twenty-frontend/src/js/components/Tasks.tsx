@@ -68,19 +68,23 @@ export function Tasks() {
                 const editHref = `/tasks/edit#id=${task.id}`;
                 return (
                   <li className={classnames("item", classes)} key={key}>
-                    <a className="w-85" href={editHref}>
-                      <span className="title">{task.title}</span>
-                      <span className="subtitle">
-                        <span className="datetime">
-                          {datetime.toFormat("dd LLL, yyyy")} at{" "}
-                          {datetime.toFormat("HH:mm")}
+                    <div className="w-85">
+                      <a className="w-100" href={editHref}>
+                        <span className="title">{task.title}</span>
+                        <span className="subtitle">
+                          <span className="datetime">
+                            {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                            {datetime.toFormat("HH:mm")}
+                          </span>
                         </span>
-                        <span className="break"></span>
+                      </a>
+                      <span className="break"></span>
+                      <span className="tags">
                         <span style={{backgroundColor: task.project.color}} className="tag">
                           {task.project.name}
                         </span>
                       </span>
-                    </a>
+                    </div>
                     <ul className="actions">
                       <li>
                         <DoneIcon

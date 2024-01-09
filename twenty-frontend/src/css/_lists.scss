@@ -38,22 +38,23 @@ ul.collection li.item {
     .subtitle {
       font-size: small;
       color: $secondary-color;
-      .tag {
-        padding: 2.5px;
-        color: $primary-color;
-        border: 1px solid $secondary-color;
-        border-radius: 5px;
-        font-size: small;
-        font-weight: bold;
-      }
-    }
-
-    .break {
-      display: flex;
-      height: 10px;
-      width: 100%;
     }
   }
+  .tags {
+    .tag {
+      color: $primary-color;
+      border: 1px solid $secondary-color;
+      border-radius: 5px;
+      font-size: small;
+      font-weight: bold;
+    }
+  }
+
+  .break {
+    display: flex;
+    width: 100%;
+  }
+
   ul.actions {
     list-style-type: none;
     width: 5%;
@@ -61,7 +62,7 @@ ul.collection li.item {
     place-content: flex-end;
     li {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
     }
   }
 }
