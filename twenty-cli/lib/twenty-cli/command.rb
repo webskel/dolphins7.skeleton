@@ -5,6 +5,7 @@ require "cmd"
 class Twenty::Command < Cmd
   ##
   # mixins
+  require_relative "command/mixin/common_option_mixin"
   require_relative "command/mixin/pending_migration_mixin"
   require_relative "command/mixin/sqlite_connection_mixin"
 
