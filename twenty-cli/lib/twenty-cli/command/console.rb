@@ -3,6 +3,7 @@
 class Twenty::Command::Console < Twenty::Command
   set_banner usage: "twenty console [OPTIONS]",
              description: "Start the twenty developer console"
+  include CommonOptionMixin
   prepend Twenty::Command::PendingMigrationMixin
   prepend Twenty::Command::SQLiteConnectionMixin
 
