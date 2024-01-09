@@ -10,16 +10,16 @@ module Twenty
 
   ##
   # @return [String]
-  #  Returns the path to the directory where twenty stores data.
+  #  Returns the directory where twenty stores data.
   def self.home
-    File.join(Dir.home, ".local", "share", "twenty")
+    File.join(Dir.home, ".local", "share", "20")
   end
 
   ##
   # @return [String]
   #  Returns the default SQLite database.
   def self.default_database
-    @default_database ||= File.join(home, "twenty.sqlite")
+    @default_database ||= File.join(home, "20.sqlite")
   end
 
   ##
