@@ -7,6 +7,7 @@ export type Project = {
   id: number;
   name: string;
   path: string;
+  color: string;
 };
 
 export type Task = {
@@ -14,7 +15,7 @@ export type Task = {
   title: string;
   content: string;
   status: TASK_STATUS;
+  project: Project;
   created_at: string;
   updated_at: string;
-  project_id: number;
 };

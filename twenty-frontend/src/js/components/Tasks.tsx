@@ -71,8 +71,14 @@ export function Tasks() {
                     <a className="w-85" href={editHref}>
                       <span className="title">{task.title}</span>
                       <span className="subtitle">
-                        {datetime.toFormat("dd LLL, yyyy")} at{" "}
-                        {datetime.toFormat("HH:mm")}
+                        <span className="datetime">
+                          {datetime.toFormat("dd LLL, yyyy")} at{" "}
+                          {datetime.toFormat("HH:mm")}
+                        </span>
+                        <span className="break"></span>
+                        <span style={{backgroundColor: task.project.color}} className="tag">
+                          {task.project.name}
+                        </span>
                       </span>
                     </a>
                     <ul className="actions">

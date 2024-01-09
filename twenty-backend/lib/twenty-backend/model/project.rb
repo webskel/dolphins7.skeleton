@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Twenty::Project < Twenty::Model
+  include Twenty::ColorableMixin
   self.table_name = "projects"
 
   ##
@@ -13,7 +14,7 @@ class Twenty::Project < Twenty::Model
   has_many :tasks, class_name: "Twenty::Task"
 
   def to_json(options = {})
-    {id:, name:, path:}.to_json(options)
+    {id:, name:, path:, color:}.to_json(options)
   end
 
   ##
