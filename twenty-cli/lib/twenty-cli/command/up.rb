@@ -3,11 +3,7 @@
 class Twenty::Command::Up < Twenty::Command
   set_banner usage: "twenty up [OPTIONS]",
              description: "Start the twenty web server"
-  set_option "-d PATH",
-             "--database PATH",
-             "The path to an alternate SQLite3 database",
-             as: String,
-             default: nil
+  include CommonOptionMixin
   prepend Twenty::Command::PendingMigrationMixin
   prepend Twenty::Command::SQLiteConnectionMixin
 
