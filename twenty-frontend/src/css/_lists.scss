@@ -23,6 +23,15 @@ ul.collection li.item {
   flex-wrap: wrap;
   height: 85px;
 
+  padding: 0px 2.5px 0 2.5px;
+  border-left: 1px solid $primary-color;
+  border-right: 1px solid $primary-color;
+
+  &:hover {
+    border-left: 1px solid $secondary-color;
+    border-right: 1px solid $secondary-color;
+  }
+
   a {
     display: flex;
     flex-direction: column;
