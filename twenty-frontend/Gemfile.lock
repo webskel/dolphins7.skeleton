@@ -90,6 +90,7 @@ GEM
       rack (>= 3)
       webrick (~> 1.8)
     rainpress (1.0.1)
+    rake (13.1.0)
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -124,6 +125,7 @@ DEPENDENCIES
   nanoc-live (~> 1.0)
   nanoc-webpack.rb (~> 0.4)
   rainpress (~> 1.0)
+  rake (~> 13.0)
   sass (~> 3.7)
   twenty-frontend!
 

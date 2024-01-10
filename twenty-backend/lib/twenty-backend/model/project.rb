@@ -13,10 +13,6 @@ class Twenty::Project < Twenty::Model
   # Associations
   has_many :tasks, class_name: "Twenty::Task"
 
-  def to_json(options = {})
-    {id:, name:, path:, color:}.to_json(options)
-  end
-
   ##
   # @return [String]
   #  The path to a project.

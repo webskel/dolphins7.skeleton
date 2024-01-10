@@ -4,6 +4,7 @@ module Twenty
   require "fileutils"
   require "webrick"
   require "active_record"
+  require_relative "twenty-backend/graphql"
   require_relative "twenty-backend/servlet"
   require_relative "twenty-backend/migration"
   require_relative "twenty-backend/model"

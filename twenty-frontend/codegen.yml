@@ -1,0 +1,7 @@
+schema:
+- ../twenty-backend/share/twenty-backend/schema.graphql
+
+generates:
+  src/js/types/schema.ts:
+    plugins:
+      - typescript

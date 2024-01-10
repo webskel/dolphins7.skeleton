@@ -2,7 +2,7 @@ export default async function (
   path: string,
   reqinit: RequestInit,
 ): Promise<Response> {
-  return fetch(path, reqinit).then(res => {
+  return await fetch(path, reqinit).then(res => {
     if (res.status === 200) {
       return res;
     } else {

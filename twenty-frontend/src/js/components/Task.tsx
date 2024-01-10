@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Select } from "/components/forms/Select";
-import { useUpsertTask } from "/hooks/useUpsertTask";
-import { useProjects } from "/hooks/useProjects";
-import { Task } from "/types/schema";
+import { useCreateTask } from "/hooks/mutations/useCreateTask";
+import { useUpdateTask } from "/hooks/mutations/useUpdateTask";
+import { useFindTask } from "/hooks/queries/useFindTask";
+import { useProjects } from "/hooks/queries/useProjects";
+import { Task, Project, TaskInput } from "/types/schema";
 import { rendermd } from "/lib/markdown-utils";
 import classnames from "classnames";
-
-type Inputs = {
-  id?: number;
-  title: string;
-  content: string;
-  projectId: number;
-};
 
 const DEFAULT_TASK_CONTENT = [
   "## Subtasks",
@@ -26,27 +21,38 @@ const DEFAULT_TASK_CONTENT = [
   "Add a description here....",
 ].join("\n");
 
-export function Task({ task }: { task?: Task }) {
-  const { register, handleSubmit, watch, setValue: set } = useForm<Inputs>();
-  const [isEditable, setIsEditable] = useState<boolean>(!task);
-  const upsert = useUpsertTask();
-  const projects = useProjects();
+export function Task({ taskId }: { taskId?: number }) {
+  const { register, handleSubmit, watch, setValue: set } = useForm<TaskInput>();
+  const [isEditable, setIsEditable] = useState<boolean>(!taskId);
+  const [createTask] = useCreateTask();
+  const [updateTask] = useUpdateTask();
+  const { data: taskData, loading: findingTask } = useFindTask(Number(taskId));
+  const { data: projectsData, loading: findingProjects } = useProjects();
+  const task = taskData?.findTask;
+  const projects = projectsData?.projects;
   const content = watch("content");
-  const onSave = (input: Inputs) => {
-    upsert({ input }).then(() => {
-      location.href = "/tasks/";
-    });
+  const onSave = (input: TaskInput) => {
+    if (taskId) {
+      updateTask({ variables: { taskId, input } })
+        .then(() => location.href = '/tasks');
+    } else {
+      createTask({ variables: { input } })
+        .then(() => location.href = '/tasks');
+    }
   };
 
   useEffect(() => {
-    const title = task ? task.title : 'New task';
+    const title = task ? task.title : "New task";
     document.title = title;
     set("projectId", 1);
   }, []);
 
+  if (findingProjects || findingTask) {
+    return null;
+  }
+
   return (
     <form className="task" onSubmit={handleSubmit(onSave)}>
-      <input type="hidden" value={task?.id} {...register("id")} />
       <div className="panel">
         <div className="panel-header panel-tabs">
           <ul className="tabs">
@@ -67,7 +73,7 @@ export function Task({ task }: { task?: Task }) {
         <div className="panel-body">
           <div>
             <Select {...register("projectId")} className="form">
-              {projects.map((project, key) => {
+              {projects.map((project: Project, key: number) => {
                 return (
                   <option key={key} value={project.id}>
                     {project.name}
@@ -84,6 +90,7 @@ export function Task({ task }: { task?: Task }) {
               defaultValue={task?.title}
               {...register("title", { required: true })}
             />
+            <input type="hidden" name="projectId" {...register("projectId")} />
           </div>
           {isEditable ? (
             <>

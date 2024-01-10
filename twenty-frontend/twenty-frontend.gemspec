@@ -13,4 +13,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.summary = "twenty: frontend"
   gem.description = gem.summary
+  gem.add_development_dependency "rake", "~> 13.0"
 end
