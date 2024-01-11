@@ -4,12 +4,12 @@ import { useDestroyTask } from "/hooks/mutations/useDestroyTask";
 import { TrashIcon, DoneIcon } from "/components/Icons";
 import { NavBar } from "/components/NavBar";
 import { DateTime } from "luxon";
-import { Task } from "/types/schema";
+import { Task, TaskStatus } from "/types/schema";
 import classnames from "classnames";
 import { useCompleteTask } from "/hooks/mutations/useCompleteTask";
 
 export function Tasks() {
-  const { refetch, loading, data } = useTasks();
+  const { refetch, loading, data } = useTasks({variables: {status: TaskStatus.Ready}});
   const tasks = data?.tasks;
   const [destroyTask] = useDestroyTask();
   const [completeTask] = useCompleteTask();
