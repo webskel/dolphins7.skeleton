@@ -1,58 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { useTasks } from "/hooks/useTasks";
-import { useDestroyTask } from "/hooks/useDestroyTask";
+import { useTasks } from "/hooks/queries/useTasks";
+import { useDestroyTask } from "/hooks/mutations/useDestroyTask";
 import { TrashIcon, DoneIcon } from "/components/Icons";
 import { NavBar } from "/components/NavBar";
 import { DateTime } from "luxon";
-import { Task, TASK_COMPLETE } from "/types/schema";
-import { useUpsertTask } from "/hooks/useUpsertTask";
+import { Task } from "/types/schema";
 import classnames from "classnames";
-
-type Action = () => Promise<unknown>;
-type ActionContext = {
-  on: Task;
-  tasks: Task[];
-  setTask: (t: Task | null) => unknown;
-};
+import { useCompleteTask } from "/hooks/mutations/useCompleteTask";
 
 export function Tasks() {
-  const [destroyedTask, setDestroyedTask] = useState<Task | null>(null);
-  const [completedTask, setCompletedTask] = useState<Task | null>(null);
-  const { tasks, setTasks } = useTasks();
-  const upsertTask = useUpsertTask();
-  const destroyTask = useDestroyTask();
-  const perform = (
-    action: Action,
-    { on: task, tasks, setTask }: ActionContext,
-  ) => {
-    action()
-      .then(() => tasks.filter((t: Task) => t.id !== task.id))
-      .then((tasks: Task[]) => {
-        setTask(task);
-        setTimeout(() => {
-          setTasks(tasks);
-          setTask(null);
-        }, 500);
-      });
-  };
-  const onDestroy = (task: Task) => {
-    const action = () => destroyTask({ id: task.id });
-    perform(action, { on: task, tasks, setTask: setDestroyedTask });
-  };
-  const onComplete = (task: Task) => {
-    const action = () =>
-      upsertTask({ input: { id: task.id, status: TASK_COMPLETE } });
-    perform(action, { on: task, tasks, setTask: setCompletedTask });
-  };
+  const { refetch, loading, data } = useTasks();
+  const tasks = data?.tasks;
+  const [destroyTask] = useDestroyTask();
+  const [completeTask] = useCompleteTask();
+  const [destroyedTask, setDestroyedTask] = useState<Task>(null);
+  const [completedTask, setCompletedTask] = useState<Task>(null);
 
   useEffect(() => {
     document.title = "Tasks";
   }, []);
 
+  if (loading) {
+    return null;
+  }
+
   return (
     <div className="two-columns">
       <div className="column-1">
-        <NavBar/>
+        <NavBar />
       </div>
       <div className="column-2">
         <div className="panel">
@@ -60,11 +35,14 @@ export function Tasks() {
           <div className="panel-body">
             <ul className="collection">
               {tasks.map((task: Task, key: number) => {
-                const { updated_at: updatedAt } = task;
+                const { updatedAt } = task;
                 const datetime = DateTime.fromISO(updatedAt);
                 const wasDestroyed = task === destroyedTask;
                 const wasCompleted = task === completedTask;
-                const classes = { completed: wasCompleted, removed: wasDestroyed };
+                const classes = {
+                  completed: wasCompleted,
+                  removed: wasDestroyed,
+                };
                 const editHref = `/tasks/edit#id=${task.id}`;
                 return (
                   <li className={classnames("item", classes)} key={key}>
@@ -78,9 +56,12 @@ export function Tasks() {
                           </span>
                         </span>
                       </a>
-                      <span className="break"></span>
+                      <span className="break" />
                       <span className="tags">
-                        <span style={{backgroundColor: task.project.color}} className="tag">
+                        <span
+                          style={{ backgroundColor: task.project.color }}
+                          className="tag"
+                        >
                           {task.project.name}
                         </span>
                       </span>
@@ -89,19 +70,25 @@ export function Tasks() {
                       <li>
                         <DoneIcon
                           title="Complete task"
-                          onClick={(e: React.MouseEvent) => [
-                            e.stopPropagation(),
-                            onComplete(task),
-                          ]}
+                          onClick={async (_e: React.MouseEvent) => {
+                            await completeTask({
+                              variables: { taskId: task.id },
+                            });
+                            setCompletedTask(task);
+                            setTimeout(refetch, 500);
+                          }}
                         />
                       </li>
                       <li>
                         <TrashIcon
                           title="Delete task"
-                          onClick={(e: React.MouseEvent) => [
-                            e.stopPropagation(),
-                            onDestroy(task),
-                          ]}
+                          onClick={async (_e: React.MouseEvent) => {
+                            await destroyTask({
+                              variables: { taskId: task.id },
+                            });
+                            setDestroyedTask(task);
+                            setTimeout(refetch, 500);
+                          }}
                         />
                       </li>
                     </ul>

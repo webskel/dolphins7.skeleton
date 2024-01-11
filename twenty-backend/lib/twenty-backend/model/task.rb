@@ -15,9 +15,4 @@ class Twenty::Task < Twenty::Model
   ##
   # Associations
   belongs_to :project, class_name: "Twenty::Project"
-
-  def as_json(options = {})
-    {id:, title:, content:, status:,
-     project:, created_at:, updated_at:}.as_json(options)
-  end
 end
