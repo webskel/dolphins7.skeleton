@@ -8,7 +8,7 @@ class Twenty::Servlet::GraphQL < Twenty::Servlet
       variables: params['variables'],
       context: {}
     )
-    res.headers['content_type'] = 'application/json'
+    res['content_type'] = 'application/json'
     res.status = 200
     res.body = result.to_json
   end
