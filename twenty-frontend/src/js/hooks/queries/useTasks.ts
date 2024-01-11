@@ -8,6 +8,7 @@ const GQL = gql`
       status
       updatedAt
       project {
+        name
         color
       }
     }
