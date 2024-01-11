@@ -110,7 +110,6 @@ export function Task({ taskId }: { taskId?: number }) {
               defaultValue={task?.title}
               {...register("title", { required: true })}
             />
-            <input type="hidden" name="projectId" {...register("projectId")} />
           </div>
           {isEditable ? (
             <>
