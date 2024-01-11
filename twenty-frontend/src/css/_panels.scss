@@ -33,8 +33,8 @@
       border-radius: 5px;
       min-width: 120px;
       text-align: center;
-      background: $secondary-color;
-      color: lighten($secondary-color, 15%);
+      background: $primary-color;
+      color: $secondary-color;
       cursor: pointer;
       opacity: 0.5;
     }
@@ -51,6 +51,9 @@
   width: 100%;
   .task.content {
     padding: 10px;
+    ul {
+      padding: revert;
+    }
     ul li {
       line-height: 1.7em;
     }
