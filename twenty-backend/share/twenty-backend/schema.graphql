@@ -35,7 +35,7 @@ type Mutation {
 
 type Project {
   color: String!
-  id: ID!
+  id: Int!
   name: String!
   path: String!
   tasks: [Task!]!

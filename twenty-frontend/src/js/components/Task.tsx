@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Select } from "/components/forms/Select";
 import { useCreateTask } from "/hooks/mutations/useCreateTask";
 import { useUpdateTask } from "/hooks/mutations/useUpdateTask";
 import { useFindTask } from "/hooks/queries/useFindTask";
 import { useProjects } from "/hooks/queries/useProjects";
-import { Task, Project, TaskInput } from "/types/schema";
+import { Task, Project, TaskInput, Maybe } from "/types/schema";
 import { rendermd } from "/lib/markdown-utils";
 import classnames from "classnames";
 
@@ -22,30 +21,43 @@ const DEFAULT_TASK_CONTENT = [
 ].join("\n");
 
 export function Task({ taskId }: { taskId?: number }) {
-  const { register, handleSubmit, watch, setValue: set } = useForm<TaskInput>();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue: set,
+  } = useForm<TaskInput>({
+    defaultValues: { projectId: 1 },
+  });
   const [isEditable, setIsEditable] = useState<boolean>(!taskId);
   const [createTask] = useCreateTask();
-  const [updateTask] = useUpdateTask();
+  const updateTask = useUpdateTask();
   const { data: taskData, loading: findingTask } = useFindTask(Number(taskId));
   const { data: projectsData, loading: findingProjects } = useProjects();
   const task = taskData?.findTask;
   const projects = projectsData?.projects;
   const content = watch("content");
+  const projectId: Maybe<number> = watch("projectId");
   const onSave = (input: TaskInput) => {
     if (taskId) {
-      updateTask({ variables: { taskId, input } })
-        .then(() => location.href = '/tasks');
+      updateTask({ variables: { taskId, input } }).then(
+        () => (location.href = "/tasks"),
+      );
     } else {
-      createTask({ variables: { input } })
-        .then(() => location.href = '/tasks');
+      createTask({ variables: { input } }).then(
+        () => (location.href = "/tasks"),
+      );
     }
   };
 
   useEffect(() => {
     const title = task ? task.title : "New task";
     document.title = title;
-    set("projectId", 1);
   }, []);
+
+  useEffect(() => {
+    set("projectId", task?.project?.id);
+  }, [task?.project?.id]);
 
   if (findingProjects || findingTask) {
     return null;
@@ -72,7 +84,15 @@ export function Task({ taskId }: { taskId?: number }) {
         </div>
         <div className="panel-body">
           <div>
-            <Select {...register("projectId")} className="form">
+            <select
+              {...register("projectId")}
+              className="form"
+              value={projectId}
+              onChange={event => {
+                const v: string = event.target.value;
+                set("projectId", Number(v));
+              }}
+            >
               {projects.map((project: Project, key: number) => {
                 return (
                   <option key={key} value={project.id}>
@@ -80,7 +100,7 @@ export function Task({ taskId }: { taskId?: number }) {
                   </option>
                 );
               })}
-            </Select>
+            </select>
           </div>
           <div>
             <input

@@ -77,7 +77,7 @@ export type MutationUpdateTaskArgs = {
 export type Project = {
   __typename?: "Project";
   color: Scalars["String"]["output"];
-  id: Scalars["ID"]["output"];
+  id: Scalars["Int"]["output"];
   name: Scalars["String"]["output"];
   path: Scalars["String"]["output"];
   tasks: Array<Task>;

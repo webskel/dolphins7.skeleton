@@ -1,4 +1,8 @@
-import { UpdateTaskPayload, MutationUpdateTaskArgs } from "/types/schema";
+import {
+  UpdateTaskPayload,
+  MutationUpdateTaskArgs,
+  TaskInput,
+} from "/types/schema";
 import { gql, useMutation } from "@apollo/client";
 
 const GQL = gql`
@@ -9,6 +13,18 @@ const GQL = gql`
   }
 `;
 
+type TArgs = {
+  variables: { taskId: number; input: TaskInput };
+};
+
 export function useUpdateTask() {
-  return useMutation<UpdateTaskPayload, MutationUpdateTaskArgs>(GQL);
+  const [update] = useMutation<UpdateTaskPayload, MutationUpdateTaskArgs>(GQL);
+  return ({ variables: { taskId, input }, ...rest }: TArgs) => {
+    const projectId = Number(input.projectId);
+    const variables = {
+      taskId,
+      input: { ...input, ...{ projectId } },
+    };
+    return update({ variables, ...rest });
+  };
 }
