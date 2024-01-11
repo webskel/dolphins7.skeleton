@@ -44,12 +44,13 @@ type Project {
 type Query {
   findTask(taskId: Int!): Task
   projects: [Project!]!
-  tasks: [Task!]!
+  tasks(status: TaskStatus!): [Task!]!
 }
 
 type Task {
   content: String!
   id: Int!
+  isReady: Boolean!
   project: Project!
   status: TaskStatus!
   title: String!
@@ -57,9 +58,10 @@ type Task {
 }
 
 input TaskInput {
-  content: String!
-  projectId: Int!
-  title: String!
+  content: String
+  projectId: Int
+  status: TaskStatus
+  title: String
 }
 
 enum TaskStatus {

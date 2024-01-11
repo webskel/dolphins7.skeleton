@@ -1,11 +1,13 @@
 import { useQuery, gql } from "@apollo/client";
+import { Task } from "/types/schema";
 
-const GQL = gql`
-  query Query {
-    tasks {
+export const GET_TASKS = gql`
+  query GetTasks($status: TaskStatus!) {
+    tasks(status: $status) {
       id
       title
       status
+      isReady
       updatedAt
       project {
         name
@@ -15,6 +17,6 @@ const GQL = gql`
   }
 `;
 
-export function useTasks() {
-  return useQuery(GQL);
+export function useTasks({ ...rest }) {
+  return useQuery<{ tasks: Task[] }>(GET_TASKS, rest);
 }

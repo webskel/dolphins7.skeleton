@@ -1,7 +1,9 @@
 module Twenty::GraphQL::Input
   class TaskInput < GraphQL::Schema::InputObject
-    argument :title, String
-    argument :content, String
-    argument :project_id, Int
+    require_relative "../type/task_status"
+    argument :title, String, required: false
+    argument :content, String, required: false
+    argument :project_id, Int, required: false
+    argument :status, Twenty::GraphQL::Type::TaskStatus, required: false
   end
 end

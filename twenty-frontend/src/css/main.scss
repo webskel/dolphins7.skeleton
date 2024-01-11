@@ -2,7 +2,7 @@
 @import "colors";
 @import "global";
 @import "layout";
-@import "panels";
+@import "groups";
 @import "lists";
 
 @import "vendor/forms";
@@ -34,12 +34,12 @@ body {
     padding-top: 25px;
   }
 
-  .trash.icon, .done.icon {
+  .destroy-task.icon, .complete-task.icon, .start-task.icon {
     height: 20px;
     width: 20px;
     cursor: pointer;
   }
-  .trash.icon {
+  .destroy-task.icon {
     g {
       fill: #d9534f;
     }

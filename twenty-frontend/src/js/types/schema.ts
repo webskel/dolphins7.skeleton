@@ -94,10 +94,15 @@ export type QueryFindTaskArgs = {
   taskId: Scalars["Int"]["input"];
 };
 
+export type QueryTasksArgs = {
+  status: TaskStatus;
+};
+
 export type Task = {
   __typename?: "Task";
   content: Scalars["String"]["output"];
   id: Scalars["Int"]["output"];
+  isReady: Scalars["Boolean"]["output"];
   project: Project;
   status: TaskStatus;
   title: Scalars["String"]["output"];
@@ -105,9 +110,10 @@ export type Task = {
 };
 
 export type TaskInput = {
-  content: Scalars["String"]["input"];
-  projectId: Scalars["Int"]["input"];
-  title: Scalars["String"]["input"];
+  content?: InputMaybe<Scalars["String"]["input"]>;
+  projectId?: InputMaybe<Scalars["Int"]["input"]>;
+  status?: InputMaybe<TaskStatus>;
+  title?: InputMaybe<Scalars["String"]["input"]>;
 };
 
 export enum TaskStatus {
