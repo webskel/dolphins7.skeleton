@@ -21,8 +21,12 @@ export function Tasks() {
       </div>
       <div className="column-2">
         <h1>Tasks</h1>
-        <Group groupName="Active" getItems={getTasks(TaskStatus.InProgress)} />
+        <Group
+          groupName="Working on it"
+          getItems={getTasks(TaskStatus.InProgress)}
+        />
         <Group groupName="Ready" getItems={getTasks(TaskStatus.Ready)} />
+        <Group groupName="Backlog" getItems={getTasks(TaskStatus.Backlog)} />
       </div>
     </div>
   );

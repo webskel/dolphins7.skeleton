@@ -71,9 +71,21 @@ export function Task({ taskId }: { taskId?: number }) {
         <NavBar />
       </div>
       <div className="column-2 h-100">
+        <h1>{task ? "Edit task" : "New task"}</h1>
         <form className="group h-100" onSubmit={handleSubmit(onSave)}>
-          <div className="group-name' h-100">
-            <h1>{task ? "Edit task" : "New task"}</h1>
+          <div className="group-name">
+            <ul className="tabs">
+              <li className={classnames("tab", { active: isEditable })}>
+                <a href="#" onClick={() => setIsEditable(true)}>
+                  Editor
+                </a>
+              </li>
+              <li className={classnames("tab", { active: !isEditable })}>
+                <a href="#" onClick={() => setIsEditable(false)}>
+                  Preview
+                </a>
+              </li>
+            </ul>
           </div>
           <div className="group-items h-80">
             <div>
@@ -95,7 +107,6 @@ export function Task({ taskId }: { taskId?: number }) {
                 })}
               </select>
             </div>
-
             <div>
               <input
                 className="form"

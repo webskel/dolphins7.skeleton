@@ -33,15 +33,4 @@ body {
   .react-mount {
     padding-top: 25px;
   }
-
-  .destroy-task.icon, .complete-task.icon, .start-task.icon {
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-  }
-  .destroy-task.icon {
-    g {
-      fill: #d9534f;
-    }
-  }
 }

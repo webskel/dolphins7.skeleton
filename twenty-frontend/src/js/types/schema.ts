@@ -102,6 +102,9 @@ export type Task = {
   __typename?: "Task";
   content: Scalars["String"]["output"];
   id: Scalars["Int"]["output"];
+  inProgress: Scalars["Boolean"]["output"];
+  isBacklogged: Scalars["Boolean"]["output"];
+  isComplete: Scalars["Boolean"]["output"];
   isReady: Scalars["Boolean"]["output"];
   project: Project;
   status: TaskStatus;
@@ -117,6 +120,7 @@ export type TaskInput = {
 };
 
 export enum TaskStatus {
+  Backlog = "backlog",
   Complete = "complete",
   InProgress = "in_progress",
   Ready = "ready",

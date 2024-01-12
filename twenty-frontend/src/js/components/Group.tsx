@@ -22,7 +22,7 @@ export function Group({ groupName, getItems }: Props) {
     <div className="group">
       <h1 className="group-name">{groupName}</h1>
       <div className="group-items">
-        {items.length ? (
+        {items?.length ? (
           <ul className="items">
             {items.map((task: Task, key: number) => {
               const { updatedAt } = task;

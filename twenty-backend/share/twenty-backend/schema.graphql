@@ -50,6 +50,9 @@ type Query {
 type Task {
   content: String!
   id: Int!
+  inProgress: Boolean!
+  isBacklogged: Boolean!
+  isComplete: Boolean!
   isReady: Boolean!
   project: Project!
   status: TaskStatus!
@@ -65,6 +68,7 @@ input TaskInput {
 }
 
 enum TaskStatus {
+  backlog
   complete
   in_progress
   ready

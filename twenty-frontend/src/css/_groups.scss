@@ -2,6 +2,7 @@ body .wrapper .group {
   @import "colors";
   width: 100%;
   margin-bottom: 10px;
+
   .group-name {
     margin: 10px 0 10px 0;
     padding: 10px;
@@ -9,6 +10,30 @@ body .wrapper .group {
     color: $primary-color;
     font-size: small;
     border-radius: 5px;
+
+    ul.tabs {
+      list-style-type: none;
+      display: flex;
+      grid-gap: 15px;
+
+      li.tab {
+        a {
+          display: block;
+          background: $primary-color;
+          color: $accent-color;
+          padding: 5px;
+          border-radius: 5px;
+          &:focus {
+            text-decoration: none;
+          }
+        }
+      }
+      li.tab.active {
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   .group-items {
@@ -40,8 +65,10 @@ body .wrapper .group {
 
           a {
             color: $primary-color;
+            text-decoration: none;
             .subtitle {
               color: $primary-color;
+              text-decoration: none;
             }
           }
         }

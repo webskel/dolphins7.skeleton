@@ -20,8 +20,9 @@ export function TaskStatusSelect({ task }: Props) {
 
   return (
     <select value={task.status} onChange={onChange}>
-      <option value={TaskStatus.InProgress}>Active</option>
+      <option value={TaskStatus.Backlog}>Backlog</option>
       <option value={TaskStatus.Ready}>Ready</option>
+      <option value={TaskStatus.InProgress}>Working on it</option>
       <option value={TaskStatus.Complete}>Complete</option>
     </select>
   );
