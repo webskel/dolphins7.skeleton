@@ -34,7 +34,7 @@ module Twenty
     ActiveRecord::Base.establish_connection(
       adapter: "sqlite3",
       database: path,
-      pool: 3
+      pool: 16
     )
   end
 

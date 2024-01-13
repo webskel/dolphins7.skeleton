@@ -3,7 +3,7 @@ import {
   MutationUpdateTaskArgs,
   TaskInput,
 } from "/types/schema";
-import { gql, useMutation } from "@apollo/client";
+import { gql, useMutation, DocumentNode } from "@apollo/client";
 
 const GQL = gql`
   mutation UpdateTask($taskId: Int!, $input: TaskInput!) {
@@ -15,16 +15,24 @@ const GQL = gql`
 
 type TArgs = {
   variables: { taskId: number; input: TaskInput };
+  refetchQueries?: Array<string | DocumentNode>;
+  awaitRefetchQueries?: boolean;
 };
 
 export function useUpdateTask() {
   const [update] = useMutation<UpdateTaskPayload, MutationUpdateTaskArgs>(GQL);
-  return ({ variables: { taskId, input }, ...rest }: TArgs) => {
-    const projectId = Number(input.projectId);
-    const variables = {
-      taskId,
-      input: { ...input, ...{ projectId } },
-    };
-    return update({ variables, ...rest });
+  return ({
+    awaitRefetchQueries,
+    refetchQueries,
+    variables: { taskId, input },
+    ...rest
+  }: TArgs) => {
+    const projectId = input.projectId ? Number(input.projectId) : null;
+    const variables = { taskId, input: {} };
+    Object.assign(
+      variables,
+      projectId ? { input: { ...input, projectId } } : { input },
+    );
+    return update({ variables, awaitRefetchQueries, refetchQueries, ...rest });
   };
 }

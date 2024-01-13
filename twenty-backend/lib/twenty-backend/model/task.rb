@@ -3,8 +3,8 @@
 class Twenty::Task < Twenty::Model
   self.table_name = "tasks"
 
-  STATUS = {ready: 0, in_progress: 1, complete: 2}
-  enum :status, STATUS, default: :ready
+  STATUS = {backlog: 0, ready: 1, in_progress: 2, complete: 3}
+  enum :status, STATUS, default: :backlog
 
   ##
   # Validations

@@ -66,82 +66,78 @@ export function Task({ taskId }: { taskId?: number }) {
   }
 
   return (
-    <div className="two-columns h-100">
-      <div className="column-1">
+    <div className="flex w-100 h-100">
+      <div className="w-25">
         <NavBar />
       </div>
-      <div className="column-2 h-100">
-        <form className="task h-100" onSubmit={handleSubmit(onSave)}>
-          <div className="panel h-100">
-            <h1>{task ? "Edit task" : "New task"}</h1>
-            <div className="panel-header panel-tabs">
-              <ul className="tabs">
-                <li
-                  className={classnames({ active: isEditable })}
-                  onClick={() => setIsEditable(true)}
-                >
-                  Write
-                </li>
-                <li
-                  className={classnames({ active: !isEditable })}
-                  onClick={() => setIsEditable(false)}
-                >
+      <div className="w-75 h-100">
+        <h1>{task ? "Edit task" : "New task"}</h1>
+        <form className="group h-100" onSubmit={handleSubmit(onSave)}>
+          <div className="group-name">
+            <ul className="tabs">
+              <li className={classnames("tab", { active: isEditable })}>
+                <a href="#" onClick={() => setIsEditable(true)}>
+                  Editor
+                </a>
+              </li>
+              <li className={classnames("tab", { active: !isEditable })}>
+                <a href="#" onClick={() => setIsEditable(false)}>
                   Preview
-                </li>
-              </ul>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="group-items h-80">
+            <div>
+              <select
+                {...register("projectId")}
+                className="form"
+                value={projectId}
+                onChange={event => {
+                  const v: string = event.target.value;
+                  set("projectId", Number(v));
+                }}
+              >
+                {projects.map((project: Project, key: number) => {
+                  return (
+                    <option key={key} value={project.id}>
+                      {project.name}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
-            <div className="panel-body h-80">
-              <div>
-                <select
-                  {...register("projectId")}
-                  className="form"
-                  value={projectId}
-                  onChange={event => {
-                    const v: string = event.target.value;
-                    set("projectId", Number(v));
-                  }}
-                >
-                  {projects.map((project: Project, key: number) => {
-                    return (
-                      <option key={key} value={project.id}>
-                        {project.name}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              <div>
-                <input
-                  className="form"
-                  type="text"
-                  placeholder="Title"
-                  defaultValue={task?.title}
-                  {...register("title", { required: true })}
-                />
-              </div>
-              {isEditable ? (
-                <>
-                  <div className="row textarea h-70">
-                    <textarea
-                      className="form h-100"
-                      placeholder="Add your description heren"
-                      defaultValue={task?.content || DEFAULT_TASK_CONTENT}
-                      {...register("content", { required: true })}
-                    />
-                  </div>
-                  <div className="row">
-                    <input className="form" type="submit" value="Save" />
-                  </div>
-                </>
-              ) : (
-                <div
-                  className="task content h-50"
-                  dangerouslySetInnerHTML={{
-                    __html: rendermd(content || task?.content),
-                  }}
-                />
-              )}
+            <div>
+              <input
+                className="form"
+                type="text"
+                placeholder="Title"
+                defaultValue={task?.title}
+                {...register("title", { required: true })}
+              />
             </div>
+            {isEditable ? (
+              <>
+                <div className="row textarea h-70">
+                  <textarea
+                    className="form h-100"
+                    placeholder="Add your description heren"
+                    defaultValue={task?.content || DEFAULT_TASK_CONTENT}
+                    {...register("content", { required: true })}
+                  />
+                </div>
+                <div className="row">
+                  <input className="form" type="submit" value="Save" />
+                </div>
+              </>
+            ) : (
+              <div
+                className="markdown h-50"
+                dangerouslySetInnerHTML={{
+                  __html: rendermd(content || task?.content),
+                }}
+              />
+            )}
           </div>
         </form>
       </div>

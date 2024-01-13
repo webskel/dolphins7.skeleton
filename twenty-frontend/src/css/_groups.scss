@@ -1,0 +1,116 @@
+body .wrapper .group {
+  @import "colors";
+  width: 100%;
+  margin-bottom: 10px;
+
+  .group-name {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    background: $secondary-color;
+    color: $primary-color;
+    border-radius: 5px;
+
+    ul.tabs {
+      list-style-type: none;
+      display: flex;
+      grid-gap: 15px;
+      font-size: medium;
+
+      li.tab {
+        height: 24px;
+        width: 100px;
+        a {
+          display: block;
+          background: $primary-color;
+          color: $accent-color;
+          border-radius: 5px;
+          height: 100%;
+          &:focus {
+            text-decoration: none;
+          }
+        }
+      }
+      li.tab.active {
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .group-items {
+    min-height: 75px;
+
+    p.empty-group {
+      padding-top: 2.5%;
+    }
+
+    ul.items {
+      li.item {
+        display: flex;
+        padding: 7.5px;
+        border: 1px solid $primary-color;
+
+        select {
+          height: 35px;
+          padding: 10px;
+          background: $primary-color;
+        }
+
+        &:hover {
+          background: $secondary-color;
+          color: $primary-color;
+          border-radius: 10px;
+          border: 1px solid $secondary-color;
+
+          a {
+            color: $primary-color;
+            text-decoration: none;
+            span {
+              color: $primary-color;
+              text-decoration: none;
+            }
+          }
+        }
+
+        a {
+          display: flex;
+          flex-direction: column;
+          height: 50px;
+          justify-content: space-between;
+          padding: 10px 10px 5px 0px;
+
+          .title {
+            display: flex;
+            padding-bottom: 5px;
+          }
+
+          .subtitle {
+            color: $secondary-color;
+          }
+        }
+
+        .tags {
+          .tag {
+            color: $primary-color;
+            border: 1px solid $secondary-color;
+            border-radius: 5px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.markdown {
+  ul ,
+  ul li,
+  ul li.task-list-item input[type='checkbox']
+  {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  h1, h2, h3, h4, p {
+  }
+}
