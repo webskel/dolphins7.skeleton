@@ -2,7 +2,6 @@ import { ApolloProvider } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Task as Component } from "/components/Task";
-import { Task } from "/types/schema";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 (function () {
@@ -16,7 +15,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
     uri: "/servlet/graphql",
     cache: new InMemoryCache(),
   });
-  const root = document.querySelector(".react-mount.edit-task")!;
+  const root = document.querySelector(".react-mount")!;
   ReactDOM.createRoot(root).render(
     <ApolloProvider client={client}>
       <Component taskId={Number(params.id)} />

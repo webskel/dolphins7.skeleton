@@ -2,9 +2,8 @@
 
 ##
 # GET /
-compile '/html/projects/index.html.erb' do
-  layout "/default.*"
-  filter(:erb)
+compile '/html/react.html.erb', rep: "projects/index" do
+  filter(:erb, locals: {src: "/js/main/projects.js"})
   write('/projects/index.html')
 end
 

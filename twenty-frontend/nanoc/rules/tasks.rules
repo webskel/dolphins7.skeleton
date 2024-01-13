@@ -2,9 +2,8 @@
 
 ##
 # GET /tasks/new/
-compile '/html/tasks/new/index.html.erb' do
-  layout "/default.*"
-  filter(:erb)
+compile '/html/react.html.erb', rep: "tasks/new" do
+  filter(:erb, locals: {src: "/js/main/task/new.js"})
   write("/tasks/new/index.html")
 end
 
@@ -18,11 +17,9 @@ end
 ##
 # GET /
 # GET /tasks/
-compile("/html/tasks/index.html.erb") do
-  layout "/default.*"
-  filter(:erb)
+compile("/html/react.html.erb", rep: "tasks/index") do
+  filter(:erb, locals: {src: "/js/main/tasks.js"})
   write("/tasks/index.html")
-  write("/index.html")
 end
 
 ##
@@ -34,9 +31,8 @@ end
 
 ##
 # GET /tasks/edit#id=X
-compile("/html/tasks/edit/index.html.erb") do
-  layout "/default.*"
-  filter(:erb)
+compile("/html/react.html.erb") do
+  filter(:erb, locals: {src: '/js/main/task/edit.js'})
   write("/tasks/edit/index.html")
 end
 

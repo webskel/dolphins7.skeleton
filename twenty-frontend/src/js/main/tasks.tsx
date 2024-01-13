@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Tasks } from "/components/Tasks";
 
 (function () {
-  const root = document.querySelector(".react-mount.tasks")!;
+  const root = document.querySelector(".react-mount")!;
   const client = new ApolloClient({
     uri: "/servlet/graphql",
     cache: new InMemoryCache(),
