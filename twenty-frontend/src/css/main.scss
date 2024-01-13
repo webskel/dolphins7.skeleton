@@ -17,12 +17,7 @@ body {
   font-weight: normal;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-.secondary-hover {
+.hover-bg-secondary {
   &:hover {
     @extend .no-underline;
     @extend .p-3;

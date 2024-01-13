@@ -12,7 +12,7 @@ const ACTIVE_CLASSNAMES = [
 const INACTIVE_CLASSNAMES = [
   ...BASE_CLASSNAMES,
   "text-accent",
-  "secondary-hover",
+  "hover-bg-secondary",
 ].join(" ");
 
 type Item = { text: string; href: string };

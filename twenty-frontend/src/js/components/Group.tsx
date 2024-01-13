@@ -32,7 +32,7 @@ export function Group({ groupName, getItems }: Props) {
               return (
                 <li
                   className={classnames(
-                    "flex flex-row p-3 secondary-hover w-full",
+                    "flex flex-row p-3 hover-bg-secondary w-full",
                     classes,
                   )}
                   key={key}
