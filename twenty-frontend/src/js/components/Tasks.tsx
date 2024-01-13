@@ -15,11 +15,11 @@ export function Tasks() {
   };
 
   return (
-    <div className="two-columns">
-      <div className="column-1">
+    <div className="flex">
+      <div className="w-25">
         <NavBar />
       </div>
-      <div className="column-2">
+      <div className="w-75">
         <h1>Tasks</h1>
         <Group
           groupName="Working on it"

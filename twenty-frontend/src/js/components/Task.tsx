@@ -66,11 +66,11 @@ export function Task({ taskId }: { taskId?: number }) {
   }
 
   return (
-    <div className="two-columns h-100">
-      <div className="column-1">
+    <div className="flex w-100 h-100">
+      <div className="w-25">
         <NavBar />
       </div>
-      <div className="column-2 h-100">
+      <div className="w-75 h-100">
         <h1>{task ? "Edit task" : "New task"}</h1>
         <form className="group h-100" onSubmit={handleSubmit(onSave)}>
           <div className="group-name">
@@ -132,7 +132,7 @@ export function Task({ taskId }: { taskId?: number }) {
               </>
             ) : (
               <div
-                className="task content h-50"
+                className="markdown h-50"
                 dangerouslySetInnerHTML={{
                   __html: rendermd(content || task?.content),
                 }}

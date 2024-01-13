@@ -20,7 +20,7 @@ export function Group({ groupName, getItems }: Props) {
 
   return (
     <div className="group">
-      <h1 className="group-name">{groupName}</h1>
+      <h1 className="group-name w-100">{groupName}</h1>
       <div className="group-items">
         {items?.length ? (
           <ul className="items">
@@ -31,39 +31,41 @@ export function Group({ groupName, getItems }: Props) {
               const editHref = `/tasks/edit#id=${task.id}`;
               return (
                 <li className={classnames("item", classes)} key={key}>
-                  <div className="w-95">
-                    <a className="w-100" href={editHref}>
-                      <span className="title">{task.title}</span>
-                      <span className="subtitle">
-                        <span className="datetime">
+                  <div className="flex flex-wrap w-75">
+                    <div className="w-100">
+                      <a href={editHref}>
+                        <span>{task.title}</span>
+                        <span className="text-smaller text-secondary">
                           {datetime.toFormat("dd LLL, yyyy")} at{" "}
                           {datetime.toFormat("HH:mm")}
                         </span>
+                      </a>
+                    </div>
+                    <div className="w-100">
+                      <span className="tags">
+                        <span
+                          style={{ backgroundColor: task.project.color }}
+                          className="tag"
+                        >
+                          {task.project.name}
+                        </span>
                       </span>
-                    </a>
-                    <span className="break" />
-                    <span className="tags">
-                      <span
-                        style={{ backgroundColor: task.project.color }}
-                        className="tag"
-                      >
-                        {task.project.name}
-                      </span>
-                    </span>
+                    </div>
                   </div>
-                  <TaskStatusSelect task={task} />
+                  <div className="flex justify-content-end w-25">
+                    <TaskStatusSelect task={task} />
+                  </div>
                 </li>
               );
             })}
           </ul>
         ) : (
-          <p>
+          <p className="empty-group">
             There are no {groupName.toLowerCase()} tasks.
             <br />
             <a className="w-100" href="/tasks/new">
               Add a task
-            </a>
-            .
+            </a>            .
           </p>
         )}
       </div>

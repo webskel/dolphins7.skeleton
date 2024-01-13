@@ -14,9 +14,7 @@ ul {
     color: $secondary-color;
     height: 25px;
     width: 100%;
-    font-size: medium;
   }
-  h2 { font-size: small; }
 }
 
 
@@ -37,7 +35,6 @@ ul.items.nav {
 
   h1 {
     height: unset;
-    font-size: smaller;
     align-items: center;
     background: $secondary-color;
     color: $primary-color;
@@ -54,7 +51,6 @@ ul.items.nav {
     color: $secondary-color;
     display: flex;
     align-items: center;
-    font-size: smaller;
     height: 25px;
     a {
       display: inline;
@@ -77,17 +73,5 @@ ul.items.tasks {
     a {
       width: 95%;
     }
-  }
-}
-
-ul.action-group {
-  display: flex;
-  list-style-type: none;
-  width: 5%;
-  place-content: flex-end;
-
-  li {
-    display: flex;
-    align-items: flex-start;
   }
 }

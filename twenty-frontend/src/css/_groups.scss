@@ -8,21 +8,23 @@ body .wrapper .group {
     padding: 10px;
     background: $secondary-color;
     color: $primary-color;
-    font-size: small;
     border-radius: 5px;
 
     ul.tabs {
       list-style-type: none;
       display: flex;
       grid-gap: 15px;
+      font-size: medium;
 
       li.tab {
+        height: 24px;
+        width: 100px;
         a {
           display: block;
           background: $primary-color;
           color: $accent-color;
-          padding: 5px;
           border-radius: 5px;
+          height: 100%;
           &:focus {
             text-decoration: none;
           }
@@ -39,9 +41,8 @@ body .wrapper .group {
   .group-items {
     min-height: 75px;
 
-    p {
+    p.empty-group {
       padding-top: 2.5%;
-      font-size: small;
     }
 
     ul.items {
@@ -54,7 +55,6 @@ body .wrapper .group {
           height: 35px;
           padding: 10px;
           background: $primary-color;
-          font-size: smaller;
         }
 
         &:hover {
@@ -66,7 +66,7 @@ body .wrapper .group {
           a {
             color: $primary-color;
             text-decoration: none;
-            .subtitle {
+            span {
               color: $primary-color;
               text-decoration: none;
             }
@@ -83,11 +83,9 @@ body .wrapper .group {
           .title {
             display: flex;
             padding-bottom: 5px;
-            font-size: smaller;
           }
 
           .subtitle {
-            font-size: small;
             color: $secondary-color;
           }
         }
@@ -97,11 +95,22 @@ body .wrapper .group {
             color: $primary-color;
             border: 1px solid $secondary-color;
             border-radius: 5px;
-            font-size: small;
             font-weight: bold;
           }
         }
       }
     }
+  }
+}
+
+.markdown {
+  ul ,
+  ul li,
+  ul li.task-list-item input[type='checkbox']
+  {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  h1, h2, h3, h4, p {
   }
 }
