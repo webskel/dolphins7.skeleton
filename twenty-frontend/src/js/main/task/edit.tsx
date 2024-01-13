@@ -15,7 +15,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
     uri: "/servlet/graphql",
     cache: new InMemoryCache(),
   });
-  const root = document.querySelector(".react-mount")!;
+  const root = document.querySelector(".react-root")!;
   ReactDOM.createRoot(root).render(
     <ApolloProvider client={client}>
       <Component taskId={Number(params.id)} />

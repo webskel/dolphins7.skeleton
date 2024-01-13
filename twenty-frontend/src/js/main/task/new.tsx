@@ -4,7 +4,7 @@ import { Task } from "/components/Task";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 (function () {
-  const root = document.querySelector(".react-mount")!;
+  const root = document.querySelector(".react-root")!;
   const client = new ApolloClient({
     uri: "/servlet/graphql",
     cache: new InMemoryCache(),
