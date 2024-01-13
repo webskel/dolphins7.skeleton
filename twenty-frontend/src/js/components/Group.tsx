@@ -31,8 +31,8 @@ export function Group({ groupName, getItems }: Props) {
               const editHref = `/tasks/edit#id=${task.id}`;
               return (
                 <li className={classnames("item", classes)} key={key}>
-                  <div className="flex flex-wrap w-75">
-                    <div className="w-100">
+                  <div className="flex flex-wrap w-3/4">
+                    <div className="w-full">
                       <a href={editHref}>
                         <span>{task.title}</span>
                         <span className="text-smaller text-secondary">
@@ -41,14 +41,12 @@ export function Group({ groupName, getItems }: Props) {
                         </span>
                       </a>
                     </div>
-                    <div className="w-100">
-                      <span className="tags">
-                        <span
-                          style={{ backgroundColor: task.project.color }}
-                          className="tag"
-                        >
-                          {task.project.name}
-                        </span>
+                    <div>
+                      <span
+                        className="flex align-items-center justify-content-center text-primary rounded border-secondary p-3"
+                        style={{ backgroundColor: task.project.color }}
+                      >
+                        {task.project.name}
                       </span>
                     </div>
                   </div>
@@ -65,7 +63,8 @@ export function Group({ groupName, getItems }: Props) {
             <br />
             <a className="w-100" href="/tasks/new">
               Add a task
-            </a>            .
+            </a>{" "}
+            .
           </p>
         )}
       </div>

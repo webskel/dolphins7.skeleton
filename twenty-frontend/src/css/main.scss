@@ -1,12 +1,8 @@
 @import "fonts";
 @import "colors";
 @import "global";
-@import "layout";
 @import "groups";
-@import "lists";
-
-@import "vendor/forms";
-@import "vendor/animations";
+@import "layout";
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -18,15 +14,9 @@ html, html body, .wrapper {
 }
 
 body {
-  font-family: 'Courier new', serif;
+  font-family: monospace;
   font-weight: normal;
 }
-
-.pt-20 { padding-top: 20px; }
-.pb-20 { padding-bottom: 20px; }
-.mb-20 { margin-bottom: 20px; }
-.mb-50 { margin-bottom: 50px; }
-.w-100 { width: 100%; }
 
 .wrapper {
   color: $secondary-color;

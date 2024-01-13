@@ -17,10 +17,10 @@ export function Tasks() {
 
   return (
     <div className="flex">
-      <div className="w-25">
+      <div className="w-1/4">
         <NavBar />
       </div>
-      <div className="w-75">
+      <div className="w-3/4">
         <h1>Tasks</h1>
         <Group
           groupName="Working on it"
