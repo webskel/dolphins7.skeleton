@@ -1,30 +1,75 @@
-.two-columns {
-  display: flex;
-  flex-direction: space-between;
 
-  .column-1 {
-    width: 35%;
-  }
-  .column-2 {
-    h1, h2, h3 { font-size: medium; }
-    width: 100%;
-  }
-}
+.m-0-auto { margin: 0 auto; }
+.maxw-1024 { max-width: 1024px; }
 
-.max-width {
-  width: 75%;
-  max-width: 1024px;
-}
+/* flex */
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse; }
+.flex-nowrap { flex-wrap: nowrap; }
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.justify-content-start { justify-content: flex-start; }
+.justify-content-center { justify-content: center; }
+.justify-content-end { justify-content: flex-end; }
 
-.align-center {
-  margin: 0 auto;
-}
+/* colors */
+.bg-primary { background: $primary-color; }
+.bg-secondary { background: $secondary-color; }
+.bg-accent { background: $accent-color; }
+.text-primary { color: $primary-color; }
+.text-secondary { color: $secondary-color; }
+.text-accent { color: $accent-color; }
 
+/* font sizes */
+.text-xxsmall { font-size: xx-small; }
+.text-xsmall { font-size: x-small; }
+.text-small { font-size: small; }
+.text-smaller { font-size: smaller;  }
+.text-medium { font-size: medium; }
+.text-large { font-size: large; }
+.text-larger { font-size: larger; }
+
+/* width */
 .w-100 { width: 100%; }
 .w-95 { width: 95%; }
+.w-90 { width: 90%; }
 .w-85 { width: 85%; }
+.w-80 { width: 80%; }
 .w-75 { width: 75%; }
+.w-70 { width: 70%; }
+.w-65 { width: 65%; }
+.w-60 { width: 60%; }
+.w-55 { width: 55%; }
+.w-50 { width: 50%; }
+.w-45 { width: 45%; }
+.w-40 { width: 40%; }
+.w-35 { width: 35%; }
+.w-30 { width: 30%; }
+.w-25 { width: 25%; }
+.w-20 { width: 20%; }
+.w-15 { width: 15%; }
+.w-10 { width: 10%; }
+.w-5 { width: 5%; }
+
+/* height */
 .h-100 { height: 100%; }
+.h-95 { height: 95%; }
+.h-90 { height: 90%; }
+.h-85 { height: 85%; }
 .h-80 { height: 80%; }
-.h-50 { height: 50%; }
+.h-75 { height: 75%; }
 .h-70 { height: 70%; }
+.h-65 { height: 65%; }
+.h-60 { height: 60%; }
+.h-55 { height: 55%; }
+.h-50 { height: 50%; }
+.h-45 { height: 45%; }
+.h-40 { height: 40%; }
+.h-35 { height: 35%; }
+.h-30 { height: 30%; }
+.h-25 { height: 25%; }
+.h-20 { height: 20%; }
+.h-15 { height: 15%; }
+.h-10 { height: 10%; }
+.h-5 { height: 5%; }
