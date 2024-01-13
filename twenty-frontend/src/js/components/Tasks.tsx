@@ -21,7 +21,6 @@ export function Tasks() {
         <NavBar />
       </div>
       <div className="w-3/4">
-        <h1>Tasks</h1>
         <Group
           groupName="Working on it"
           getItems={getTasks(TaskStatus.InProgress)}

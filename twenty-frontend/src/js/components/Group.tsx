@@ -43,7 +43,7 @@ export function Group({ groupName, getItems }: Props) {
                     </div>
                     <div>
                       <span
-                        className="flex align-items-center justify-content-center text-primary rounded border-secondary p-3"
+                        className="flex align-items-center justify-content-center text-primary text-smaller rounded border-secondary p-2"
                         style={{ backgroundColor: task.project.color }}
                       >
                         {task.project.name}

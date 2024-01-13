@@ -66,11 +66,11 @@ export function Task({ taskId }: { taskId?: number }) {
   }
 
   return (
-    <div className="flex w-100 h-100">
-      <div className="w-25">
+    <div className="flex w-full h-full">
+      <div className="w-1/4">
         <NavBar />
       </div>
-      <div className="w-75 h-100">
+      <div className="w-3/4">
         <h1>{task ? "Edit task" : "New task"}</h1>
         <form className="group h-100" onSubmit={handleSubmit(onSave)}>
           <div className="group-name">
