@@ -1,14 +1,13 @@
 @import "fonts";
 @import "colors";
 @import "global";
-@import "groups";
 @import "layout";
 
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
-html, html body, .wrapper {
+html, html body {
   height: 100%;
   font-size: medium;
 }
@@ -18,13 +17,21 @@ body {
   font-weight: normal;
 }
 
-.wrapper {
-  color: $secondary-color;
-
-  .react-mount {
-    padding-top: 25px;
-  }
-  h1, h2, h3, h4, h5 {
-    font-size: medium;
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.secondary-hover {
+  &:hover {
+    @extend .no-underline;
+    @extend .p-3;
+    @extend .rounded;
+    @extend .bg-secondary;
+    @extend .text-primary;
+    a, span {
+      @extend .text-primary;
+      @extend .no-underline;
+    }
   }
 }

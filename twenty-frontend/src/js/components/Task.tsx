@@ -118,10 +118,9 @@ export function Task({ taskId }: { taskId?: number }) {
             </div>
             {isEditable ? (
               <>
-                <div className="row textarea h-70">
+                <div className="h-96 w-3/4">
                   <textarea
-                    className="form h-100"
-                    placeholder="Add your description heren"
+                    className="w-full h-full"
                     defaultValue={task?.content || DEFAULT_TASK_CONTENT}
                     {...register("content", { required: true })}
                   />

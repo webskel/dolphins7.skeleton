@@ -1,17 +1,15 @@
 ## About
 
-Twenty helps you manage projects with a solution that runs on your computer
-rather than in the cloud.
+Twenty helps you manage projects with a web application that
+runs on your computer rather than in the cloud.
 
 ## Features
 
-* Provides a web application that helps you manage projects.
-* Provides a command-line utility to start / stop a web server, connect / disconnect a project.
+* Provides a command-line utility to start / stop a web server.
+* Connect / disconnect a project from the command line.
 * Works offline. Binds to `http//:localhost:2020` by default.
-* Lightweight: Ruby, and SQLite3 are the primary runtime dependencies.
-* Database: `~/.local/share/twenty/twenty.sqlite`.
-* Easy to install: `gem install twenty`.
-* Easy to use: `$ twenty up`.
+* Ruby, and SQLite3 are the primary runtime dependencies.
+* Easy to install, easy to use.
 
 ## Usage
 
