@@ -9,7 +9,11 @@ const ACTIVE_CLASSNAMES = [
   "bg-secondary",
   "text-primary",
 ].join(" ");
-const INACTIVE_CLASSNAMES = [...BASE_CLASSNAMES, "text-accent", "secondary-hover"].join(" ");
+const INACTIVE_CLASSNAMES = [
+  ...BASE_CLASSNAMES,
+  "text-accent",
+  "secondary-hover",
+].join(" ");
 
 type Item = { text: string; href: string };
 type Bar = Record<string, Array<Item>>;
@@ -42,13 +46,17 @@ export function NavBar() {
         const items = bar[key];
         return (
           <>
-            <h1>{key}</h1>
+            <h3>{key}</h3>
             <ul>
               {...items.flatMap(item => {
                 return (
                   <li>
                     <a
-                      className={activeItem == item ? ACTIVE_CLASSNAMES : INACTIVE_CLASSNAMES}
+                      className={
+                        activeItem == item
+                          ? ACTIVE_CLASSNAMES
+                          : INACTIVE_CLASSNAMES
+                      }
                       href={item.href}
                     >
                       {item.text}

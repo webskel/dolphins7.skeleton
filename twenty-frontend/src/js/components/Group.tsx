@@ -30,10 +30,19 @@ export function Group({ groupName, getItems }: Props) {
               const classes = {};
               const editHref = `/tasks/edit#id=${task.id}`;
               return (
-                <li className={classnames("flex flex-row p-3 secondary-hover w-full", classes)} key={key}>
+                <li
+                  className={classnames(
+                    "flex flex-row p-3 secondary-hover w-full",
+                    classes,
+                  )}
+                  key={key}
+                >
                   <div className="flex flex-wrap w-3/4">
                     <div className="w-full">
-                      <a className="no-underline text-accent block h-14" href={editHref}>
+                      <a
+                        className="no-underline text-accent block h-14"
+                        href={editHref}
+                      >
                         <span className="block w-full">{task.title}</span>
                         <span className="block w-full text-smaller text-secondary">
                           {datetime.toFormat("dd LLL, yyyy")} at{" "}
@@ -63,7 +72,8 @@ export function Group({ groupName, getItems }: Props) {
             <br />
             <a className="w-100" href="/tasks/new">
               Add a task
-            </a>            .
+            </a>{" "}
+            .
           </p>
         )}
       </div>
