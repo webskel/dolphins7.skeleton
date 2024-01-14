@@ -41,6 +41,16 @@ body {
   }
 }
 
+.inactive-item {
+  @extend .text-accent;
+  a {
+    @extend .text-accent;
+    @extend .bg-primary;
+    @extend .no-underline;
+    @extend .hover-bg-secondary;
+  }
+}
+
 .markdown {
   h1, h2, h3, h4, h5, h6, h7 {
     margin: 0 !important;

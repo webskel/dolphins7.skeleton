@@ -7,6 +7,7 @@ import { useProjects } from "/hooks/queries/useProjects";
 import { Task, Project, TaskInput, Maybe } from "/types/schema";
 import { rendermd } from "/lib/markdown-utils";
 import { NavBar } from "/components/NavBar";
+import { Tabs, Tab } from "/components/Tabs";
 
 import classnames from "classnames";
 
@@ -97,38 +98,13 @@ export function Task({ taskId }: { taskId?: number }) {
             defaultValue={task?.title}
             {...register("title", { required: true })}
           />
-          <ul className="flex w-3/4">
-            <li
-              className={classnames({
-                "active-item": isEditable,
-                "text-secondary": !isEditable,
-                "hover-bg-secondary": !isEditable,
-              })}
-            >
-              <a
-                className="block p-2 text-smaller no-underline"
-                href="#"
-                onClick={() => setIsEditable(true)}
-              >
-                Editor
-              </a>
-            </li>
-            <li
-              className={classnames({
-                "active-item": !isEditable,
-                "text-primary": isEditable,
-                "hover-bg-secondary": isEditable,
-              })}
-            >
-              <a
-                className="block p-2 text-smaller no-underline"
-                href="#"
-                onClick={() => setIsEditable(false)}
-              >
-                Preview
-              </a>
-            </li>
-          </ul>
+          <Tabs
+            labels={["Editor", "Preview"]}
+            defaultLabel={taskId ? "preview" : "editor"}
+            onChange={(tab: Tab) => {
+              tab.id === "editor" ? setIsEditable(true) : setIsEditable(false);
+            }}
+          />
           {isEditable ? (
             <>
               <textarea
