@@ -1,11 +1,11 @@
-@import "layout/height";
-@import "layout/width";
-@import "layout/margin";
-@import "layout/padding";
-@import "layout/borders";
-@import "layout/text";
-@import "layout/font";
-@import "layout/cursor";
+@import "tail/height";
+@import "tail/width";
+@import "tail/margin";
+@import "tail/padding";
+@import "tail/borders";
+@import "tail/text";
+@import "tail/font";
+@import "tail/cursor";
 
 .m-0-auto { margin: 0 auto; }
 .maxw-1024 { max-width: 1024px; }
