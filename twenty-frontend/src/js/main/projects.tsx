@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Projects } from "/components/Projects";
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { CLIENT_OPTIONS } from "/constants";
+import { ApolloProvider, ApolloClient } from "@apollo/client";
 
 (function () {
   const root = document.querySelector(".react-root")!;
-  const client = new ApolloClient({
-    uri: "/servlet/graphql",
-    cache: new InMemoryCache(),
-  });
+  const client = new ApolloClient(CLIENT_OPTIONS);
   ReactDOM.createRoot(root).render(
     <ApolloProvider client={client}>
       <Projects />

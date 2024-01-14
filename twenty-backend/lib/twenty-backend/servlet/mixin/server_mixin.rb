@@ -10,7 +10,7 @@ module Twenty::Servlet::ServerMixin
   #  Returns an instance of WEBrick::HTTPServer.
   def server(options = {})
     server = WEBrick::HTTPServer.new server_options.merge(options)
-    server.mount "/servlet/graphql", Twenty::Servlet::GraphQL
+    server.mount "/graphql", Twenty::Servlet::GraphQL
     server
   end
 

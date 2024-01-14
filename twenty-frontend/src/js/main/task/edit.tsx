@@ -1,6 +1,7 @@
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ApolloProvider, ApolloClient } from "@apollo/client";
+import { CLIENT_OPTIONS } from "/constants";
 import { Task as Component } from "/components/Task";
 
 (function () {
@@ -10,10 +11,7 @@ import { Task as Component } from "/components/Task";
       .split(",")
       .map(e => e.split("=")),
   );
-  const client = new ApolloClient({
-    uri: "/servlet/graphql",
-    cache: new InMemoryCache(),
-  });
+  const client = new ApolloClient(CLIENT_OPTIONS);
   const root = document.querySelector(".react-root")!;
   ReactDOM.createRoot(root).render(
     <ApolloProvider client={client}>
