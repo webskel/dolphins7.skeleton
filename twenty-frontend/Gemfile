@@ -6,3 +6,11 @@ gem "nanoc-live", "~> 1.0"
 gem "nanoc-webpack.rb", "~> 0.5"
 gem "sass", "~> 3.7"
 gem "rainpress", "~> 1.0"
+
+require 'rbconfig'
+case RbConfig::CONFIG['target_os']
+when /(?i-mx:bsd|dragonfly)/
+  gem 'rb-kqueue', '>= 0.2'
+else
+   # Poll
+end

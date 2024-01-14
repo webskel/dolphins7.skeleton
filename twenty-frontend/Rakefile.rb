@@ -1,4 +1,5 @@
 require "bundler/setup"
+load 'tasks/nanoc.rake'
 namespace :schema do
   desc "Generate src/js/types/schema.ts"
   task :regen do
