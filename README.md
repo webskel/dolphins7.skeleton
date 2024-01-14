@@ -11,6 +11,22 @@ that runs on your computer with a minimal amount of effort.
 * Minimal: Ruby, and SQLite3 are the primary runtime dependencies.
 * Easy to install, easy to use.
 
+## Design
+
+* The server is powered by [ruby/webrick](https://github.com/ruby/webrick):
+  * Accepts GraphQL requests at `/graphql`.
+  * Serves client (HTML, JS, CSS).
+  * Dependencies: ActiveRecord, SQLite3, ruby-graphql.
+* The client is a statically compiled [nanoc](https://github.com/nanoc/nanoc) website:
+  * Dependencies: webpack, typescript, react.
+* The CLI controls the web server:
+  * Start / stop web server.
+  * Run database migrations.
+  * Run developer console.
+* Each component (server, client, cli) are separate packages
+  in a monorepo.
+* Easy to distribute as a RubyGem.
+
 ## Usage
 
     Usage: twenty COMMAND [OPTIONS]
