@@ -1,14 +1,14 @@
 ## About
 
-Twenty helps you manage projects with a web application that
-runs on your computer rather than in the cloud.
+Twenty helps you manage your projects with a web application
+that runs on your computer with a minimal amount of effort.
 
 ## Features
 
 * Provides a command-line utility to start / stop a web server.
 * Connect / disconnect a project from the command line.
 * Works offline. Binds to `http//:localhost:2020` by default.
-* Ruby, and SQLite3 are the primary runtime dependencies.
+* Minimal: Ruby, and SQLite3 are the primary runtime dependencies.
 * Easy to install, easy to use.
 
 ## Usage
