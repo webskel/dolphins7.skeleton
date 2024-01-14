@@ -1,8 +1,7 @@
-import { ApolloProvider } from "@apollo/client";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Task as Component } from "/components/Task";
-import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 (function () {
   const params = Object.fromEntries(

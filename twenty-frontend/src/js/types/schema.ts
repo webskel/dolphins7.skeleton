@@ -80,14 +80,14 @@ export type Project = {
   id: Scalars["Int"]["output"];
   name: Scalars["String"]["output"];
   path: Scalars["String"]["output"];
-  tasks: Array<Task>;
+  tasks: Task[];
 };
 
 export type Query = {
   __typename?: "Query";
   findTask?: Maybe<Task>;
-  projects: Array<Project>;
-  tasks: Array<Task>;
+  projects: Project[];
+  tasks: Task[];
 };
 
 export type QueryFindTaskArgs = {

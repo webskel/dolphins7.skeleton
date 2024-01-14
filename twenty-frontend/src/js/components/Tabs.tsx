@@ -7,8 +7,8 @@ export type Tab = {
 };
 
 type Props = {
-  labels: string[];
   defaultLabel: string;
+  labels: string[];
   onChange: (t: Tab) => void;
 };
 
