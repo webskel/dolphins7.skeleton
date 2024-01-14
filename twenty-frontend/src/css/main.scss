@@ -20,7 +20,6 @@ body {
 .hover-bg-secondary {
   &:hover {
     @extend .no-underline;
-    @extend .p-3;
     @extend .rounded;
     @extend .bg-secondary;
     @extend .text-primary;
@@ -28,5 +27,16 @@ body {
       @extend .text-primary;
       @extend .no-underline;
     }
+  }
+}
+
+.active-item {
+  @extend .no-underline;
+  @extend .rounded;
+  @extend .bg-secondary;
+  @extend .text-primary;
+  a {
+    @extend .text-primary;
+    @extend .no-underline;
   }
 }

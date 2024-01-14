@@ -73,26 +73,6 @@ export function Task({ taskId }: { taskId?: number }) {
       <div className="w-3/4">
         <h1>{task ? "Edit task" : "New task"}</h1>
         <form onSubmit={handleSubmit(onSave)}>
-          <ul className="flex w-3/4 mb-3">
-            <li className={classnames("tab", { active: isEditable })}>
-              <a
-                className="no-underline"
-                href="#"
-                onClick={() => setIsEditable(true)}
-              >
-                Editor
-              </a>
-            </li>
-            <li className={classnames("tab", { active: !isEditable })}>
-              <a
-                className="no-underline"
-                href="#"
-                onClick={() => setIsEditable(false)}
-              >
-                Preview
-              </a>
-            </li>
-          </ul>
           <select
             {...register("projectId")}
             className="p-3 w-3/4 mb-3"
@@ -117,6 +97,38 @@ export function Task({ taskId }: { taskId?: number }) {
             defaultValue={task?.title}
             {...register("title", { required: true })}
           />
+          <ul className="flex w-3/4">
+            <li
+              className={classnames({
+                "active-item": isEditable,
+                "text-secondary": !isEditable,
+                "hover-bg-secondary": !isEditable,
+              })}
+            >
+              <a
+                className="block p-2 text-smaller no-underline"
+                href="#"
+                onClick={() => setIsEditable(true)}
+              >
+                Editor
+              </a>
+            </li>
+            <li
+              className={classnames({
+                "active-item": !isEditable,
+                "text-primary": isEditable,
+                "hover-bg-secondary": isEditable,
+              })}
+            >
+              <a
+                className="block p-2 text-smaller no-underline"
+                href="#"
+                onClick={() => setIsEditable(false)}
+              >
+                Preview
+              </a>
+            </li>
+          </ul>
           {isEditable ? (
             <>
               <textarea
@@ -125,7 +137,7 @@ export function Task({ taskId }: { taskId?: number }) {
                 {...register("content", { required: true })}
               />
               <input
-                className="cursor-pointer bg-secondary text-primary p-3 rounded font-bold"
+                className="cursor-pointer block bg-secondary text-primary p-3 rounded font-bold"
                 type="submit"
                 value="Save"
               />

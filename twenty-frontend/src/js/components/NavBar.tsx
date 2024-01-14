@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Maybe } from "/types/schema";
-import classnames from "classnames";
 
 const BASE_CLASSNAMES = ["block", "w-3/4", "no-underline", "p-3", "mt-2"];
 const ACTIVE_CLASSNAMES = [
