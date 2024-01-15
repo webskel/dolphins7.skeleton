@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { ParamContext } from "/Context";
 import { useForm } from "react-hook-form";
 import { useCreateTask } from "/hooks/mutations/useCreateTask";
 import { useUpdateTask } from "/hooks/mutations/useUpdateTask";
@@ -21,7 +22,9 @@ const DEFAULT_TASK_CONTENT = [
   "Add a description here....",
 ].join("\n");
 
-export function Task({ taskId }: { taskId?: number }) {
+export function Task() {
+  const params = useContext(ParamContext);
+  const taskId = params.id ? parseInt(params.id) : null;
   const {
     register,
     handleSubmit,
