@@ -23,7 +23,7 @@ export function ProjectSelect({ onChange, selected }: Props) {
 
   return (
     <select
-      className="flex p-3 w-3/4"
+      className="flex p-3 w-3/4 bg-primary text-medium"
       defaultValue={selected}
       onChange={event => {
         const { target } = event;
