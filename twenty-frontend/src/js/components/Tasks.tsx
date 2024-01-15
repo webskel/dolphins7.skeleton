@@ -7,7 +7,7 @@ import { useTasks } from "/hooks/queries/useTasks";
 
 export function Tasks() {
   const params = useContext(ParamContext);
-  const projectId: Maybe<Number> = params.projectId
+  const projectId: Maybe<number> = params.projectId
     ? parseInt(params.projectId)
     : null;
 
