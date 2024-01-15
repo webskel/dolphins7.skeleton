@@ -9,8 +9,6 @@ import { rendermd } from "/lib/markdown-utils";
 import { NavBar } from "/components/NavBar";
 import { Tabs, Tab } from "/components/Tabs";
 
-import classnames from "classnames";
-
 const DEFAULT_TASK_CONTENT = [
   "## Subtasks",
   "",
