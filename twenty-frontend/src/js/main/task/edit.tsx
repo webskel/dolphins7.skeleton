@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ApolloProvider, ApolloClient } from "@apollo/client";
-import { CLIENT_OPTIONS } from "/constants";
-import { Task as Component } from "/components/Task";
+import { App } from "/components/App";
+import { Task } from "/components/Task";
 
 (function () {
   const params = Object.fromEntries(
@@ -11,11 +10,10 @@ import { Task as Component } from "/components/Task";
       .split(",")
       .map(e => e.split("=")),
   );
-  const client = new ApolloClient(CLIENT_OPTIONS);
   const root = document.querySelector(".react-root")!;
   ReactDOM.createRoot(root).render(
-    <ApolloProvider client={client}>
-      <Component taskId={Number(params.id)} />
-    </ApolloProvider>,
+    <App>
+      <Task taskId={Number(params.id)} />
+    </App>,
   );
 })();
