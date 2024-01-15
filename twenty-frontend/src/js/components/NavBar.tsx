@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { ParamContext } from "/Context";
 import { Maybe } from "/types/schema";
-
+import { ProjectSelect } from "/components/ProjectSelect";
 const BASE_CLASSNAMES = ["block", "w-3/4", "no-underline", "p-3", "mt-2"];
 const ACTIVE_CLASSNAMES = [
   ...BASE_CLASSNAMES,
@@ -30,6 +31,7 @@ const find = (path: string, bar: Bar): Maybe<Item> => {
 };
 
 export function NavBar() {
+  const params = useContext(ParamContext);
   const bar: Bar = {
     Tasks: [
       { text: "All tasks", href: "/tasks/" },
@@ -67,6 +69,18 @@ export function NavBar() {
           </>
         );
       })}
+      <h3>Filters</h3>
+      <ProjectSelect
+        selected={params.projectId}
+        onChange={project => {
+          if (project) {
+            location.hash = `projectId=${project.id}`;
+          } else {
+            location.hash = "";
+          }
+          location.reload();
+        }}
+      />
     </>
   );
 }
