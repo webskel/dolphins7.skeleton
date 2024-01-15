@@ -2,8 +2,8 @@ import { useQuery, gql } from "@apollo/client";
 import { Task } from "/types/schema";
 
 export const GET_TASKS = gql`
-  query GetTasks($status: TaskStatus!) {
-    tasks(status: $status) {
+  query GetTasks($status: TaskStatus!, $projectId: Int) {
+    tasks(status: $status, projectId: $projectId) {
       id
       title
       status

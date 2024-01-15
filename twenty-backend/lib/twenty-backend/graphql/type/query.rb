@@ -5,6 +5,7 @@ module Twenty::GraphQL::Type
     end
     field :tasks, [Task], null: false do
       argument :status, TaskStatus
+      argument :project_id, Int, required: false
     end
     field :projects, [Project], null: false
 
@@ -12,10 +13,11 @@ module Twenty::GraphQL::Type
       Twenty::Task.find_by(id: task_id)
     end
 
-    def tasks(status:)
-      Twenty::Task
+    def tasks(status:, project_id: nil)
+      tasks = Twenty::Task
         .where(status:)
         .order(updated_at: :desc)
+      project_id ? tasks.where(project_id:) : tasks
     end
 
     def projects

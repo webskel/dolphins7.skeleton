@@ -44,7 +44,7 @@ type Project {
 type Query {
   findTask(taskId: Int!): Task
   projects: [Project!]!
-  tasks(status: TaskStatus!): [Task!]!
+  tasks(projectId: Int, status: TaskStatus!): [Task!]!
 }
 
 type Task {

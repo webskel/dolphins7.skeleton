@@ -1,17 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { ParamContext } from "/Context";
 import { NavBar } from "/components/NavBar";
 import { Group } from "/components/Group";
-import { TaskStatus } from "/types/schema";
+import { TaskStatus, Maybe } from "/types/schema";
 import { useTasks } from "/hooks/queries/useTasks";
 
 export function Tasks() {
+  const params = useContext(ParamContext);
+  const projectId: Maybe<Number> = params.projectId
+    ? parseInt(params.projectId)
+    : null;
+
   useEffect(() => {
     document.title = "Tasks";
   }, []);
 
   const getTasks = (status: TaskStatus) => {
     return () => {
-      return useTasks({ variables: { status } });
+      return useTasks({ variables: { status, projectId } });
     };
   };
 
