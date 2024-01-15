@@ -10,6 +10,7 @@ export const GET_TASKS = gql`
       isReady
       updatedAt
       project {
+        id
         name
         color
       }

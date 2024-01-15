@@ -51,12 +51,17 @@ export function Group({ groupName, getItems }: Props) {
                       </a>
                     </div>
                     <div>
-                      <span
-                        className="flex align-items-center justify-content-center text-primary text-smaller rounded border-secondary p-2"
+                      <a
+                        href={`/tasks/#projectId=${task.project.id}`}
+                        onClick={() => {
+                          location.hash = `projectId=${task.project.id}`;
+                          location.reload();
+                        }}
+                        className="flex no-underline align-items-center justify-content-center text-primary text-smaller rounded border-secondary p-2"
                         style={{ backgroundColor: task.project.color }}
                       >
                         {task.project.name}
-                      </span>
+                      </a>
                     </div>
                   </div>
                   <div className="flex h-12 w-1/4">
