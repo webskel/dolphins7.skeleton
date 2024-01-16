@@ -4,8 +4,8 @@ class Twenty::Command::Up < Twenty::Command
   set_banner usage: "twenty up [OPTIONS]",
              description: "Start the twenty web server"
   include CommonOptionMixin
-  prepend Twenty::Command::PendingMigrationMixin
-  prepend Twenty::Command::SQLiteConnectionMixin
+  prepend Twenty::Command::MigrationMixin
+  prepend Twenty::Command::SQLiteMixin
 
   def run
     options = parse_options(argv)

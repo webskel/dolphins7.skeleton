@@ -3,8 +3,8 @@
 class Twenty::Command::Connect < Twenty::Command
   set_banner usage: "twenty connect [OPTIONS]",
              description: "Connect a project to twenty"
-  prepend Twenty::Command::PendingMigrationMixin
-  prepend Twenty::Command::SQLiteConnectionMixin
+  prepend Twenty::Command::MigrationMixin
+  prepend Twenty::Command::SQLiteMixin
 
   def run
     options = parse_options(argv)
