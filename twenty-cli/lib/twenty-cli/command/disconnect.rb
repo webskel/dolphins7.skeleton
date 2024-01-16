@@ -3,8 +3,8 @@
 class Twenty::Command::Disconnect < Twenty::Command
   set_banner usage: "twenty disconnect [OPTIONS]",
              description: "Disconnect a project from twenty"
-  prepend Twenty::Command::PendingMigrationMixin
-  prepend Twenty::Command::SQLiteConnectionMixin
+  prepend Twenty::Command::MigrationMixin
+  prepend Twenty::Command::SQLiteMixin
 
   def run
     options = parse_options(argv)

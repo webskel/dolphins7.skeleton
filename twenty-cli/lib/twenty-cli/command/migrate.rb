@@ -4,7 +4,7 @@ class Twenty::Command::Migrate < Twenty::Command
   set_banner usage: "twenty migrate [OPTIONS]",
              description: "Migrate the database"
   include CommonOptionMixin
-  prepend Twenty::Command::SQLiteConnectionMixin
+  prepend Twenty::Command::SQLiteMixin
 
   def run
     options = parse_options(argv)

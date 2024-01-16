@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Twenty::Command::PendingMigrationMixin
+module Twenty::Command::MigrationMixin
   def run_command(...)
     if pending_migrations?
       warn "There are pending migrations.\n" \
