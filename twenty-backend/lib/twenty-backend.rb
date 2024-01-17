@@ -20,7 +20,7 @@ module Twenty
   # @return [String]
   #  Returns the default SQLite database.
   def self.default_database
-    @default_database ||= File.join(home, "20.sqlite")
+    @default_database ||= File.join(home, "database.sqlite")
   end
 
   ##

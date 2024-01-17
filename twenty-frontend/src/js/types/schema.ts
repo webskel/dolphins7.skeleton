@@ -108,7 +108,6 @@ export type QueryTasksArgs = {
 export type SetRandomProjectColorPayload = {
   __typename?: "SetRandomProjectColorPayload";
   errors: Array<Scalars["String"]["output"]>;
-  ok: Scalars["Boolean"]["output"];
   project?: Maybe<Project>;
 };
 
