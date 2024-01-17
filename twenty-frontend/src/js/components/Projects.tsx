@@ -1,3 +1,4 @@
+import { useSetRandomProjectColor } from "/hooks/mutations/useSetRandomProjectColor";
 import React, { useEffect } from "react";
 import { NavBar } from "/components/NavBar";
 import { useProjects } from "/hooks/queries/useProjects";
@@ -5,6 +6,7 @@ import { Project } from "/types/schema";
 
 export function Projects() {
   const { data, loading } = useProjects();
+  const setRandomProjectColor = useSetRandomProjectColor();
   const projects = data?.projects;
 
   useEffect(() => {
@@ -29,8 +31,17 @@ export function Projects() {
                 className="flex flex-row p-3 hover-bg-secondary w-full"
                 key={i}
               >
+                <div
+                  style={{ backgroundColor: project.color }}
+                  className="w-2/8 rounded w-12 h-12 mr-3 cursor-pointer"
+                  onClick={async () => {
+                    await setRandomProjectColor({
+                      variables: { projectId: project.id },
+                    });
+                  }}
+                ></div>
                 <a
-                  className="no-underline text-accent block h-14"
+                  className="w-6/8 no-underline text-accent block h-14"
                   href={`/tasks/#projectId=${project.id}`}
                 >
                   <span className="block w-full">{project.name}</span>
