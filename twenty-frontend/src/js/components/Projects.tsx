@@ -16,28 +16,32 @@ export function Projects() {
   }
 
   return (
-    <div className="two-columns">
-      <div className="column-1">
+    <div className="flex">
+      <div className="w-1/4">
         <NavBar />
       </div>
-      <div className="column-2">
-        <div className="panel">
-          <h1>Projects</h1>
-          <div className="panel-body">
-            <ul className="collection">
-              {projects.map((project: Project, i: number) => {
-                return (
-                  <li className="item" key={i}>
-                    <a href={`/tasks#project_id=${project.id}`}>
-                      <span className="title">{project.name}</span>
-                      <span className="subtitle">{project.path}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
+      <div className="w-3/4">
+        <h1 className="bg-secondary text-primary p-3 rounded">Projects</h1>
+        <ul className="flex flex-wrap">
+          {projects.map((project: Project, i: number) => {
+            return (
+              <li
+                className="flex flex-row p-3 hover-bg-secondary w-full"
+                key={i}
+              >
+                <a
+                  className="no-underline text-accent block h-14"
+                  href={`/tasks/#projectId=${project.id}`}
+                >
+                  <span className="block w-full">{project.name}</span>
+                  <span className="block w-full text-smaller text-secondary">
+                    {project.path}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
