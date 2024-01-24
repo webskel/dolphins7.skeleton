@@ -2,7 +2,7 @@
 @import "tail/width";
 @import "tail/margin";
 @import "tail/padding";
-@import "tail/borders";
+@import "tail/border";
 @import "tail/text";
 @import "tail/font";
 @import "tail/cursor";
@@ -42,3 +42,7 @@
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
+
+.border-primary { border-color: $primary-color; }
+.border-secondary { border-color: $secondary-color; }
+.border-accent { border-color: $accent-color; }

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useProjects } from "/hooks/queries/useProjects";
 import { Project, Maybe } from "/types/schema";
+import { Select, Option } from "/components/Select";
 
 type Props = {
   selected: Maybe<string>;
@@ -10,28 +11,33 @@ type Props = {
 export function ProjectSelect({ onChange, selected }: Props) {
   const { data, loading } = useProjects();
   const projects: Project[] = data?.projects || [];
-  const options = [
-    <option>Any project</option>,
-    ...projects.map(project => {
-      return <option value={project.id}>{project.name}</option>;
-    }),
-  ];
+  const options: Option[] = projects.map(project => ({
+    label: (
+      <div className="flex">
+        <span
+          style={{ backgroundColor: project.color }}
+          className="flex w-2/8 rounded w-8 h-8 mr-3 cursor-pointer"
+        ></span>
+        <span className="flex align-items-center">{project.name}</span>
+      </div>
+    ),
+    value: String(project.id),
+  }));
 
   if (loading) {
     return null;
   }
 
   return (
-    <select
-      className="flex p-3 w-3/4 bg-primary text-medium"
-      defaultValue={selected}
-      onChange={event => {
-        const { target } = event;
-        const project = projects.find(p => p.id === Number(target.value));
+    <Select
+      onChange={(option: Option) => {
+        const project = projects.find(p => String(p.id) == option.value);
         onChange(project);
       }}
-    >
-      {...options}
-    </select>
+      options={options}
+      selected={String(selected)}
+      placeholder="Any project"
+    />
   );
+  1;
 }
