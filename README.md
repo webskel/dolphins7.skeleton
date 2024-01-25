@@ -45,7 +45,8 @@ that runs on your computer with a minimal amount of effort.
 
 ## Install
 
-    gem install twenty
+Eventually I hope to publish twenty as a RubyGem. For the time
+being installing from source will have to do.
 
 ## License
 
