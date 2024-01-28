@@ -1,7 +1,7 @@
 ## About
 
 Twenty helps you manage your projects with a web application
-that runs on your computer with a minimal amount of effort.
+that runs on your computer.
 
 ## Features
 
@@ -45,8 +45,8 @@ that runs on your computer with a minimal amount of effort.
 
 ## Install
 
-Eventually I hope to publish twenty as a RubyGem. For the time
-being installing from source will have to do.
+Eventually I hope to publish twenty as a RubyGem. <br>
+For the time being installing from source will have to do.
 
 ## License
 

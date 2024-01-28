@@ -8,19 +8,20 @@ module Twenty
   require_relative "twenty-backend/servlet"
   require_relative "twenty-backend/migration"
   require_relative "twenty-backend/model"
+  extend FileUtils
 
   ##
   # @return [String]
   #  Returns the directory where twenty stores data.
-  def self.home
+  def self.data_dir
     File.join(Dir.home, ".local", "share", "20")
   end
 
   ##
   # @return [String]
-  #  Returns the default SQLite database.
+  #  Returns the location of the default SQLite database.
   def self.default_database
-    @default_database ||= File.join(home, "database.sqlite")
+    @default_database ||= File.join(data_dir, "database.sqlite")
   end
 
   ##
@@ -44,8 +45,8 @@ module Twenty
   # @api private
   def self.prepare_dir
     return if File.exist?(default_database)
-    FileUtils.mkdir_p(home)
-    FileUtils.touch(default_database)
+    mkdir_p(data_dir)
+    touch(default_database)
   rescue => ex
     warn "prepare_dir error: #{ex.message} (#{ex.class})"
   end
