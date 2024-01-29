@@ -20,6 +20,7 @@ end
 compile("/html/react.html.erb", rep: "tasks/index") do
   filter(:erb, locals: {src: "/js/main/tasks.js"})
   write("/tasks/index.html")
+  write("/index.html")
 end
 
 ##
