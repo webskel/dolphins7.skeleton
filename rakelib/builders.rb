@@ -45,9 +45,16 @@ class Copy < Builder
       end
       sh "find #{dest} -type d -exec chmod u=rwx,g=rx,o=rx {} +"
       sh "find #{dest} -type f -exec chmod u=rw,g=r,o=r {} +"
-      if _1 == "twenty-cli"
-        sh "find #{dest}/libexec -type f -exec chmod u=rwx,g=rx,o=rx {} +"
-      end
+      chmod_exes(dest)
+    end
+  end
+
+  private
+
+  def chmod_exes(dest)
+    [File.join(dest, "libexec"), File.join(dest, "bin")].each do |exedir|
+      next unless File.exist?(exedir)
+      sh "find #{exedir} -type f -exec chmod u=rwx,g=rx,o=rx {} +"
     end
   end
 end
