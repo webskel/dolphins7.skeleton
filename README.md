@@ -45,8 +45,7 @@ that runs on your computer.
 
 ## Install
 
-Eventually I hope to publish twenty as a RubyGem. <br>
-For the time being installing from source will have to do.
+    $ gem install twenty.rb
 
 ## License
 
