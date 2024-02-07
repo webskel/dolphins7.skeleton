@@ -2,6 +2,7 @@ namespace :nanoc do
   desc "Produce the build/ directory"
   task :build do
     # FIXME: discover why rm -rf build/css/ is needed.
+    ENV["NODE_ENV"] = "production"
     sh "rm -rf build/css/"
     sh "nanoc co"
   end
