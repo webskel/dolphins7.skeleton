@@ -1,5 +1,4 @@
+lib/*.rb
 lib/**/*.rb
-build/**/*.html
-build/css/**/*.css
-build/js/**/*.js
-build/fonts/**/*.ttf
+build/*
+build/**/*
