@@ -11,15 +11,16 @@ import { NavBar } from "~/components/NavBar";
 import { Tabs, Tab } from "~/components/Tabs";
 
 const DEFAULT_TASK_CONTENT = [
-  "## Subtasks",
-  "",
-  "* [] Task 1",
-  "* [] Task 2",
-  "* [] ...",
-  "",
   "## Description",
   "",
-  "Add a description here....",
+  "An example description",
+  "",
+  "## Checklist",
+  "",
+  "* [] item one",
+  "* [] item two",
+  "* [] ...",
+  "",
 ].join("\n");
 
 export function Task() {
