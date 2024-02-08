@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = { name: IconName; onClick: (e: React.MouseEvent) => void };
 type IconName = "start-task" | "complete-task" | "destroy-task";
 type IconSet = Record<IconName, (props: Props) => JSX.Element>;

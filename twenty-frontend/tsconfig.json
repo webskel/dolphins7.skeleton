@@ -10,7 +10,7 @@
     "jsx": "react",
     "allowJs": true,
     "lib": [ "ES2022", "DOM" ],
-
+    "allowUmdGlobalAccess": true,
     "baseUrl": "src/",
     "paths": { "*": ["js/*"] },
   }

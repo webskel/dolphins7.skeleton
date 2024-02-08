@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ParamContext } from "/Context";
 import { Maybe } from "/types/schema";
 import { ProjectSelect } from "/components/ProjectSelect";

@@ -1,4 +1,3 @@
-import React from "react";
 import { useProjects } from "/hooks/queries/useProjects";
 import { Project, Maybe } from "/types/schema";
 import { Select, Option } from "/components/Select";

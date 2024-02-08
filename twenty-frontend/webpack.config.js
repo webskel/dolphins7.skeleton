@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const process = require('process');
 
@@ -17,4 +18,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
+  ]
 }

@@ -1,5 +1,5 @@
 import { useSetRandomProjectColor } from "/hooks/mutations/useSetRandomProjectColor";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { NavBar } from "/components/NavBar";
 import { useProjects } from "/hooks/queries/useProjects";
 import { Project } from "/types/schema";
