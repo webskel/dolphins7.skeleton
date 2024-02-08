@@ -1,4 +1,6 @@
 require_relative "rakelib/builders"
+load "twenty-frontend/tasks/nanoc.rake"
+
 namespace :gem do
   task :gemspec, [:version] do |t, args|
     GemSpec.call(args[:version])
@@ -8,7 +10,7 @@ namespace :gem do
     Copy.call(args[:version])
   end
 
-  task :build, [:version] => [:copy] do |t, args|
+  task :build, [:version] => ["nanoc:clean", "nanoc:build", :copy] do |t, args|
     Build.call(args[:version])
   end
 
