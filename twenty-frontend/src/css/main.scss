@@ -63,6 +63,14 @@ body {
     padding: 0px;
   }
 
+  code {
+    color: #4078c0;
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
   h1, h2, h3, h4, h5, h6, h7 {
     margin: 0 !important;
     @extend .pt-3;
