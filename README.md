@@ -7,7 +7,7 @@ that runs on your computer.
 
 * Provides a command-line utility to start / stop a web server.
 * Connect / disconnect a project from the command line.
-* Works offline. Binds to `http//:localhost:2020` by default.
+* Works offline. Binds to `http://localhost:2020` by default.
 * Minimal: Ruby, and SQLite3 are the primary runtime dependencies.
 * Easy to install, easy to use.
 
