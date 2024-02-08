@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
-import { App } from "/components/App";
-import { Task } from "/components/Task";
+import { App } from "~/components/App";
+import { Task } from "~/components/Task";
 
 (function () {
   const root = document.querySelector(".react-root")!;

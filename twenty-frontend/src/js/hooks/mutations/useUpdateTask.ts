@@ -2,7 +2,7 @@ import {
   UpdateTaskPayload,
   MutationUpdateTaskArgs,
   TaskInput,
-} from "/types/schema";
+} from "~/types/schema";
 import { gql, useMutation, DocumentNode } from "@apollo/client";
 
 const GQL = gql`

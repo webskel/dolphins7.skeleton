@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { CompleteTaskPayload, MutationCompleteTaskArgs } from "/types/schema";
+import { CompleteTaskPayload, MutationCompleteTaskArgs } from "~/types/schema";
 
 const GQL = gql`
   mutation CompleteTask($taskId: Int!) {

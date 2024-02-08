@@ -1,8 +1,8 @@
-import { useSetRandomProjectColor } from "/hooks/mutations/useSetRandomProjectColor";
+import { useSetRandomProjectColor } from "~/hooks/mutations/useSetRandomProjectColor";
 import { useEffect } from "react";
-import { NavBar } from "/components/NavBar";
-import { useProjects } from "/hooks/queries/useProjects";
-import { Project } from "/types/schema";
+import { NavBar } from "~/components/NavBar";
+import { useProjects } from "~/hooks/queries/useProjects";
+import { Project } from "~/types/schema";
 
 export function Projects() {
   const { data, loading } = useProjects();

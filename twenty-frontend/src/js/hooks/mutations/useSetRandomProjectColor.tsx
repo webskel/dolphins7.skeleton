@@ -3,7 +3,7 @@ import {
   SetRandomProjectColorPayload,
   MutationSetRandomProjectColorArgs,
   Project,
-} from "/types/schema";
+} from "~/types/schema";
 
 const GQL = gql`
   mutation SetRandomProjectColor($projectId: Int!) {

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { ParamContext } from "/Context";
+import { ParamContext } from "~/Context";
 
 export function App({ children }: PropsWithChildren<{}>) {
   const client = new ApolloClient({

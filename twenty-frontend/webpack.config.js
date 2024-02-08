@@ -5,8 +5,10 @@ const process = require('process');
 module.exports = {
   mode: process.env.NODE_ENV || "development",
   resolve: {
-    roots: [path.resolve('src/js'), path.resolve('node_modules')],
-    modules: [path.resolve('src/js'), path.resolve('node_modules')],
+    alias: {
+      '~': [path.resolve('src/js')]
+    },
+    modules: [path.resolve('node_modules')],
     extensions: ['.js', '.ts', '.tsx']
   },
   module: {

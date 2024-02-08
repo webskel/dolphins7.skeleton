@@ -1,8 +1,8 @@
-import type { Task } from "/types/schema";
+import type { Task } from "~/types/schema";
 import classnames from "classnames";
 import { DateTime } from "luxon";
 import { QueryResult } from "@apollo/client";
-import { TaskStatusSelect } from "/components/TaskStatusSelect";
+import { TaskStatusSelect } from "~/components/TaskStatusSelect";
 
 type Props = {
   groupName: string;

@@ -1,9 +1,9 @@
 import { useEffect, useContext } from "react";
-import { ParamContext } from "/Context";
-import { NavBar } from "/components/NavBar";
-import { Group } from "/components/Group";
-import { TaskStatus, Maybe } from "/types/schema";
-import { useTasks } from "/hooks/queries/useTasks";
+import { ParamContext } from "~/Context";
+import { NavBar } from "~/components/NavBar";
+import { Group } from "~/components/Group";
+import { TaskStatus, Maybe } from "~/types/schema";
+import { useTasks } from "~/hooks/queries/useTasks";
 
 export function Tasks() {
   const params = useContext(ParamContext);

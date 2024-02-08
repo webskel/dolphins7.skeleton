@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Maybe, Task } from "/types/schema";
+import { Maybe, Task } from "~/types/schema";
 
 const GQL = gql`
   query Query($taskId: Int!) {

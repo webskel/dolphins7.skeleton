@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ParamContext } from "/Context";
-import { Maybe } from "/types/schema";
-import { ProjectSelect } from "/components/ProjectSelect";
+import { ParamContext } from "~/Context";
+import { Maybe } from "~/types/schema";
+import { ProjectSelect } from "~/components/ProjectSelect";
 const BASE_CLASSNAMES = ["block", "w-3/4", "no-underline", "p-3", "mt-2"];
 const ACTIVE_CLASSNAMES = [
   ...BASE_CLASSNAMES,
