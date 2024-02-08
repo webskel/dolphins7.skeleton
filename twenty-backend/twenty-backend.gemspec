@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
-  gem.version = "0.3.3"
+  gem.version = "0.3.4"
   gem.licenses = ["0BSD"]
   gem.files = `git ls-files`.split($/)
   gem.require_paths = ["lib"]
