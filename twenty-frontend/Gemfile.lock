@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twenty-frontend (0.1.0)
+    twenty-frontend (0.3.3)
 
 GEM
   remote: https://rubygems.org/
