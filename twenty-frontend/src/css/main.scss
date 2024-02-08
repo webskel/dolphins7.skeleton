@@ -61,6 +61,7 @@ body {
 
   p {
     padding: 0px;
+    margin: 7px 0 7px 0;
   }
 
   code {
@@ -72,8 +73,13 @@ body {
   }
 
   h1, h2, h3, h4, h5, h6, h7 {
-    margin: 0 !important;
-    @extend .pt-3;
-    @extend .pb-3;
+    all: unset;
+    display: block;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-weight: bold;
+    &:first-child {
+      padding-top: 10px !important;
+    }
   }
 }
