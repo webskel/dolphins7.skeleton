@@ -52,17 +52,20 @@ body {
 }
 
 .markdown {
+  ul {
+    all:unset;
+    li {
+      margin-left: 20px;
+    }
+  }
+
+  p {
+    padding: 0px;
+  }
+
   h1, h2, h3, h4, h5, h6, h7 {
     margin: 0 !important;
     @extend .pt-3;
     @extend .pb-3;
-  }
-
-  p,
-  ul,
-  ul li,
-  input[type='checkbox'] {
-    margin: 0 !important;
-    padding: 0 !important;
   }
 }
