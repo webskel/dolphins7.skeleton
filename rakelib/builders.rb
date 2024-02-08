@@ -41,21 +41,30 @@ class Copy < Builder
         sh "cp -fv *.gemspec #{dest}"
         sh "cp -Rfv lib/ #{dest}"
       else
-        sh "cp -Rfv #{_1}/* #{dest}"
+        sh [
+          "find #{_1}",
+           excludes.map { |n| "-not -name #{n}" }.join(" "),
+           "-mindepth 1 -maxdepth 1",
+           "-exec cp -Rfv {} #{dest} \\;"
+        ].join(" ")
       end
-      sh "find #{dest} -type d -exec chmod u=rwx,g=rx,o=rx {} +"
-      sh "find #{dest} -type f -exec chmod u=rw,g=r,o=r {} +"
-      chmod_exes(dest)
+      chmod!(dest)
     end
   end
 
   private
 
-  def chmod_exes(dest)
+  def chmod!(dest)
+    sh "find #{dest} -type d -exec chmod u=rwx,g=rx,o=rx {} +"
+    sh "find #{dest} -type f -exec chmod u=rw,g=r,o=r {} +"
     [File.join(dest, "libexec"), File.join(dest, "bin")].each do |exedir|
       next unless File.exist?(exedir)
       sh "find #{exedir} -type f -exec chmod u=rwx,g=rx,o=rx {} +"
     end
+  end
+
+  def excludes
+    %w[.gems node_modules]
   end
 end
 
