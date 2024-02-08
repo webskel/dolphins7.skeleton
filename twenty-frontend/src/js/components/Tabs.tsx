@@ -33,7 +33,7 @@ export function Tabs({ defaultLabel, labels, onChange }: Props) {
           <li className={classnames(classNames)}>
             <a
               href={location.hash}
-              onClick={() => setActive(tab)}
+              onClick={(e) => [e.preventDefault(), setActive(tab)]}
               className="block p-2 text-smaller no-underline"
             >
               {tab.label}
