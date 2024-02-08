@@ -9,8 +9,8 @@ Gem::Specification.new do |gem|
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "lib", "*.rb")), 
-    *Dir.glob(File.join(__dir__, "lib", "**", "*.rb"))
-  ]
+    *Dir.glob(File.join(__dir__, "lib", "twenty", "**","*.rb"))
+  ].select { File.file?(_1) }
   gem.summary = "Minimal project management that runs on your computer"
   gem.description = gem.summary
   gem.add_runtime_dependency "twenty-backend", "<%= version %>"

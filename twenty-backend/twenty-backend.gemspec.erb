@@ -7,7 +7,11 @@ Gem::Specification.new do |gem|
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
   gem.version = "<%= version %>"
   gem.licenses = ["0BSD"]
-  gem.files = `git ls-files`.split($/)
+  gem.files = [
+    *Dir.glob(File.join(__dir__, "lib", "*.rb")),
+    *Dir.glob(File.join(__dir__, "lib", "twenty-backend", "**", "*.rb")),
+    *Dir.glob(File.join(__dir__, "share", "**", "*")),
+  ].select { File.file?(_1) }
   gem.require_paths = ["lib"]
   gem.summary = "twenty: backend"
   gem.description = gem.summary

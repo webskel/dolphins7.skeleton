@@ -9,10 +9,10 @@ Gem::Specification.new do |gem|
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "lib", "*.rb")),
-    *Dir.glob(File.join(__dir__, "lib", "**", "*.rb")),
+    *Dir.glob(File.join(__dir__, "lib", "twenty-cli", "**", "*.rb")),
     *Dir.glob(File.join(__dir__, "libexec", "**", "*")),
     *Dir.glob(File.join(__dir__, "bin", "*"))
-  ]
+  ].select { File.file?(_1) }
   gem.require_paths = ["lib"]
   gem.summary = "twenty: command-line interface"
   gem.description = gem.summary

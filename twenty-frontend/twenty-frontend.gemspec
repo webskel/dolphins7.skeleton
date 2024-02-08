@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.files = File.binread(File.join(__dir__, "MANIFEST"))
                   .each_line
                   .flat_map { Dir.glob(_1.chomp) }
+                  .select { File.file?(_1) }
   gem.require_paths = ["lib"]
   gem.summary = "twenty: frontend"
   gem.description = gem.summary
