@@ -24,7 +24,7 @@ when "console"
   wait spawn("console", *ARGV[1..])
   exit $?.exitstatus
 else
-  warn "Usage: twenty COMMAND [OPTIONS]\n\n" \
+  warn "Usage: 20 COMMAND [OPTIONS]\n\n" \
        "Commands:\n" \
        "  up             Start the twenty web server.\n" \
        "  down           Stop the twenty web server.\n" \

@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+Process.wait spawn([File.join(__dir__, "twenty"), "20"], *ARGV)

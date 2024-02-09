@@ -29,7 +29,10 @@ that runs on your computer.
 
 ## Usage
 
-    Usage: twenty COMMAND [OPTIONS]
+The CLI is available as two identical executables: <br>
+`$ 20`, and `$ twenty`.
+
+    Usage: 20 COMMAND [OPTIONS]
 
     Commands:
       up             Start the twenty web server.
