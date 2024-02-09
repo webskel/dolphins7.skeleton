@@ -14,10 +14,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.summary = "twenty: frontend"
   gem.description = gem.summary
-  gem.add_development_dependency "rake", "~> 13.0"
   gem.add_development_dependency "nanoc", "~> 4.12"
-  gem.add_development_dependency "nanoc-live", "~> 1.0"
   gem.add_development_dependency "sass", "~> 3.7"
   gem.add_development_dependency "rainpress", "~> 1.0"
   gem.add_development_dependency "nanoc-webpack.rb", "~> 0.5"
+  gem.add_development_dependency "listen", "~> 3.8"
 end

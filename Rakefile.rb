@@ -1,3 +1,4 @@
+require "bundler/setup"
 require_relative "rakelib/builders"
 load "twenty-frontend/tasks/nanoc.rake"
 
