@@ -2,16 +2,18 @@
   "compilerOptions": {
     "strict": true,
     "strictNullChecks": false,
-    "module": "commonjs",
-    "target": "ES2020",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "module": "ES6",
+    "target": "ES6",
     "jsx": "react",
-    "allowJs": true,
-    "lib": [ "ES2022", "DOM" ],
-    "allowUmdGlobalAccess": true,
+    "lib": ["DOM"],
     "baseUrl": "./src",
-    "paths": { "~/*": ["./js/*"] },
+    "allowSyntheticDefaultImports": true,
+    "allowUmdGlobalAccess": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "incremental": true,
+    "paths": {
+      "~/*": ["./js/*"]
+    },
   }
 }

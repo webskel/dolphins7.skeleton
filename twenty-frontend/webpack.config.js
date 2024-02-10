@@ -8,8 +8,7 @@ module.exports = {
     alias: {
       '~': [path.resolve('src/js')]
     },
-    modules: [path.resolve('node_modules')],
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.ts', '.tsx']
   },
   module: {
     rules: [
@@ -24,5 +23,5 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
-  ]
+  ],
 }
