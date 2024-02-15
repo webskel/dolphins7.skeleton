@@ -5,6 +5,7 @@ namespace :nanoc do
   desc "Clean the build/ directory"
   task :clean do
     Dir.chdir(cwd) do
+      sh "rm -rf node_modules/.cache/"
       sh "rm -rf build"
     end
   end
