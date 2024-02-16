@@ -11,12 +11,11 @@ namespace :nanoc do
   end
 
   desc "Produce the build/ directory"
-  task :build do
+  task :build, [:buildenv] do |t, args|
     Dir.chdir(cwd) do
-      # FIXME: discover why rm -rf build/css/ is needed.
-      ENV["NODE_ENV"] = "production"
+      buildenv = args.buildenv || ENV["buildenv"] || "development"
       sh "rm -rf build/css/"
-      Bundler.with_unbundled_env { sh "bundle exec nanoc co" }
+      Bundler.with_unbundled_env { sh "buildenv=#{buildenv} bundle exec nanoc co" }
     end
   end
 

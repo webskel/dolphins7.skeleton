@@ -1,9 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const process = require('process');
 
 module.exports = {
-  mode: process.env.NODE_ENV || "development",
   resolve: {
     alias: {
       '~': [path.resolve('src/js')]
