@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.summary = "twenty: CLI component"
   gem.description = gem.summary
   gem.executables = ["twenty", "20"]
-  gem.add_runtime_dependency "cmd.rb", "~> 0.2"
+  gem.add_runtime_dependency "cmd.rb", "~> 0.4"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "yard", "~> 0.9"
   gem.add_development_dependency "redcarpet", "~> 3.5"
