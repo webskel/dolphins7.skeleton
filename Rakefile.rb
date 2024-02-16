@@ -1,6 +1,6 @@
 require "bundler/setup"
 require_relative "rakelib/builders"
-load "twenty-frontend/tasks/nanoc.rake"
+load "twenty-client/tasks/nanoc.rake"
 
 namespace :gem do
   version = File.binread(File.join(Dir.getwd, "VERSION")).chomp

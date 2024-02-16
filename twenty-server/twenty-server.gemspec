@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |gem|
-  gem.name = "twenty-backend"
+  gem.name = "twenty-server"
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
-  gem.version = "<%= version %>"
+  gem.version = "0.3.5"
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "lib", "*.rb")),
-    *Dir.glob(File.join(__dir__, "lib", "twenty-backend", "**", "*.rb")),
+    *Dir.glob(File.join(__dir__, "lib", "twenty-server", "**", "*.rb")),
     *Dir.glob(File.join(__dir__, "share", "**", "*")),
   ].select { File.file?(_1) }
   gem.require_paths = ["lib"]
-  gem.summary = "twenty: backend"
+  gem.summary = "twenty: server-side component"
   gem.description = gem.summary
   gem.add_runtime_dependency "activerecord", "~> 7.1"
   gem.add_runtime_dependency "sqlite3", "~> 1.6"

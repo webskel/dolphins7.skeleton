@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   ].select { File.file?(_1) }
   gem.summary = "Minimal project management that runs on your computer"
   gem.description = gem.summary
-  gem.add_runtime_dependency "twenty-backend", "0.3.5"
-  gem.add_runtime_dependency "twenty-frontend", "0.3.5"
+  gem.add_runtime_dependency "twenty-server", "0.3.5"
+  gem.add_runtime_dependency "twenty-client", "0.3.5"
   gem.add_runtime_dependency "twenty-cli", "0.3.5"
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |gem|
-  gem.name = "twenty-frontend"
+  gem.name = "twenty-client"
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
                   .flat_map { Dir.glob(_1.chomp) }
                   .select { File.file?(_1) }
   gem.require_paths = ["lib"]
-  gem.summary = "twenty: frontend"
+  gem.summary = "twenty: client-side component"
   gem.description = gem.summary
   gem.add_development_dependency "nanoc", "~> 4.12"
   gem.add_development_dependency "sass", "~> 3.7"

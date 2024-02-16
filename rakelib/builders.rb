@@ -3,7 +3,7 @@ class Builder
   STAGEDIR = File.join(ROOTDIR, "stage")
   PKGDIR   = File.join(ROOTDIR, "pkgs")
   PARENT   = "twenty.rb"
-  CHILDREN = %w[twenty-cli twenty-backend twenty-frontend]
+  CHILDREN = %w[twenty-cli twenty-server twenty-client]
   include FileUtils
 
   def self.call(...)

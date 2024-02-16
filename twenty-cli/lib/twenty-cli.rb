@@ -2,7 +2,7 @@
 
 module Twenty
   require "json"
-  require "twenty-backend"
-  require "twenty-frontend"
+  require "twenty-server"
+  require "twenty-client"
   require_relative "twenty-cli/command"
 end

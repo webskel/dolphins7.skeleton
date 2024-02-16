@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 gemspec
 gem "twenty-cli", path: "./twenty-cli"
-gem "twenty-backend", path: "./twenty-backend"
-gem "twenty-frontend", path: "./twenty-frontend"
+gem "twenty-server", path: "./twenty-server"
+gem "twenty-client", path: "./twenty-client"
 
 require 'rbconfig'
 gem "listen"

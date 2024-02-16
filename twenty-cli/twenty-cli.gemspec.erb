@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
     *Dir.glob(File.join(__dir__, "bin", "*"))
   ].select { File.file?(_1) }
   gem.require_paths = ["lib"]
-  gem.summary = "twenty: command-line interface"
+  gem.summary = "twenty: CLI component"
   gem.description = gem.summary
   gem.executables = ["twenty", "20"]
   gem.add_runtime_dependency "cmd.rb", "~> 0.2"
