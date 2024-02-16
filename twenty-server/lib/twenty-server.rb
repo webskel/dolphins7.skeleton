@@ -4,24 +4,19 @@ module Twenty
   require "fileutils"
   require "webrick"
   require "active_record"
+  require_relative "twenty-server/path"
   require_relative "twenty-server/graphql"
   require_relative "twenty-server/servlet"
   require_relative "twenty-server/migration"
   require_relative "twenty-server/model"
   extend FileUtils
-
-  ##
-  # @return [String]
-  #  Returns the directory where twenty stores data.
-  def self.data_dir
-    File.join(Dir.home, ".local", "share", "20")
-  end
+  extend Path
 
   ##
   # @return [String]
   #  Returns the location of the default SQLite database.
   def self.default_database
-    @default_database ||= File.join(data_dir, "database.sqlite")
+    @default_database ||= File.join(datadir, "database.sqlite")
   end
 
   ##
@@ -44,8 +39,8 @@ module Twenty
   # @return [void]
   # @api private
   def self.prepare_dir
-    return if File.exist?(default_database)
-    mkdir_p(data_dir)
+    mkdir_p(datadir)
+    mkdir_p(tmpdir)
     touch(default_database)
   rescue => ex
     warn "prepare_dir error: #{ex.message} (#{ex.class})"
