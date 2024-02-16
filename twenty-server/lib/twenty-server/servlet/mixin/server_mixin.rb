@@ -2,14 +2,14 @@
 
 module Twenty::Servlet::ServerMixin
   ##
-  # @param [Hash] options
-  #  Server options that take precedence over
+  # @param [Hash] cli_options
+  #  CLI options merged into
   #  {ServerMixin#server_options ServerMixin#server_options}.
   #
   # @return [WEBrick::HTTPServer]
   #  Returns an instance of WEBrick::HTTPServer.
-  def server(options = {})
-    server = WEBrick::HTTPServer.new server_options.merge(options)
+  def server(cli_options = {})
+    server = WEBrick::HTTPServer.new server_options(cli_options)
     server.mount "/graphql", Twenty::Servlet::GraphQL
     server
   end
@@ -17,11 +17,11 @@ module Twenty::Servlet::ServerMixin
   ##
   # @return [Hash<Symbol, String>]
   #  The default server options given to WEBrick::HTTPServer.new.
-  def server_options
+  def server_options(cli_options)
     {
       DocumentRoot: Twenty.build,
-      BindAddress: "127.0.0.1",
-      Port: 2020
+      BindAddress: cli_options.bind,
+      Port: cli_options.port
     }
   end
 end
