@@ -15,7 +15,9 @@ namespace :nanoc do
     Dir.chdir(cwd) do
       buildenv = args.buildenv || ENV["buildenv"] || "development"
       sh "rm -rf build/css/"
-      Bundler.with_unbundled_env { sh "buildenv=#{buildenv} bundle exec nanoc co" }
+      Bundler.with_unbundled_env {
+        sh "buildenv=#{buildenv} bundle exec nanoc co"
+      }
     end
   end
 
