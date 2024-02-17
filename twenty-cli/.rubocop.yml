@@ -15,6 +15,9 @@ AllCops:
   Include:
     - lib/*.rb
     - lib/**/*.rb
+    - libexec/*
+    - libexec/twenty/*
+    - bin/*
     - test/*_test.rb
 
 ##

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Twenty::Command
   module CommonOptionMixin
     def self.included(mod)

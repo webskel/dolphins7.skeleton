@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::Command::SQLiteMixin
   def run_command(options)
     path = options.database || Twenty.default_database
