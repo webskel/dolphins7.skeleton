@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::GraphQL::Mutation
   class UpdateTask < GraphQL::Schema::Mutation
     field :errors, [String], null: false

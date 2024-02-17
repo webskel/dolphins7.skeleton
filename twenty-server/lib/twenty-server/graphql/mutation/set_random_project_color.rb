@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::GraphQL::Mutation
   class SetRandomProjectColor < ::GraphQL::Schema::Mutation
     require_relative "../type/project"

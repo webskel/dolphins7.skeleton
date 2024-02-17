@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::GraphQL::Type
   class Query < GraphQL::Schema::Object
     field :find_task, Task, null: true do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddColorToProjects < ActiveRecord::Migration[7.1]
   def up
     default = Twenty::ColorableMixin.random_color

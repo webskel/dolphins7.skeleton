@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::GraphQL::Type
   class Project < GraphQL::Schema::Object
     require_relative "task"

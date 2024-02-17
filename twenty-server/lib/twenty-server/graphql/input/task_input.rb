@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::GraphQL::Input
   class TaskInput < GraphQL::Schema::InputObject
     require_relative "../type/task_status"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::GraphQL::Mutation
   class DestroyTask < GraphQL::Schema::Mutation
     argument :task_id, Int
