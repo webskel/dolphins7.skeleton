@@ -3,7 +3,7 @@ load 'tasks/nanoc.rake'
 namespace :schema do
   desc "Generate src/js/types/schema.ts"
   task :regen do
-    path = File.join "..", "twenty-backend"
+    path = File.join "..", "twenty-server"
     Bundler.with_unbundled_env {
       Dir.chdir(path) { sh "bundle exec rake schema:regen" }
     }
