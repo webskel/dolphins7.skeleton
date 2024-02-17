@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.description = gem.summary
   gem.executables = ["twenty", "20"]
   gem.add_runtime_dependency "cmd.rb", "~> 0.4"
+  gem.add_runtime_dependency "paint", "~> 2.3"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "yard", "~> 0.9"
   gem.add_development_dependency "redcarpet", "~> 3.5"

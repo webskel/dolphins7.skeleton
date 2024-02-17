@@ -5,6 +5,7 @@ class Twenty::Command::Down < Twenty::Command
              description: "Stop the twenty web server"
   include Twenty::Path
   prepend Twenty::Command::SQLiteMixin
+  prepend Twenty::Command::RescueMixin
 
   def run
     options = parse_options(argv)
@@ -15,7 +16,7 @@ class Twenty::Command::Down < Twenty::Command
 
   def run_command(options)
     if File.readable?(pidfile)
-      Process.kill('SIGINT', Integer(pid))
+      Process.kill("SIGINT", Integer(pid))
     else
       warn "PID file is not readable."
     end
@@ -27,6 +28,6 @@ class Twenty::Command::Down < Twenty::Command
   def pid
     @pid ||= File
                .binread(pidfile)
-               .gsub(/[^\d]/, '')
+               .gsub(/[^\d]/, "")
   end
 end

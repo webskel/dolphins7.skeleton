@@ -5,6 +5,7 @@ class Twenty::Command::Connect < Twenty::Command
              description: "Connect a project to twenty"
   prepend Twenty::Command::MigrationMixin
   prepend Twenty::Command::SQLiteMixin
+  prepend Twenty::Command::RescueMixin
 
   def run
     options = parse_options(argv)

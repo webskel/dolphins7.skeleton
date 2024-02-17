@@ -39,7 +39,8 @@ module Twenty::Servlet::ServerMixin
     {
       DocumentRoot: Twenty.build,
       BindAddress: cli_options.bind,
-      Port: cli_options.port
+      Port: cli_options.port,
+      Logger: WEBrick::Log.new(File::NULL)
     }
   end
 end

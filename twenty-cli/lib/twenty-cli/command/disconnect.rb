@@ -5,6 +5,7 @@ class Twenty::Command::Disconnect < Twenty::Command
              description: "Disconnect a project from twenty"
   prepend Twenty::Command::MigrationMixin
   prepend Twenty::Command::SQLiteMixin
+  prepend Twenty::Command::RescueMixin
 
   def run
     options = parse_options(argv)
