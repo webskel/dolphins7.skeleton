@@ -5,11 +5,11 @@ class Twenty::Command::Up < Twenty::Command
              description: "Start the twenty web server"
   set_option "-b ADDR",
              "--bind ADDR",
-             "Bind to ADDR (default: 127.0.0.1)",
+             "An address to bind to (default: 127.0.0.1)",
              default: "127.0.0.1"
   set_option "-p PORT",
              "--port PORT",
-             "Listen on PORT (default: 2020)",
+             "A port to listen on (default: 2020)",
              default: 2020,
              as: Integer
   set_option "-f",
