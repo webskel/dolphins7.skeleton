@@ -12,8 +12,8 @@ class Twenty::Command::Up < Twenty::Command
              "Listen on PORT (default: 2020)",
              default: 2020,
              as: Integer
-  set_option "-b",
-             "--background",
+  set_option "-f",
+             "--fork",
              "Run the web server in the background",
              default: false
 
@@ -31,7 +31,7 @@ class Twenty::Command::Up < Twenty::Command
 
   def run_command(options)
     server = Twenty::Servlet.server(options)
-    options.background ? server.start! : server.start
+    options.fork ? server.start! : server.start
   rescue Interrupt
     server.shutdown
   end
