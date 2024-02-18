@@ -1,0 +1,15 @@
+#!/bin/sh
+# DESCRIPTION
+# bin/setup installs rubygem & npm dependencies in each
+# sub-directory / sub-package (cli, client, server).
+set -e
+wrkdir=$(pwd)
+subdir=". twenty-cli twenty-client twenty-server"
+for dir in ${subdir}; do
+    cd ${dir}
+    bundle install
+    if [ -e "package.json" ]; then
+        npm i
+    fi
+    cd ${wrkdir}
+done
