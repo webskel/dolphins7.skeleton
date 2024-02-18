@@ -1,5 +1,5 @@
 #!/bin/sh
-# DESCRIPTION
+# About:
 # bin/setup installs rubygem & npm dependencies in each
 # sub-directory / sub-package (cli, client, server).
 set -e
