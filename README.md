@@ -44,7 +44,7 @@ The CLI is available as two identical executables: <br>
 
 ## Screenshots
 
-![img](./20.png)
+![img](./share/twenty/demo.png)
 
 ## Install
 
