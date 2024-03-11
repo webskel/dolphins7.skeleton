@@ -16,8 +16,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.summary = "twenty: CLI component"
   gem.description = gem.summary
-  gem.executables = ["twenty", "20"]
-  gem.add_runtime_dependency "cmd.rb", "~> 0.4"
+  gem.executables = ["twenty"]
+  gem.add_runtime_dependency "cmd.rb", "~> 0.5"
   gem.add_runtime_dependency "paint", "~> 2.3"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "yard", "~> 0.9"
