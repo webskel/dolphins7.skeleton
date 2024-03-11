@@ -1,7 +1,8 @@
 ## About
 
-Twenty helps you manage your projects with a web application
-that runs on your computer.
+Twenty helps you manage and plan your open source projects with a
+standalone web application that's designed to run on localhost or
+within your local network. It is both easy to use, and easy to install.
 
 ## Features
 
@@ -14,25 +15,24 @@ that runs on your computer.
 ## Design
 
 * The server is powered by [ruby/webrick](https://github.com/ruby/webrick):
-  * Accepts GraphQL requests at `/graphql`.
-  * Serves client (HTML, JS, CSS).
-  * Dependencies: ActiveRecord, SQLite3, ruby-graphql.
+    - Accepts GraphQL requests at `/graphql`.
+    - Serves client (HTML, JS, CSS).
+    - Dependencies: ActiveRecord, SQLite3, ruby-graphql.
 * The client is a statically compiled [nanoc](https://github.com/nanoc/nanoc) website:
-  * Dependencies: webpack, typescript, react.
+    - Dependencies: webpack, typescript, react.
 * The CLI controls the web server:
-  * Start / stop web server.
-  * Run database migrations.
-  * Run developer console.
+    - Start / stop web server.
+    - Run database migrations.
+    - Run developer console.
 * Each component (server, client, cli) are separate packages
   in a monorepo.
 * Easy to distribute as a RubyGem.
 
 ## Usage
 
-The CLI is available as two identical executables: <br>
-`$ 20`, and `$ twenty`.
+**CLI**
 
-    Usage: 20 COMMAND [OPTIONS]
+    Usage: twenty COMMAND [OPTIONS]
 
     Commands:
       up             Start the twenty web server.
@@ -41,10 +41,6 @@ The CLI is available as two identical executables: <br>
       disconnect     Disconnect a project from twenty.
       migrate        Migrate the database.
       console        Start the twenty developer console.
-
-## Screenshots
-
-![img](./share/twenty/demo.png)
 
 ## Install
 
