@@ -44,7 +44,14 @@ within your local network. It is both easy to use, and easy to install.
 
 ## Install
 
+Twenty is distributed as a RubyGem.
+
     $ gem install twenty.rb
+
+## Sources
+
+* [GitHub](https://github.com/0x1eef/twenty)
+* [GitLab](https://gitlab.com/0x1eef/twenty)
 
 ## License
 
