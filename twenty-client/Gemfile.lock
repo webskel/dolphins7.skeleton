@@ -68,8 +68,6 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rb-kqueue (0.2.8)
-      ffi (>= 0.5.0)
     rbtree (0.4.6)
     ryo.rb (0.4.7)
     sass (3.7.4)
@@ -100,7 +98,6 @@ DEPENDENCIES
   nanoc (~> 4.12)
   nanoc-webpack.rb (~> 0.5)
   rainpress (~> 1.0)
-  rb-kqueue (>= 0.2)
   sass (~> 3.7)
   twenty-client!
 

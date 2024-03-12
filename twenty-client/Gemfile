@@ -5,7 +5,7 @@ gemspec
 require 'rbconfig'
 case RbConfig::CONFIG['target_os']
 when /(?i-mx:bsd|dragonfly)/
-  gem 'rb-kqueue', '>= 0.2'
+#  gem 'rb-kqueue', '>= 0.2'
 else
    # Poll
 end
