@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { ParamContext } from "~/Context";
+import { ParamContext, CookieContext } from "~/Context";
 
 export function App({ children }: PropsWithChildren<{}>) {
   const client = new ApolloClient({
@@ -13,9 +13,14 @@ export function App({ children }: PropsWithChildren<{}>) {
       .split(",")
       .map(e => e.split("=")),
   );
+  const cookies = Object.fromEntries(
+    document.cookie.split(";").map(e => e.split("=")),
+  );
   return (
-    <ParamContext.Provider value={params}>
-      <ApolloProvider client={client}>{children}</ApolloProvider>
-    </ParamContext.Provider>
+    <CookieContext.Provider value={cookies}>
+      <ParamContext.Provider value={params}>
+        <ApolloProvider client={client}>{children}</ApolloProvider>
+      </ParamContext.Provider>
+    </CookieContext.Provider>
   );
 }

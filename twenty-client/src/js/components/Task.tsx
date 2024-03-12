@@ -1,11 +1,10 @@
 import { useEffect, useState, useContext } from "react";
-import { ParamContext } from "~/Context";
+import { ParamContext, CookieContext } from "~/Context";
 import { useForm } from "react-hook-form";
 import { useCreateTask } from "~/hooks/mutations/useCreateTask";
 import { useUpdateTask } from "~/hooks/mutations/useUpdateTask";
 import { useFindTask } from "~/hooks/queries/useFindTask";
-import { useProjects } from "~/hooks/queries/useProjects";
-import { Task, Project, TaskInput, Maybe } from "~/types/schema";
+import { Task, TaskInput, Maybe } from "~/types/schema";
 import { rendermd } from "~/lib/markdown-utils";
 import { NavBar } from "~/components/NavBar";
 import { Tabs, Tab } from "~/components/Tabs";
@@ -25,33 +24,32 @@ const DEFAULT_TASK_CONTENT = [
 
 export function Task() {
   const params = useContext(ParamContext);
-  const taskId = params.id ? parseInt(params.id) : null;
+  const cookies = useContext(CookieContext);
+  const projectId: Maybe<number> = Number(
+    params.projectId || cookies.projectId,
+  );
+  const taskId = params.id ? Number(params.id) : null;
   const {
     register,
     handleSubmit,
     watch,
     setValue: set,
-  } = useForm<TaskInput>({
-    defaultValues: { projectId: 1 },
-  });
+  } = useForm<TaskInput>({});
   const [isEditable, setIsEditable] = useState<boolean>(!taskId);
-  const createTask = useCreateTask();
-  const updateTask = useUpdateTask();
+  const [createTask, updateTask] = [useCreateTask(), useUpdateTask()];
   const { data: taskData, loading: findingTask } = useFindTask(Number(taskId));
-  const { data: projectsData, loading: findingProjects } = useProjects();
   const task = taskData?.findTask;
-  const projects = projectsData?.projects;
   const content = watch("content");
-  const projectId: Maybe<number> = watch("projectId");
-  const onSave = (input: TaskInput) => {
+  const onSave = async (input: TaskInput) => {
     if (taskId) {
       updateTask({ variables: { taskId, input } }).then(
         () => (location.href = "/tasks"),
       );
     } else {
-      createTask({ variables: { input } }).then(
-        () => (location.href = "/tasks"),
-      );
+      const res = await createTask({ variables: { input } });
+      const payload = res?.data?.createTask;
+      const { errors } = payload;
+      errors.length ? alert(errors) : (location.href = "/tasks");
     }
   };
 
@@ -61,10 +59,12 @@ export function Task() {
   }, []);
 
   useEffect(() => {
-    set("projectId", task?.project?.id);
+    if (task?.project?.id) {
+      set("projectId", task?.project?.id);
+    }
   }, [task?.project?.id]);
 
-  if (findingProjects || findingTask) {
+  if (findingTask) {
     return null;
   }
 
@@ -76,23 +76,12 @@ export function Task() {
       <div className="w-3/4">
         <h1>{task ? "Edit task" : "New task"}</h1>
         <form onSubmit={handleSubmit(onSave)}>
-          <select
-            {...register("projectId")}
-            className="p-3 w-3/4 mb-3"
-            value={projectId}
-            onChange={event => {
-              const v: string = event.target.value;
-              set("projectId", Number(v));
-            }}
-          >
-            {projects.map((project: Project, key: number) => {
-              return (
-                <option key={key} value={project.id}>
-                  {project.name}
-                </option>
-              );
+          <input
+            type="hidden"
+            {...register("projectId", {
+              value: projectId,
             })}
-          </select>
+          />
           <input
             className="p-3 flex w-3/4 mb-3"
             type="text"

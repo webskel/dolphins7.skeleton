@@ -17,7 +17,7 @@ const ACTIVE_CLASSNAME = [
   "border-solid",
   "border-secondary",
   "text-primary",
-  "bg-secondary"
+  "bg-secondary",
 ].join(" ");
 
 type Props = {
@@ -36,7 +36,7 @@ export const Select = ({ onChange, options, selected, placeholder }: Props) => {
   const selectOptions = [{ label: placeholder, value: "" }, ...options];
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [option, setOption] = useState<Option>(
-    options.find(o => o.value === selected) || selectOptions[0]
+    options.find(o => o.value === selected) || selectOptions[0],
   );
   const onClick = (option: Option) => {
     if (isOpen) {
@@ -49,21 +49,21 @@ export const Select = ({ onChange, options, selected, placeholder }: Props) => {
   };
   const getClassName = (o1: Option, o2: Option) => {
     if (o1.value === o2.value) {
-      return ACTIVE_CLASSNAME
+      return ACTIVE_CLASSNAME;
     } else {
-      return (!isOpen && o1.value !== o2.value) ? "hidden" : LI_CLASSNAME;
+      return !isOpen && o1.value !== o2.value ? "hidden" : LI_CLASSNAME;
     }
-  }
+  };
 
   useEffect(() => {
     const onDocumentClick = () => {
       if (isOpen) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
-    document.body.addEventListener('click', onDocumentClick)
-    return () => document.body.removeEventListener('click', onDocumentClick)
-  }, [isOpen])
+    };
+    document.body.addEventListener("click", onDocumentClick);
+    return () => document.body.removeEventListener("click", onDocumentClick);
+  }, [isOpen]);
 
   return (
     <ul>
@@ -71,7 +71,7 @@ export const Select = ({ onChange, options, selected, placeholder }: Props) => {
         <li
           key={i}
           data-value={o.value}
-          onClick={(e) => [e.stopPropagation(), onClick(o)]}
+          onClick={e => [e.stopPropagation(), onClick(o)]}
           className={getClassName(o, option)}
         >
           {o.label}
