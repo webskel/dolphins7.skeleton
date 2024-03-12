@@ -3,14 +3,14 @@ module Twenty::Path
   # @return [String]
   #  Returns the directory where twenty stores persistent data.
   def datadir
-    File.join(Dir.home, ".local", "share", "20")
+    File.join(Dir.home, ".local", "share", "twenty")
   end
 
   ##
   # @return [String]
   #  Returns the directory where twenty stores temporary data.
   def tmpdir
-    File.join(Dir.tmpdir, "20")
+    File.join(Dir.tmpdir, "twenty")
   end
 
   ##
