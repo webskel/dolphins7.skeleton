@@ -1,4 +1,9 @@
 ##
+# DON'T EDIT THIS FILE DIRECTLY.
+# Edit '.rubocop.yml' at the root of the project instead.
+##
+
+##
 # Plugins
 require:
   - standard
@@ -16,9 +21,9 @@ AllCops:
     - lib/*.rb
     - lib/**/*.rb
     - libexec/*
-    - libexec/twenty/*
+    - libexec/*/**
     - bin/*
-    - test/*_test.rb
+    - test/*
 
 ##
 # Enabled

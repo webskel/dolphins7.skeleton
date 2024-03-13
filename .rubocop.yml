@@ -1,9 +1,4 @@
 ##
-# DON'T EDIT THIS FILE DIRECTLY.
-# Edit '.rubocop.yml' at the root of the project instead.
-##
-
-##
 # Plugins
 require:
   - standard

@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require "nanoc-webpack"
 
 buildenv = ENV["buildenv"] || "development"
@@ -27,4 +29,4 @@ require_rules "nanoc/rules/projects"
 require_rules "nanoc/rules/tasks"
 
 compile("/**/*") { write(nil) }
-layout '/**/*', :erb
+layout "/**/*", :erb

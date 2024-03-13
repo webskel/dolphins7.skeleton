@@ -20,5 +20,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "webrick", "~> 1.8"
   gem.add_runtime_dependency "graphql", "~> 2.2"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
-  gem.add_development_dependency "standard", "~> 1.13"
+  gem.add_development_dependency "standard", "~> 1.35"
 end
