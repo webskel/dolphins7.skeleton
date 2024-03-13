@@ -1,3 +1,4 @@
 -stage/
 -node_modules/
 -.gems/
+-/twenty-client/tmp/

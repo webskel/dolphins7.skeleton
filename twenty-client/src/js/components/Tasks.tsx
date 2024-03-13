@@ -1,13 +1,12 @@
 import { useEffect, useContext } from "react";
-import { ParamContext, CookieContext } from "~/Context";
+import { AppContext } from "~/Context";
 import { NavBar } from "~/components/NavBar";
 import { Group } from "~/components/Group";
 import { TaskStatus, Maybe } from "~/types/schema";
 import { useTasks } from "~/hooks/queries/useTasks";
 
 export function Tasks() {
-  const params = useContext(ParamContext);
-  const cookies = useContext(CookieContext);
+  const { params, cookies } = useContext(AppContext);
   const projectId: Maybe<number> =
     params.projectId || cookies.projectId
       ? Number(params.projectId || cookies.projectId)

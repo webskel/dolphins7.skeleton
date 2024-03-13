@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { ParamContext, CookieContext } from "~/Context";
+import { AppContext } from "~/Context";
 import { useForm } from "react-hook-form";
 import { useCreateTask } from "~/hooks/mutations/useCreateTask";
 import { useUpdateTask } from "~/hooks/mutations/useUpdateTask";
@@ -23,8 +23,7 @@ const DEFAULT_TASK_CONTENT = [
 ].join("\n");
 
 export function Task() {
-  const params = useContext(ParamContext);
-  const cookies = useContext(CookieContext);
+  const { params, cookies } = useContext(AppContext);
   const projectId: Maybe<number> = Number(
     params.projectId || cookies.projectId,
   );

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ParamContext, CookieContext } from "~/Context";
+import { AppContext } from "~/Context";
 import { Maybe } from "~/types/schema";
 import { ProjectSelect } from "~/components/ProjectSelect";
 const BASE_CLASSNAMES = ["block", "w-3/4", "no-underline", "p-3", "mt-2"];
@@ -31,8 +31,7 @@ const find = (path: string, bar: Bar): Maybe<Item> => {
 };
 
 export function NavBar() {
-  const params = useContext(ParamContext);
-  const cookies = useContext(CookieContext);
+  const { params, cookies } = useContext(AppContext);
   const bar: Bar = {
     Tasks: [
       { text: "All tasks", href: "/tasks/" },
@@ -70,7 +69,7 @@ export function NavBar() {
           </>
         );
       })}
-      <h3>Scope</h3>
+      <h3>Settings</h3>
       <ProjectSelect
         selected={params.projectId || cookies.projectId}
         onChange={project => {

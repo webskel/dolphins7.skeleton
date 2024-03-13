@@ -1,3 +1,3 @@
 import { createContext } from "react";
-export const ParamContext = createContext<Record<string, string>>({});
-export const CookieContext = createContext<Record<string, string>>({});
+type TContext = Record<"params" | "cookies", Record<string, string>>;
+export const AppContext = createContext<TContext>({});
