@@ -73,7 +73,6 @@ export function Task() {
         <NavBar />
       </div>
       <div className="w-3/4">
-        <h1>{task ? "Edit task" : "New task"}</h1>
         <form onSubmit={handleSubmit(onSave)}>
           <input
             type="hidden"
