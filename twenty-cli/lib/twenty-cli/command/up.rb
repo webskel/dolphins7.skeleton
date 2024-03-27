@@ -12,12 +12,12 @@ class Twenty::Command::Up < Twenty::Command
              "A port to listen on (default: 2020)",
              default: 2020,
              as: Integer
-  set_option "-f",
-             "--fork",
-             "Run the web server in the background",
-             default: false
+  set_option "-u PATH",
+             "--unix PATH",
+             "Listen on a UNIX socket"
 
   include CommonOptionMixin
+  include Twenty::Path
   prepend Twenty::Command::MigrationMixin
   prepend Twenty::Command::SQLiteMixin
   prepend Twenty::Command::RescueMixin
@@ -30,9 +30,12 @@ class Twenty::Command::Up < Twenty::Command
   private
 
   def run_command(options)
-    server = Twenty::Servlet.server(options)
-    options.fork ? server.start! : server.start
+    File.binwrite(pidfile, Process.pid.to_s)
+    thr = Twenty::Rack.server(options).start
+    thr.join
   rescue Interrupt
-    server.shutdown
+    thr.kill
+  ensure
+    FileUtils.rm(pidfile)
   end
 end

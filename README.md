@@ -8,13 +8,14 @@ within your local network. It is both easy to use, and easy to install.
 
 * Provides a command-line utility to start / stop a web server.
 * Connect / disconnect a project from the command line.
-* Works offline. Binds to `http://localhost:2020` by default.
-* Minimal: Ruby, and SQLite3 are the primary runtime dependencies.
+* Designed to work offline. Binds to `http://localhost:2020` by default.
+* Lightweight stack with Ruby and SQLite3 being the primary runtime dependencies.
 * Easy to install, easy to use.
+* Optional: nginx support via an unix socket.
 
 ## Design
 
-* The server is powered by [ruby/webrick](https://github.com/ruby/webrick):
+* The server is powered by [rack](https://github.com/rack/rack) and [puma](https://github.com/puma/puma):
     - Accepts GraphQL requests at `/graphql`.
     - Serves client (HTML, JS, CSS).
     - Dependencies: ActiveRecord, SQLite3, ruby-graphql.

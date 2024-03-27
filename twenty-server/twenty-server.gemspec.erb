@@ -17,8 +17,8 @@ Gem::Specification.new do |gem|
   gem.description = gem.summary
   gem.add_runtime_dependency "activerecord", "~> 7.1"
   gem.add_runtime_dependency "sqlite3", "~> 1.6"
-  gem.add_runtime_dependency "webrick", "~> 1.8"
   gem.add_runtime_dependency "graphql", "~> 2.2"
+  gem.add_runtime_dependency "server.rb", "~> 0.1"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "standard", "~> 1.35"
 end

@@ -2,11 +2,10 @@
 
 module Twenty
   require "fileutils"
-  require "webrick"
   require "active_record"
   require_relative "twenty-server/path"
   require_relative "twenty-server/graphql"
-  require_relative "twenty-server/servlet"
+  require_relative "twenty-server/rack"
   require_relative "twenty-server/migration"
   require_relative "twenty-server/model"
   extend FileUtils
