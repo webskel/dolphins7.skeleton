@@ -9,7 +9,7 @@ module Twenty::GraphQL::Mutation
     def resolve(task_id:, input:)
       Twenty::Task
         .with_pk!(task_id)
-        .update!(input.to_h)
+        .update(input.to_h)
       {"errors" => []}
     rescue => ex
       {"errors" => [ex.message]}
