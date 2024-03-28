@@ -6,7 +6,7 @@ module Twenty::GraphQL::Mutation
     argument :input, Twenty::GraphQL::Input::TaskInput
 
     def resolve(input:)
-      Twenty::Task.create(input.to_h)
+      Twenty::Task.create input.to_h.merge(status: :backlog)
       {"errors" => []}
     rescue => ex
       {"errors" => [ex.message]}
