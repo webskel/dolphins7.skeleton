@@ -4,13 +4,12 @@ module Twenty
   require "fileutils"
   require "sequel"
   require_relative "twenty-server/path"
-  extend Path
 
   ##
   # @return [String]
   #  Returns the location of the default SQLite database.
   def self.default_database
-    @default_database ||= File.join(datadir, "database.sqlite")
+    @default_database ||= File.join(Path.datadir, "database.sqlite")
   end
 
   ##
@@ -32,13 +31,7 @@ module Twenty
     @connection
   end
 
-  begin
-    FileUtils.mkdir_p(datadir)
-    FileUtils.mkdir_p(tmpdir)
-    FileUtils.touch(default_database)
-  rescue => ex
-    warn "prepare_dir error: #{ex.message} (#{ex.class})"
-  end
+  FileUtils.touch(default_database)
   require_relative "twenty-server/graphql"
   require_relative "twenty-server/rack"
 end

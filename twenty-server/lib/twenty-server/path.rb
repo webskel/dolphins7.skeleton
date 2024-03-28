@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Twenty::Path
+  require "tmpdir"
+  extend self
+
   ##
   # @return [String]
   #  Returns the directory where twenty stores persistent data.
@@ -22,4 +25,7 @@ module Twenty::Path
   def pidfile
     File.join(tmpdir, "server.pid")
   end
+
+  FileUtils.mkdir_p(datadir)
+  FileUtils.mkdir_p(tmpdir)
 end
