@@ -18,7 +18,7 @@ within your local network. It is both easy to use, and easy to install.
 * The server is powered by [rack](https://github.com/rack/rack) and [puma](https://github.com/puma/puma):
     - Accepts GraphQL requests at `/graphql`.
     - Serves client (HTML, JS, CSS).
-    - Dependencies: ActiveRecord, SQLite3, ruby-graphql.
+    - Dependencies: Sequel, SQLite3, ruby-graphql.
 * The client is a statically compiled [nanoc](https://github.com/nanoc/nanoc) website:
     - Dependencies: webpack, typescript, react.
 * The CLI controls the web server:

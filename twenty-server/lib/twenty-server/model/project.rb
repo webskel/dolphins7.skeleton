@@ -1,17 +1,12 @@
 # frozen_string_literal: true
 
-class Twenty::Project < Twenty::Model
+class Twenty::Project < Sequel::Model
+  include Twenty::Model
   include Twenty::ColorableMixin
-  self.table_name = "projects"
 
-  ##
-  # Validations
-  validates :name, presence: true
-  validates :path, presence: true
-
-  ##
-  # Associations
-  has_many :tasks, class_name: "Twenty::Task"
+  validates_presence_of :name
+  validates_presence_of :path
+  one_to_many :tasks, class_name: "Twenty::Task"
 
   ##
   # @return [String]

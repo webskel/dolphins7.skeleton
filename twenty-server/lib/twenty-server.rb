@@ -2,13 +2,8 @@
 
 module Twenty
   require "fileutils"
-  require "active_record"
+  require "sequel"
   require_relative "twenty-server/path"
-  require_relative "twenty-server/graphql"
-  require_relative "twenty-server/rack"
-  require_relative "twenty-server/migration"
-  require_relative "twenty-server/model"
-  extend FileUtils
   extend Path
 
   ##
@@ -26,24 +21,24 @@ module Twenty
   #
   # @return [void]
   def self.establish_connection(path:)
-    ActiveRecord::Base.establish_connection(
-      adapter: "sqlite3",
-      database: path,
-      pool: 16
+    @connection = Sequel.connect(
+      adapter: "sqlite",
+      database: path
     )
   end
 
-  ##
-  # Prepares the parent directory of the database.
-  # @return [void]
-  # @api private
-  def self.prepare_dir
-    mkdir_p(datadir)
-    mkdir_p(tmpdir)
-    touch(default_database)
+  def self.connection
+    establish_connection unless @connection
+    @connection
+  end
+
+  begin
+    FileUtils.mkdir_p(datadir)
+    FileUtils.mkdir_p(tmpdir)
+    FileUtils.touch(default_database)
   rescue => ex
     warn "prepare_dir error: #{ex.message} (#{ex.class})"
   end
-  private_class_method :prepare_dir
-  prepare_dir
+  require_relative "twenty-server/graphql"
+  require_relative "twenty-server/rack"
 end

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class AddColorToProjects < ActiveRecord::Migration[7.1]
-  def up
+Sequel.migration do
+  up do
     default = Twenty::ColorableMixin.random_color
     add_column :projects, :color, :string, null: false, default:
   end
 
-  def down
+  down do
     drop_column :projects, :color
   end
 end

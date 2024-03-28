@@ -6,7 +6,7 @@ module Twenty::GraphQL::Mutation
     argument :input, Twenty::GraphQL::Input::TaskInput
 
     def resolve(input:)
-      Twenty::Task.new(input.to_h).save!
+      Twenty::Task.create(input.to_h)
       {"errors" => []}
     rescue => ex
       {"errors" => [ex.message]}

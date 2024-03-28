@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.summary = "twenty: server-side component"
   gem.description = gem.summary
-  gem.add_runtime_dependency "activerecord", "~> 7.1"
+  gem.add_runtime_dependency "sequel", "~> 5.78"
   gem.add_runtime_dependency "sqlite3", "~> 1.6"
   gem.add_runtime_dependency "graphql", "~> 2.2"
   gem.add_runtime_dependency "server.rb", "~> 0.1"

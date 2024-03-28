@@ -14,8 +14,9 @@ module Twenty::ColorableMixin
     "#993366", "#2200AA", "#557788", "#998877", "#BB4400"
   ]
 
-  def self.included(klass)
-    klass.before_validation :set_random_color, on: :create
+  def before_validation
+    super if defined?(super)
+    set_random_color
   end
 
   def random_color
@@ -25,6 +26,7 @@ module Twenty::ColorableMixin
   private
 
   def set_random_color
+    return if id
     self.color = random_color
   end
 end

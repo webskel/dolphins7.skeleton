@@ -11,15 +11,16 @@ module Twenty::GraphQL::Type
     end
     field :projects, [Project], null: false
 
+
     def find_task(task_id:)
-      Twenty::Task.find_by(id: task_id)
+      Twenty::Task.with_pk!(task_id)
     end
 
     def tasks(status:, project_id: nil)
       tasks = Twenty::Task
-        .where(status:)
-        .order(updated_at: :desc)
-      project_id ? tasks.where(project_id:) : tasks
+                .by_status(status)
+                .order("updated_at DESC")
+      (project_id ? tasks.where(project_id:) : tasks).all
     end
 
     def projects
