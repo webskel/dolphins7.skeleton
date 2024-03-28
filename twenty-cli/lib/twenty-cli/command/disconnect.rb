@@ -15,6 +15,9 @@ class Twenty::Command::Disconnect < Twenty::Command
   private
 
   def run_command(options)
-    warn "[twenty] disconnect..."
+    Twenty::Project
+      .where(path: Dir.getwd)
+      .first!
+      .destroy
   end
 end
