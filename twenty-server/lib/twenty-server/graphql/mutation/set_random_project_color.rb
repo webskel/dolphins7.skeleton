@@ -9,8 +9,8 @@ module Twenty::GraphQL::Mutation
     field :project, Twenty::GraphQL::Type::Project, null: true
 
     def resolve(project_id:)
-      project = Twenty::Project.find(project_id)
-      project.update!(color: project.random_color)
+      project = Twenty::Project.with_pk!(project_id)
+      project.update(color: project.random_color)
       {errors: [], project:}
     rescue => ex
       {errors: [ex.message]}
