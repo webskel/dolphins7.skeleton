@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "nanoc", "~> 4.12"
   gem.add_development_dependency "sass", "~> 3.7"
   gem.add_development_dependency "rainpress", "~> 1.0"
-  gem.add_development_dependency "nanoc-webpack.rb", "~> 0.8"
+  gem.add_development_dependency "nanoc-webpack.rb", "~> 0.8.1"
   gem.add_development_dependency "listen", "~> 3.8"
   gem.add_development_dependency "standard", "~> 1.35"
 end
