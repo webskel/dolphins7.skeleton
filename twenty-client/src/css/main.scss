@@ -51,6 +51,14 @@ body {
   }
 }
 
+form {
+  textarea {
+    height: 75%;
+    border: none;
+    outline: none;
+  }
+}
+
 .markdown {
   ul {
     all:unset;

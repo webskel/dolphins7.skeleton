@@ -73,7 +73,7 @@ export function Task() {
         <NavBar />
       </div>
       <div className="w-3/4">
-        <form onSubmit={handleSubmit(onSave)}>
+        <form className="h-full" onSubmit={handleSubmit(onSave)}>
           <input
             type="hidden"
             {...register("projectId", {
@@ -97,7 +97,7 @@ export function Task() {
           {isEditable ? (
             <>
               <textarea
-                className="p-3 h-72 flex w-3/4 mb-3"
+                className="p-3 flex w-3/4 mb-3"
                 defaultValue={task?.content || DEFAULT_TASK_CONTENT}
                 {...register("content", { required: true })}
               />
