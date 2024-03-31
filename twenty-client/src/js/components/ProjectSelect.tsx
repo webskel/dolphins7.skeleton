@@ -12,12 +12,12 @@ export function ProjectSelect({ onChange, selected }: Props) {
   const projects: Project[] = data?.projects || [];
   const options: Option[] = projects.map(project => ({
     label: (
-      <div className="flex">
+      <div className="flex items-center">
         <span
           style={{ backgroundColor: project.color }}
           className="flex w-2/8 rounded w-8 h-8 mr-3 cursor-pointer"
         ></span>
-        <span className="flex align-items-center">{project.name}</span>
+        <span className="flex">{project.name}</span>
       </div>
     ),
     value: String(project.id),
