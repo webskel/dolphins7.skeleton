@@ -69,10 +69,10 @@ export function Task() {
 
   return (
     <div className="flex w-full h-full">
-      <div className="w-1/4">
+      <div className="w-1/4 pl-5">
         <NavBar />
       </div>
-      <div className="w-3/4">
+      <div className="w-3/4 pt-5">
         <form className="h-full" onSubmit={handleSubmit(onSave)}>
           <input
             type="hidden"
