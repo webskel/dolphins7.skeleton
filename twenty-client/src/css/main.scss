@@ -1,11 +1,7 @@
 @import "fonts";
 @import "colors";
 @import "global";
-@import "vendor/tail";
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
+@import "tail";
 
 html, html body {
   height: 100%;

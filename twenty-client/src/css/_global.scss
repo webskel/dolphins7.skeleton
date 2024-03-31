@@ -3,3 +3,29 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/* text colors */
+.bg-primary { background: $primary-color; }
+.bg-secondary { background: $secondary-color; }
+.bg-accent { background: $accent-color; }
+.text-primary { color: $primary-color; }
+.text-secondary { color: $secondary-color; }
+.text-accent { color: $accent-color; }
+
+/* text sizes */
+.text-xxsmall { font-size: xx-small; }
+.text-xsmall { font-size: x-small; }
+.text-small { font-size: small; }
+.text-smaller { font-size: smaller;  }
+.text-medium { font-size: medium; }
+.text-large { font-size: large; }
+.text-larger { font-size: larger; }
+
+/* text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.border-primary { border-color: $primary-color; }
+.border-secondary { border-color: $secondary-color; }
+.border-accent { border-color: $accent-color; }

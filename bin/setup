@@ -13,3 +13,5 @@ for dir in ${subdir}; do
     fi
     cd ${wrkdir}
 done
+git submodule update --init --recursive
+echo OK
