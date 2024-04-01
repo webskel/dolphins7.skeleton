@@ -81,7 +81,7 @@ export function Task() {
             })}
           />
           <input
-            className="p-3 flex w-3/4 mb-3"
+            className="p-3 flex w-3/4 mb-3 outline-none"
             type="text"
             placeholder="Title"
             defaultValue={task?.title}
