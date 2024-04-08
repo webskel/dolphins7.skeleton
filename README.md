@@ -1,17 +1,16 @@
 ## About
 
-Twenty helps you manage and plan your open source projects with a
-standalone web application that's designed to run on localhost or
-within your local network. It is both easy to use, and easy to install.
+Twenty helps you plan your open source projects with a standalone
+web application that's designed to run on localhost or within your
+local network.
 
 ## Features
 
 * Provides a command-line utility to start / stop a web server.
 * Connect / disconnect a project from the command line.
-* Designed to work offline. Binds to `http://localhost:2020` by default.
-* Lightweight stack with Ruby and SQLite3 being the primary runtime dependencies.
+* Designed to work offline.
+* Lightweight stack.
 * Easy to install, easy to use.
-* Optional: nginx support via an unix socket.
 
 ## Design
 
