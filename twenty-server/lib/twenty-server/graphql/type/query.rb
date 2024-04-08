@@ -11,7 +11,6 @@ module Twenty::GraphQL::Type
     end
     field :projects, [Project], null: false
 
-
     def find_task(task_id:)
       Twenty::Task.with_pk!(task_id)
     end

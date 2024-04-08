@@ -6,7 +6,6 @@ require "nanoc-webpack"
 buildenv = ENV["buildenv"] || "development"
 Nanoc::Webpack.default_argv.concat ["--config", "webpack.#{buildenv}.js"]
 
-
 def require_rules(rules, locals = {}, target = binding)
   locals.each { target.local_variable_set(_1, _2) }
   path = File.join(Dir.getwd, rules)

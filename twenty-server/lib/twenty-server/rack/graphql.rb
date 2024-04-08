@@ -14,7 +14,7 @@ module Twenty::Rack
     def call(env)
       req = Rack::Request.new(env)
       if req.post? &&
-         req.path == "/graphql"
+          req.path == "/graphql"
         params = JSON.parse(req.body.string)
         result = Twenty::GraphQL::Schema.execute(
           params["query"],

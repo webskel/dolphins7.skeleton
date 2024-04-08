@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Twenty::GraphQL
   require "graphql"
   require_relative "graphql/input"

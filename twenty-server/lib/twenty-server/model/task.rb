@@ -4,7 +4,7 @@ class Twenty::Task < Sequel::Model
   include Twenty::Model
 
   plugin(:enum)
-  STATUS_MAP  = {backlog: 0, ready: 1, in_progress: 2, complete: 3}
+  STATUS_MAP = {backlog: 0, ready: 1, in_progress: 2, complete: 3}
   STATUS_KEYS = STATUS_MAP.keys
   enum :status, STATUS_MAP
 

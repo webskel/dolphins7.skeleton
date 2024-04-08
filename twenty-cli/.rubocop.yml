@@ -24,6 +24,8 @@ AllCops:
     - libexec/*/**
     - bin/*
     - test/*
+  Exclude:
+    - src/css/vendor/tail.css/bin/*
 
 ##
 # Enabled

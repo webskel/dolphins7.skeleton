@@ -6,6 +6,6 @@ module Twenty::GraphQL::Type
     field :name, String, null: false
     field :path, String, null: false
     field :color, String, null: false
-    field :tasks, '[Twenty::GraphQL::Type::Task]', null: false
+    field :tasks, "[Twenty::GraphQL::Type::Task]", null: false
   end
 end
