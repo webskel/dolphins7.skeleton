@@ -68,11 +68,11 @@ export function Task() {
   }
 
   return (
-    <div className="flex w-full h-full">
+    <div className="flex w-full h-full w-full">
       <div className="w-1/4 pl-5">
         <NavBar />
       </div>
-      <div className="w-3/4 pt-5">
+      <div className="pt-5 w-full max-w-screen-lg">
         <form className="h-full" onSubmit={handleSubmit(onSave)}>
           <input
             type="hidden"
@@ -97,7 +97,7 @@ export function Task() {
           {isEditable ? (
             <>
               <textarea
-                className="p-3 flex w-3/4 mb-3"
+                className="p-3 flex w-full mb-3"
                 defaultValue={task?.content || DEFAULT_TASK_CONTENT}
                 {...register("content", { required: true })}
               />
@@ -109,7 +109,7 @@ export function Task() {
             </>
           ) : (
             <div
-              className="markdown h-50"
+              className="markdown w-full h-50"
               dangerouslySetInnerHTML={{
                 __html: rendermd(content || task?.content),
               }}
