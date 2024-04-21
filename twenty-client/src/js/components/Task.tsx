@@ -9,19 +9,6 @@ import { rendermd } from "~/lib/markdown-utils";
 import { NavBar } from "~/components/NavBar";
 import { Tabs, Tab } from "~/components/Tabs";
 
-const DEFAULT_TASK_CONTENT = [
-  "## Description",
-  "",
-  "An example description",
-  "",
-  "## Checklist",
-  "",
-  "* [] item one",
-  "* [] item two",
-  "* [] ...",
-  "",
-].join("\n");
-
 export function Task() {
   const { params, cookies } = useContext(AppContext);
   const projectId: Maybe<number> = Number(
@@ -98,7 +85,13 @@ export function Task() {
             <>
               <textarea
                 className="p-3 flex w-full mb-3"
-                defaultValue={task?.content || DEFAULT_TASK_CONTENT}
+                defaultValue={task?.content}
+                placeholder={[
+                  "# Description",
+                  "",
+                  "Your description goes here",
+                  "",
+                ].join("\n")}
                 {...register("content", { required: true })}
               />
               <input
