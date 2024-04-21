@@ -1,5 +1,5 @@
 schema:
-- ../twenty-backend/share/twenty-backend/schema.graphql
+- ../twenty-server/share/twenty-server/schema.graphql
 
 generates:
   src/js/types/schema.ts:
