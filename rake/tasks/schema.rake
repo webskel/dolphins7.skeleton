@@ -5,15 +5,15 @@ namespace :schema do
 
   task :'regen:server' do
     Dir.chdir(workdir) do
-      require "twenty-server"
-      schema = File.join(Dir.getwd, "share", "twenty-server", "schema.graphql")
+      require "server"
+      schema = File.join(Dir.getwd, "share", "server", "schema.graphql")
       mkdir_p File.dirname(schema)
       File.binwrite schema, Twenty::GraphQL::Schema.to_definition
     end
   end
 
   task :'regen:client' do
-    Dir.chdir(File.join(workdir, "twenty-client")) do
+    Dir.chdir(File.join(workdir, "client")) do
       sh "npm exec graphql-codegen"
     end
   end

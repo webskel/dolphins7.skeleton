@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 libdir = File.join(__dir__, "..", "lib")
-require File.join(libdir, "twenty-cli", "libexec")
+require File.join(libdir, "twenty", "cli", "libexec")
 
 case ARGV[0]
 when "up"

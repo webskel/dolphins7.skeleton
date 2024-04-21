@@ -3,7 +3,7 @@
 module Twenty
   require "fileutils"
   require "sequel"
-  require_relative "twenty-server/path"
+  require_relative "server/path"
 
   ##
   # @return [String]
@@ -32,6 +32,6 @@ module Twenty
   end
 
   FileUtils.touch(default_database)
-  require_relative "twenty-server/graphql"
-  require_relative "twenty-server/rack"
+  require_relative "server/graphql"
+  require_relative "server/rack"
 end

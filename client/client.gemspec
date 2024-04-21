@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
                   .flat_map { Dir.glob(_1.chomp) }
                   .select { File.file?(_1) }
   gem.require_paths = ["lib"]
-  gem.summary = "twenty: client-side component"
+  gem.summary = "HTTP client"
   gem.description = gem.summary
   gem.add_development_dependency "nanoc", "~> 4.12"
   gem.add_development_dependency "sass", "~> 3.7"

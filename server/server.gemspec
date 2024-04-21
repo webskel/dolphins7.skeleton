@@ -5,15 +5,15 @@ Gem::Specification.new do |gem|
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
-  gem.version = "<%= version %>"
+  gem.version = "0.3.5"
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "lib", "*.rb")),
-    *Dir.glob(File.join(__dir__, "lib", "twenty-server", "**", "*.rb")),
+    *Dir.glob(File.join(__dir__, "lib", "twenty", "server", "**", "*.rb")),
     *Dir.glob(File.join(__dir__, "share", "**", "*")),
   ].select { File.file?(_1) }
   gem.require_paths = ["lib"]
-  gem.summary = "twenty: server-side component"
+  gem.summary = "HTTP server"
   gem.description = gem.summary
   gem.add_runtime_dependency "sequel", "~> 5.78"
   gem.add_runtime_dependency "sqlite3", "~> 1.6"

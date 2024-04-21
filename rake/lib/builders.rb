@@ -2,8 +2,8 @@ class Builder
   ROOTDIR  = Dir.getwd
   STAGEDIR = File.join(ROOTDIR, "stage")
   PKGDIR   = File.join(ROOTDIR, "pkgs")
-  PARENT   = "twenty.rb"
-  CHILDREN = %w[twenty-cli twenty-server twenty-client]
+  PARENT   = File.basename File.realpath(File.join(__dir__, "..", ".."))
+  CHILDREN = %w[cli server client]
   include FileUtils
 
   def self.call(...)
@@ -16,7 +16,7 @@ class GemSpec < Builder
   def call(version)
     [PARENT, *CHILDREN].each do |node|
       path = find_path(node)
-      spec = ERB.new(File.binread(path)).result_with_hash({version:})
+      spec = ERB.new(File.binread(path)).result_with_hash({parent: PARENT, version:})
       File.binwrite File.join(File.dirname(path), "#{node}.gemspec"), spec
     end
   end

@@ -4,7 +4,7 @@
 # sub-directory / sub-package (cli, client, server).
 set -e
 wrkdir=$(pwd)
-subdir=". twenty-cli twenty-client twenty-server"
+subdir=". cli client server"
 for dir in ${subdir}; do
     cd ${dir}
     bundle install

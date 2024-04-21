@@ -3,9 +3,9 @@
 namespace :rubocop do
   root = File.realpath File.join(__dir__, "..", "..")
   gems = [
-    File.join(root, "twenty-cli"),
-    File.join(root, "twenty-server"),
-    File.join(root, "twenty-client")
+    File.join(root, "cli"),
+    File.join(root, "server"),
+    File.join(root, "client")
   ]
 
   desc "Copy '.rubocop.yml' into place"

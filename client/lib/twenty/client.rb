@@ -2,6 +2,6 @@
 
 module Twenty
   def self.build
-    File.expand_path File.join(__dir__, "..", "build")
+    File.expand_path File.join(__dir__, "..", "..", "build")
   end
 end

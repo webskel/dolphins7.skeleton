@@ -9,12 +9,13 @@ Gem::Specification.new do |gem|
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "lib", "*.rb")),
-    *Dir.glob(File.join(__dir__, "lib", "twenty-cli", "**", "*.rb")),
+    *Dir.glob(File.join(__dir__, "lib", "twenty", "*.rb")),
+    *Dir.glob(File.join(__dir__, "lib", "twenty", "cli", "**", "*.rb")),
     *Dir.glob(File.join(__dir__, "libexec", "**", "*")),
     *Dir.glob(File.join(__dir__, "bin", "*"))
   ].select { File.file?(_1) }
   gem.require_paths = ["lib"]
-  gem.summary = "twenty: CLI component"
+  gem.summary = "Command-line interface"
   gem.description = gem.summary
   gem.executables = ["twenty"]
   gem.add_runtime_dependency "cmd.rb", "~> 0.5"

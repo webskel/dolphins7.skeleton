@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 libdir = File.expand_path File.join(__dir__, "..", "..", "lib")
-require File.join(libdir, "twenty-cli")
+require File.join(libdir, "twenty", "cli")
 
 ##
 # main

@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 gemspec
-gem "twenty-cli", path: "./twenty-cli"
-gem "twenty-server", path: "./twenty-server"
-gem "twenty-client", path: "./twenty-client"
+gem "twenty-cli", path: "./cli"
+gem "twenty-server", path: "./server"
+gem "twenty-client", path: "./client"
 gem "listen"
