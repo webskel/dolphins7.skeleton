@@ -72,8 +72,8 @@ export function Task() {
       <div className="w-1/4 pl-5">
         <NavBar />
       </div>
-      <div className="pt-5 w-full max-w-screen-lg">
-        <form className="h-full" onSubmit={handleSubmit(onSave)}>
+      <div className="pt-5 w-full max-w-screen-md">
+        <form className="h-full w-full" onSubmit={handleSubmit(onSave)}>
           <input
             type="hidden"
             {...register("projectId", {
@@ -81,7 +81,7 @@ export function Task() {
             })}
           />
           <input
-            className="p-3 flex w-3/4 mb-3 outline-none"
+            className="p-3 flex mb-3 outline-none w-full"
             type="text"
             placeholder="Title"
             defaultValue={task?.title}

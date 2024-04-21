@@ -22,7 +22,7 @@ export function Tabs({ defaultLabel, labels, onChange }: Props) {
   }, [active]);
 
   return (
-    <ul className="flex w-3/4">
+    <ul className="flex w-full">
       {...tabs.map(tab => {
         const isActive = active?.id === tab.id;
         const classNames = {
