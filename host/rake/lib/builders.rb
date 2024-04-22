@@ -25,9 +25,9 @@ class GemSpec < Builder
 
   def find_path(node)
     if node == PARENT
-      File.join(Dir.getwd, "#{node}.gemspec.erb")
+      File.join(Dir.getwd, "#{node}.gemspec.tt")
     else
-      File.join(Dir.getwd,node, "#{node}.gemspec.erb")
+      File.join(Dir.getwd,node, "#{node}.gemspec.tt")
     end
   end
 end
