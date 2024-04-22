@@ -1,6 +1,6 @@
 namespace :nanoc do
   require "bundler/setup"
-  workdir = File.realpath File.join(__dir__, "..", "..", "client")
+  workdir = File.realpath File.join(__dir__, "..", "..", "..", "client")
 
   desc "Clean the build/ directory"
   task :clean do

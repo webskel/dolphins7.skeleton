@@ -2,7 +2,7 @@ class Builder
   ROOTDIR  = Dir.getwd
   STAGEDIR = File.join(ROOTDIR, "stage")
   PKGDIR   = File.join(ROOTDIR, "pkgs")
-  PARENT   = File.basename File.realpath(File.join(__dir__, "..", ".."))
+  PARENT   = File.basename File.realpath(File.join(__dir__, "..", "..", ".."))
   CHILDREN = %w[cli server client]
   include FileUtils
 

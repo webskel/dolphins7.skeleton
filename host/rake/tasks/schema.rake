@@ -1,5 +1,5 @@
 namespace :schema do
-  workdir = File.join(__dir__, "..", "..")
+  workdir = File.join(__dir__, "..", "..", "..")
   desc "Regenerate the GraphQL schema (server-side and client-side)"
   task regen: %i[regen:server regen:client]
 

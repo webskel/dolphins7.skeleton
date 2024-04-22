@@ -2,7 +2,7 @@
 
 namespace :gem do
   require_relative "../lib/builders"
-  root = File.realpath File.join(__dir__, "..", "..")
+  root = File.realpath File.join(__dir__, "..", "..", "..")
   version = File.binread(File.join(root, "VERSION")).chomp
 
   desc "Build gemspec"

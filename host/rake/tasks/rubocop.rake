@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 namespace :rubocop do
-  root = File.realpath File.join(__dir__, "..", "..")
+  root = File.realpath File.join(__dir__, "..", "..", "..")
   gems = [
     File.join(root, "cli"),
     File.join(root, "server"),
