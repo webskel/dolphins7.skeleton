@@ -21,6 +21,8 @@ AllCops:
     - test/*
   Exclude:
     - src/css/vendor/tail.css/bin/*
+    - src/tmp/*
+    - src/tmp/**/*
 
 ##
 # Enabled
