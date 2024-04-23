@@ -36,6 +36,7 @@ export function ProjectSelect({ onChange, selected }: Props) {
       options={options}
       selected={String(selected)}
       placeholder="Any project"
+      className="max-h-96 overflow-y-scroll overflow-x-none w-3/4"
     />
   );
   1;

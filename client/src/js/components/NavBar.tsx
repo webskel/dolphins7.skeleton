@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "~/Context";
 import { Maybe } from "~/types/schema";
 import { ProjectSelect } from "~/components/ProjectSelect";
-const BASE_CLASSNAMES = ["block", "w-3/4", "no-underline", "p-3", "mt-2"];
+const BASE_CLASSNAMES = ["block", "no-underline", "p-3", "mt-2"];
 const ACTIVE_CLASSNAMES = [
   ...BASE_CLASSNAMES,
   "rounded",
@@ -48,7 +48,7 @@ export function NavBar() {
         return (
           <>
             <h3>{key}</h3>
-            <ul>
+            <ul className="w-3/4">
               {...items.flatMap(item => {
                 return (
                   <li>

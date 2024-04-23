@@ -3,7 +3,6 @@ import { ReactNode, useState, useEffect } from "react";
 const LI_CLASSNAME = [
   "flex",
   "align-items-center",
-  "w-3/4",
   "hover-bg-secondary",
   "p-3",
   "mt-2",
@@ -25,6 +24,7 @@ type Props = {
   selected: string;
   onChange: (o: Option) => void;
   placeholder: string;
+  className?: string;
 };
 
 export type Option = {
@@ -32,7 +32,7 @@ export type Option = {
   value: string;
 };
 
-export const Select = ({ onChange, options, selected, placeholder }: Props) => {
+export const Select = ({ onChange, options, selected, placeholder, className }: Props) => {
   const selectOptions = [{ label: placeholder, value: "" }, ...options];
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [option, setOption] = useState<Option>(
@@ -66,7 +66,7 @@ export const Select = ({ onChange, options, selected, placeholder }: Props) => {
   }, [isOpen]);
 
   return (
-    <ul>
+    <ul className={className}>
       {selectOptions.map((o, i) => (
         <li
           key={i}
