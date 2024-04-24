@@ -5,7 +5,7 @@ namespace :schema do
 
   task :'regen:server' do
     Dir.chdir(workdir) do
-      require "server"
+      require "twenty/server"
       schema = File.join(Dir.getwd, "share", "server", "schema.graphql")
       mkdir_p File.dirname(schema)
       File.binwrite schema, Twenty::GraphQL::Schema.to_definition
