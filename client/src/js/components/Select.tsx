@@ -25,18 +25,31 @@ type Props = {
   onChange: (o: Option) => void;
   placeholder: string;
   className?: string;
+  isFilterable?: boolean;
 };
 
 export type Option = {
+  id: number;
   label: string | ReactNode;
   value: string;
 };
 
-export const Select = ({ onChange, options, selected, placeholder, className }: Props) => {
-  const selectOptions = [{ label: placeholder, value: "" }, ...options];
+export const Select = ({
+  onChange,
+  options,
+  selected,
+  placeholder,
+  className,
+  isFilterable = true,
+}: Props) => {
+  const selectOptions = [
+    { id: null, label: placeholder, value: "" },
+    ...options,
+  ];
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [filterText, setFilterText] = useState<string>(null);
   const [option, setOption] = useState<Option>(
-    options.find(o => o.value === selected) || selectOptions[0],
+    options.find(o => String(o.id) === selected) || selectOptions[0],
   );
   const onClick = (option: Option) => {
     if (isOpen) {
@@ -67,16 +80,48 @@ export const Select = ({ onChange, options, selected, placeholder, className }: 
 
   return (
     <ul className={className}>
-      {selectOptions.map((o, i) => (
-        <li
-          key={i}
-          data-value={o.value}
-          onClick={e => [e.stopPropagation(), onClick(o)]}
-          className={getClassName(o, option)}
-        >
-          {o.label}
+      {isFilterable && isOpen && (
+        <li className="flex">
+          <FilterInput onTextChange={text => setFilterText(text)} />
         </li>
-      ))}
+      )}
+      {selectOptions
+        .filter(o => {
+          if (filterText === null) {
+            return true;
+          } else {
+            const regexp = new RegExp(filterText);
+            return regexp.test(o.value);
+          }
+        })
+        .map((o, i) => (
+          <li
+            key={i}
+            data-value={o.value}
+            onClick={e => [e.stopPropagation(), onClick(o)]}
+            className={getClassName(o, option)}
+          >
+            {o.label}
+          </li>
+        ))}
     </ul>
   );
 };
+
+type FilterInputProps = { onTextChange: (text: string) => void };
+function FilterInput({ onTextChange }: FilterInputProps) {
+  return (
+    <input
+      className="p-3 rounded border-secondary border-solid outline-none"
+      onClick={e => e.stopPropagation()}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        const {
+          target: { value: text },
+        } = e;
+        onTextChange(text);
+      }}
+      type="text"
+      placeholder="Filter by text"
+    />
+  );
+}

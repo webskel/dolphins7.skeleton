@@ -11,6 +11,7 @@ export function ProjectSelect({ onChange, selected }: Props) {
   const { data, loading } = useProjects();
   const projects: Project[] = data?.projects || [];
   const options: Option[] = projects.map(project => ({
+    id: project.id,
     label: (
       <div className="flex items-center">
         <span
@@ -20,7 +21,7 @@ export function ProjectSelect({ onChange, selected }: Props) {
         <span className="flex">{project.name}</span>
       </div>
     ),
-    value: String(project.id),
+    value: project.name,
   }));
 
   if (loading) {
@@ -30,7 +31,7 @@ export function ProjectSelect({ onChange, selected }: Props) {
   return (
     <Select
       onChange={(option: Option) => {
-        const project = projects.find(p => String(p.id) == option.value);
+        const project = projects.find(p => p.id == option.id);
         onChange(project);
       }}
       options={options}
