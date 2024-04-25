@@ -39,7 +39,7 @@ class Copy < Builder
       mkdir_p(dest)
       if _1 == PARENT
         sh "cp -fv *.gemspec #{dest}"
-        sh "cp -Rfv lib/ #{dest}"
+        sh "cp -Rfv host/lib/ #{dest}"
       else
         sh [
           "find #{_1}",
@@ -72,9 +72,10 @@ class Build < Builder
   def call(version)
     dest = File.join(PKGDIR, version)
     mkdir_p(dest)
-    [*CHILDREN, PARENT].each do |gem|
-      Dir.chdir(File.join(STAGEDIR, version, gem)) do
-        sh "gem build #{gem}.gemspec"
+    [*CHILDREN.map { "#{PARENT}-#{_1}" }, PARENT].each do |gem|
+      stagedir = File.join(STAGEDIR, version, gem.sub(/^#{Regexp.escape(PARENT)}-/, ""))
+      Dir.chdir(stagedir) do
+        sh "gem build #{File.basename(stagedir)}.gemspec"
         sh "mv #{gem}-#{version}.gem #{dest}"
       end
     end
@@ -84,7 +85,7 @@ end
 class Deploy < Builder
   def call(version)
     Dir.chdir File.join(PKGDIR, version) do
-      [*CHILDREN, PARENT].each do |gem|
+      [*CHILDREN.map { "#{PARENT}-#{_1}" }, PARENT].each do |gem|
         sh "gem push #{gem}-#{version}.gem"
       end
     end
