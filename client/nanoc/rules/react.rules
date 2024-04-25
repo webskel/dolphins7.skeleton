@@ -1,15 +1,13 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-components = {
-  "react-task" => ["tasks/new", "tasks/edit"],
-  "react-tasks" => ["/", "tasks"],
-  "react-projects" => ["projects"]
-}
-
-components.each do |name, paths|
-  compile "/html/react.html.erb", rep: name do
-    filter(:erb, locals: {name:, src: "/js/main.js"})
+{
+  "Task" => ["tasks/new", "tasks/edit"],
+  "Tasks" => ["/", "tasks"],
+  "Projects" => ["projects"]
+}.each do |component, paths|
+  compile "/html/react.html.erb", rep: component do
+    filter(:erb, locals: {name: "react-#{component.downcase}", src: "/js/main.js"})
     paths.each do |path|
       (path == "/") ? write("/index.html") : write("/#{path}/index.html")
     end

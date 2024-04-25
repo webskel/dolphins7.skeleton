@@ -7,17 +7,17 @@ import { Task } from "~/components/Task";
 
 (function () {
   const components = {
-    "react-task": () => (
+    "Task": () => (
       <App>
         <Task />
       </App>
     ),
-    "react-tasks": () => (
+    "Tasks": () => (
       <App>
         <Tasks />
       </App>
     ),
-    "react-projects": () => (
+    "Projects": () => (
       <App>
         <Projects />
       </App>
@@ -25,8 +25,8 @@ import { Task } from "~/components/Task";
   };
   const ents = Object.entries(components);
   for (let i = 0; i < ents.length; i++) {
-    const [name, getJSX] = ents[i];
-    const root = document.querySelector(`.${name}`);
+    const [component, getJSX] = ents[i];
+    const root = document.querySelector(`.react-${component.toLowerCase()}`);
     if (root) {
       ReactDOM.createRoot(root).render(getJSX());
       break;
