@@ -25,6 +25,7 @@ type Props = {
   onChange: (o: Option) => void;
   placeholder: string;
   className?: string;
+  filterPlaceholder?: string;
   isFilterable?: boolean;
 };
 
@@ -40,6 +41,7 @@ export const Select = ({
   selected,
   placeholder,
   className,
+  filterPlaceholder = "Filter by text",
   isFilterable = true,
 }: Props) => {
   const selectOptions = [
@@ -82,7 +84,10 @@ export const Select = ({
     <ul className={className}>
       {isFilterable && isOpen && (
         <li className="flex">
-          <FilterInput onTextChange={text => setFilterText(text)} />
+          <Filter
+            placeholder={filterPlaceholder}
+            onTextChange={text => setFilterText(text)}
+          />
         </li>
       )}
       {selectOptions
@@ -108,11 +113,17 @@ export const Select = ({
   );
 };
 
-type FilterInputProps = { onTextChange: (text: string) => void };
-function FilterInput({ onTextChange }: FilterInputProps) {
+type FilterProps = {
+  onTextChange: (text: string) => void;
+  placeholder: string;
+};
+function Filter({ onTextChange, placeholder }: FilterProps) {
   return (
     <input
+      type="text"
       className="p-3 rounded border-secondary border-solid outline-none"
+      autoFocus={true}
+      placeholder={placeholder}
       onClick={e => e.stopPropagation()}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         const {
@@ -120,8 +131,6 @@ function FilterInput({ onTextChange }: FilterInputProps) {
         } = e;
         onTextChange(text);
       }}
-      type="text"
-      placeholder="Filter by text"
     />
   );
 }

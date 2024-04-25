@@ -30,14 +30,15 @@ export function ProjectSelect({ onChange, selected }: Props) {
 
   return (
     <Select
+      options={options}
+      selected={String(selected)}
+      className="max-h-96 overflow-y-scroll overflow-x-none w-3/4"
+      placeholder="Any project"
+      filterPlaceholder="Filter by project"
       onChange={(option: Option) => {
         const project = projects.find(p => p.id == option.id);
         onChange(project);
       }}
-      options={options}
-      selected={String(selected)}
-      placeholder="Any project"
-      className="max-h-96 overflow-y-scroll overflow-x-none w-3/4"
     />
   );
   1;
