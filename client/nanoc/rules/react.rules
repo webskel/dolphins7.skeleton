@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+components = {
+  'react-newtask' => 'tasks/new',
+  'react-edittask' => 'tasks/edit',
+  'react-tasks' => 'tasks',
+  'react-projects' => 'projects'
+}
+
+components.each do |name, path|
+  compile '/html/react.html.erb', rep: name do
+    filter(:erb, locals: {name:, path: "/#{path}", src: "/js/main.js"})
+    write("/#{path}/index.html")
+  end
+end
+
+compile "/js/main/main.tsx" do
+  filter(:webpack,  depend_on: %w[/js/components/ /js/hooks/ /js/types/])
+  write("/js/main.js")
+end

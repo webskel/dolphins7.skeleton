@@ -23,8 +23,7 @@ def require_rules(rules, locals = {}, target = binding)
 end
 
 require_rules "nanoc/rules/assets"
-require_rules "nanoc/rules/projects"
-require_rules "nanoc/rules/tasks"
+require_rules "nanoc/rules/react"
 
 compile("/**/*") { write(nil) }
 layout "/**/*", :erb
