@@ -57,11 +57,13 @@ form {
 }
 
 .markdown {
-  ul {
-    all:unset;
-    li {
-      margin-left: 20px;
-    }
+  ul, ol {
+    padding-left: 12.5px;
+    margin-left: 12.5px;
+  }
+  ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   p {
@@ -73,9 +75,23 @@ form {
     color: #4078c0;
     background-color: #f6f8fa;
     border: 1px solid #e1e4e8;
-    padding: 2px 4px;
     border-radius: 3px;
+    padding: 0px 7px;
+    line-height: normal;
   }
+
+  blockquote {
+    margin: 0;
+    padding: 0.5em 1em;
+    border-left: 4px solid #dfe2e5;
+    color: #586069;
+    background-color: #f6f8fa;
+    font-style: italic;
+    p {
+      margin: 0;
+    }
+  }
+
 
   h1, h2, h3, h4, h5, h6, h7 {
     all: unset;
