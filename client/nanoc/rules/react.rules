@@ -7,7 +7,7 @@
   "Projects" => ["projects"]
 }.each do |component, paths|
   compile "/html/react.html.erb", rep: component do
-    filter(:erb, locals: {name: "react-#{component.downcase}", src: "/js/main.js"})
+    filter(:erb, locals: {component: "react-#{component.downcase}", src: "/js/main.js"})
     paths.each do |path|
       (path == "/") ? write("/index.html") : write("/#{path}/index.html")
     end
