@@ -1,21 +1,22 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 components = {
-  'react-task' => ['tasks/new', 'tasks/edit'],
-  'react-tasks' => [ '/', 'tasks'],
-  'react-projects' => ['projects']
+  "react-task" => ["tasks/new", "tasks/edit"],
+  "react-tasks" => ["/", "tasks"],
+  "react-projects" => ["projects"]
 }
 
 components.each do |name, paths|
-  compile '/html/react.html.erb', rep: name do
+  compile "/html/react.html.erb", rep: name do
     filter(:erb, locals: {name:, src: "/js/main.js"})
     paths.each do |path|
-      path == "/" ? write("/index.html") : write("/#{path}/index.html")
+      (path == "/") ? write("/index.html") : write("/#{path}/index.html")
     end
   end
 end
 
 compile "/js/main/main.tsx" do
-  filter(:webpack,  depend_on: %w[/js/components/ /js/hooks/ /js/types/])
+  filter(:webpack, depend_on: %w[/js/components/ /js/hooks/ /js/types/])
   write("/js/main.js")
 end

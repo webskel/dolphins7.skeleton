@@ -17,6 +17,8 @@ AllCops:
     - lib/**/*.rb
     - libexec/*
     - libexec/*/**
+    - nanoc/rules/*
+    - nanoc/lib/*
     - bin/*
     - test/*
   Exclude:

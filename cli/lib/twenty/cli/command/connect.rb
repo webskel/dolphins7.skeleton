@@ -21,7 +21,7 @@ class Twenty::Command::Connect < Twenty::Command
     if File.exist?(path)
       project = Twenty::Project.create(
         name: File.basename(path),
-        path:,
+        path:
       )
       warn "[-] '#{project.name}' connected"
     else
