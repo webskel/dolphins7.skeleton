@@ -3,6 +3,8 @@
 class Twenty::Command::Connect < Twenty::Command
   set_banner usage: "twenty connect [OPTIONS]",
              description: "Connect a project to twenty"
+  set_option "-p PATH", "--path PATH", "The path to a project", default: nil
+
   prepend Twenty::Command::MigrationMixin
   prepend Twenty::Command::SQLiteMixin
   prepend Twenty::Command::RescueMixin
@@ -15,9 +17,15 @@ class Twenty::Command::Connect < Twenty::Command
   private
 
   def run_command(options)
-    Twenty::Project.create(
-      name: File.basename(Dir.getwd),
-      path: Dir.getwd
-    )
+    path = options.path ? File.expand_path(options.path) : Dir.getwd
+    if File.exist?(path)
+      project = Twenty::Project.create(
+        name: File.basename(path),
+        path:,
+      )
+      warn "[-] '#{project.name}' connected"
+    else
+      abort "[x] The path (#{path}) does not exist"
+    end
   end
 end

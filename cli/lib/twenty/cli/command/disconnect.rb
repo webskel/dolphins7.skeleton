@@ -3,6 +3,7 @@
 class Twenty::Command::Disconnect < Twenty::Command
   set_banner usage: "twenty disconnect [OPTIONS]",
              description: "Disconnect a project from twenty"
+  set_option "-p PATH", "--path PATH", "The path to a project", default: nil
   prepend Twenty::Command::MigrationMixin
   prepend Twenty::Command::SQLiteMixin
   prepend Twenty::Command::RescueMixin
@@ -15,9 +16,11 @@ class Twenty::Command::Disconnect < Twenty::Command
   private
 
   def run_command(options)
+    path = options.path ? File.expand_path(options.path) : Dir.getwd
     Twenty::Project
-      .where(path: Dir.getwd)
+      .where(path:)
       .first!
       .destroy
+    warn "[-] '#{File.basename(path)}' disconnected"
   end
 end
