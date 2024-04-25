@@ -15,7 +15,7 @@ module.exports = {
         loader: 'esbuild-loader',
         options: {
           loader: 'tsx',
-          target: 'es2017'
+          target: 'es2015'
         }
       },
     ],
