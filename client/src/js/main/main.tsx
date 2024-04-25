@@ -7,12 +7,7 @@ import { Task } from "~/components/Task";
 
 (function () {
   const components = {
-    "react-newtask": () => (
-      <App>
-        <Task />
-      </App>
-    ),
-    "react-edittask": () => (
+    "react-task": () => (
       <App>
         <Task />
       </App>

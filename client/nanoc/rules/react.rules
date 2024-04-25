@@ -1,16 +1,17 @@
 #!/usr/bin/env ruby
 
 components = {
-  'react-newtask' => 'tasks/new',
-  'react-edittask' => 'tasks/edit',
-  'react-tasks' => 'tasks',
-  'react-projects' => 'projects'
+  'react-task' => ['tasks/new', 'tasks/edit'],
+  'react-tasks' => [ '/', 'tasks'],
+  'react-projects' => ['projects']
 }
 
-components.each do |name, path|
+components.each do |name, paths|
   compile '/html/react.html.erb', rep: name do
-    filter(:erb, locals: {name:, path: "/#{path}", src: "/js/main.js"})
-    write("/#{path}/index.html")
+    filter(:erb, locals: {name:, src: "/js/main.js"})
+    paths.each do |path|
+      path == "/" ? write("/index.html") : write("/#{path}/index.html")
+    end
   end
 end
 
