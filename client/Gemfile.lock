@@ -60,7 +60,7 @@ GEM
       nanoc-checking (~> 1.0)
       nanoc-cli (~> 4.11, >= 4.11.15)
       nanoc-core (~> 4.11, >= 4.11.15)
-    nanoc-webpack.rb (0.8.1)
+    nanoc-webpack.rb (0.9.0)
       ryo.rb (~> 0.5)
     parallel (1.24.0)
     parser (3.3.0.5)
@@ -137,7 +137,7 @@ PLATFORMS
 DEPENDENCIES
   listen (~> 3.8)
   nanoc (~> 4.12)
-  nanoc-webpack.rb (~> 0.8.1)
+  nanoc-webpack.rb (~> 0.9)
   rainpress (~> 1.0)
   sass (~> 3.7)
   standard (~> 1.35)
