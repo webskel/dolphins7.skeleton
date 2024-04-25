@@ -7,33 +7,34 @@ import { Task } from "~/components/Task";
 
 (function () {
   const components = {
-    "react-newtask": (
+    "react-newtask": () => (
       <App>
         <Task />
       </App>
     ),
-    "react-edittask": (
+    "react-edittask": () => (
       <App>
         <Task />
       </App>
     ),
-    "react-tasks": (
+    "react-tasks": () => (
       <App>
         <Tasks />
       </App>
     ),
-    "react-projects": (
+    "react-projects": () => (
       <App>
         <Projects />
       </App>
     )
   };
-  Object
-    .entries(components)
-    .forEach(([name, jsx]) => {
-      const root = document.querySelector(`.${name}`);
-      if (root) {
-        ReactDOM.createRoot(root).render(jsx);
-      }
-    });
+  const ents = Object.entries(components);
+  for (let i = 0; i < ents.length; i++) {
+    const [name, getJSX] = ents[i];
+    const root = document.querySelector(`.${name}`);
+    if (root) {
+      ReactDOM.createRoot(root).render(getJSX());
+      break;
+    }
+  }
 })();
