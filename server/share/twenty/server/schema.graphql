@@ -38,6 +38,7 @@ type Project {
   color: String!
   id: Int!
   name: String!
+  openTaskCount: Int!
   path: String!
   tasks: [Task!]!
 }
