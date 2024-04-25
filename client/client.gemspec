@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
-  gem.version = "0.4.2"
+  gem.version = "0.4.3"
   gem.licenses = ["0BSD"]
   gem.files = File.binread(File.join(__dir__, "MANIFEST"))
                   .each_line
