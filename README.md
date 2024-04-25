@@ -46,7 +46,7 @@ local network.
 
 Twenty is distributed as a RubyGem.
 
-    $ gem install twenty.rb
+    $ gem install twenty
 
 ## Sources
 
