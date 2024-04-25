@@ -7,6 +7,7 @@ const GQL = gql`
       name
       path
       color
+      openTaskCount
     }
   }
 `;

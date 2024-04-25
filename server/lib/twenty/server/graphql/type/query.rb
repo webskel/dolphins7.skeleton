@@ -23,7 +23,10 @@ module Twenty::GraphQL::Type
     end
 
     def projects
-      Twenty::Project.all
+      Twenty::Project
+        .all
+        .sort_by { _1.open_task_count }
+        .reverse
     end
   end
 end

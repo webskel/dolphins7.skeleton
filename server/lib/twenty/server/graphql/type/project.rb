@@ -7,5 +7,6 @@ module Twenty::GraphQL::Type
     field :path, String, null: false
     field :color, String, null: false
     field :tasks, "[Twenty::GraphQL::Type::Task]", null: false
+    field :open_task_count, Integer, null: false
   end
 end

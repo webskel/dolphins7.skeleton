@@ -41,13 +41,18 @@ export function Projects() {
                   }}
                 ></div>
                 <a
-                  className="w-6/8 no-underline text-accent block h-14"
+                  className="w-6/8 no-underline text-accent flex w-full h-14"
                   href={`/tasks/#projectId=${project.id}`}
                 >
-                  <span className="block w-full">{project.name}</span>
-                  <span className="block w-full text-smaller text-secondary">
-                    {project.path}
-                  </span>
+                  <div className="flex flex-col w-5/6">
+                    <span className="flex w-full">{project.name}</span>
+                    <span className="flex w-full text-smaller text-secondary">
+                      {project.path}
+                    </span>
+                  </div>
+                  <div className="flex items-start justify-center w-1/6">
+                    {project.openTaskCount} open tasks
+                  </div>
                 </a>
               </li>
             );

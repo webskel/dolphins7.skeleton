@@ -14,4 +14,14 @@ class Twenty::Project < Sequel::Model
   def path
     super&.sub(Dir.home, "~")
   end
+
+  ##
+  # @return [Integer]
+  #  Returns the number of open tasks a project has.
+  def open_task_count
+    @open_task_count ||= Twenty::Task
+                           .where(project_id: id)
+                           .where(Sequel.lit("status IN (0,1,2)"))
+                           .count
+  end
 end
