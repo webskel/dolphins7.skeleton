@@ -23,14 +23,14 @@ export function Tabs({ defaultLabel, labels, onChange }: Props) {
 
   return (
     <ul className="flex w-full">
-      {...tabs.map(tab => {
+      {...tabs.map((tab, i) => {
         const isActive = active?.id === tab.id;
         const classNames = {
           "active-item": isActive,
           "inactive-item": !isActive,
         };
         return (
-          <li className={classnames(classNames)}>
+          <li className={classnames(classNames, i > 0 ? "ml-3" : "")}>
             <a
               href={location.hash}
               onClick={e => [e.preventDefault(), setActive(tab)]}
