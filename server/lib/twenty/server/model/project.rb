@@ -13,6 +13,7 @@ class Twenty::Project < Sequel::Model
   def validate
     super
     errors.add(:path, "does not exist on disk") if !path_exist?
+    errors.add(:path, "is not absolute") if !File.absolute_path?(path)
   end
 
   ##
