@@ -9,6 +9,7 @@ Gem::Specification.new do |gem|
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "lib", "*.rb")),
+    *Dir.glob(File.join(__dir__, "lib", "twenty", "*.rb")),
     *Dir.glob(File.join(__dir__, "lib", "twenty", "server", "**", "*.rb")),
     *Dir.glob(File.join(__dir__, "share", "**", "*")),
   ].select { File.file?(_1) }
