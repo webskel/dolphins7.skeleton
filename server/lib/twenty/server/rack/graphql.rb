@@ -4,13 +4,13 @@ module Twenty::Rack
   module GraphQL
     ##
     # Extends {Server::Dir Server::Dir} (a static file
-    # Rack application) with a /graphql endpoint.
+    # Rack application) with a /graphql endpoint
     #
     # @param [Hash] env
-    #  Environment hash.
+    #  Environment hash
     #
     # @return [Array<Integer, Hash, #each>]
-    #  Returns a response.
+    #  Returns a response
     def call(env)
       req = Rack::Request.new(env)
       if req.post? &&

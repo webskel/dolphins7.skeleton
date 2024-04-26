@@ -18,21 +18,21 @@ class Twenty::Project < Sequel::Model
 
   ##
   # @return [String]
-  #  The path to a project.
+  #  The path to a project
   def path
     super&.sub(Dir.home, "~")
   end
 
   ##
   # @return [Boolean]
-  #  Returns true when {#path} exists on disk.
+  #  Returns true when {#path} exists on disk
   def path_exist?
     File.exist? File.expand_path(path)
   end
 
   ##
   # @return [Integer]
-  #  Returns the number of open tasks a project has.
+  #  Returns the number of open tasks a project has
   def open_task_count
     @open_task_count ||= Twenty::Task
                            .where(project_id: id)
