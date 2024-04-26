@@ -16,6 +16,13 @@ class Twenty::Project < Sequel::Model
   end
 
   ##
+  # @return [Boolean]
+  #  Returns true when {#path} exists on disk.
+  def path_exist?
+    File.exist? File.expand_path(path)
+  end
+
+  ##
   # @return [Integer]
   #  Returns the number of open tasks a project has.
   def open_task_count
