@@ -9,6 +9,13 @@ class Twenty::Project < Sequel::Model
   one_to_many :tasks, class_name: "Twenty::Task"
 
   ##
+  # @api private
+  def validate
+    super
+    errors.add(:path, "does not exist on disk") if new? && !path_exist?
+  end
+
+  ##
   # @return [String]
   #  The path to a project.
   def path
