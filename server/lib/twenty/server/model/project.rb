@@ -12,7 +12,7 @@ class Twenty::Project < Sequel::Model
   # @api private
   def validate
     super
-    errors.add(:path, "does not exist on disk") if new? && !path_exist?
+    errors.add(:path, "does not exist on disk") if !path_exist?
   end
 
   ##
