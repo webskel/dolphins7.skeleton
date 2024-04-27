@@ -1,4 +1,5 @@
 import { ReactNode, useState, useEffect } from "react";
+import { Filter } from "./Filter";
 
 const LI_CLASSNAME = [
   "flex",
@@ -112,25 +113,3 @@ export const Select = ({
     </ul>
   );
 };
-
-type FilterProps = {
-  onTextChange: (text: string) => void;
-  placeholder: string;
-};
-function Filter({ onTextChange, placeholder }: FilterProps) {
-  return (
-    <input
-      type="text"
-      className="p-3 rounded border-secondary border-solid outline-none"
-      autoFocus={true}
-      placeholder={placeholder}
-      onClick={e => e.stopPropagation()}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-        const {
-          target: { value: text },
-        } = e;
-        onTextChange(text);
-      }}
-    />
-  );
-}
