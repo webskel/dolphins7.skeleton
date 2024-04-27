@@ -2,6 +2,8 @@
 
 class Twenty::Command
   module RescueMixin
+    FRAME_MAX = 15
+
     def run(...)
       super(...)
     rescue => ex
@@ -18,7 +20,7 @@ class Twenty::Command
     private
 
     def format_backtrace(backtrace)
-      backtrace.last(5).map do
+      backtrace.last(FRAME_MAX).map do
         "  #{_1.gsub(Dir.getwd, "")}"
       end.join("\n")
     end
