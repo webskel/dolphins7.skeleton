@@ -55,11 +55,11 @@ class Copy < Builder
   private
 
   def chmod!(dest)
-    sh "find #{dest} -type d -exec chmod u=rwx,g=rx,o=rx {} +"
-    sh "find #{dest} -type f -exec chmod u=rw,g=r,o=r {} +"
+    sh "find #{dest} -type d -exec chmod u=rwx,go=rx {} +"
+    sh "find #{dest} -type f -exec chmod u=rw,go=r {} +"
     [File.join(dest, "libexec"), File.join(dest, "bin")].each do |exedir|
       next unless File.exist?(exedir)
-      sh "find #{exedir} -type f -exec chmod u=rwx,g=rx,o=rx {} +"
+      sh "find #{exedir} -type f -exec chmod u=rwx,go=rx {} +"
     end
   end
 
