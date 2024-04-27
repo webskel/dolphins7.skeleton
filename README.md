@@ -1,8 +1,9 @@
 ## About
 
-Twenty helps you plan your open source projects with a standalone
-web application that's designed to run on localhost or within your
-local network.
+Twenty is a standalone web application with its own practical
+purpose: management of my open source projects. It's also a place
+where I can experiment with a new model for the development of
+[web] applications in Ruby. See **Design** for more info.
 
 ## Features
 
