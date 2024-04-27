@@ -21,9 +21,9 @@ class Twenty::Command::Connect < Twenty::Command
   private
 
   def run_command(options)
-    require "twenty/server/model"
     path = File.realpath(options.path ? options.path : Dir.getwd)
     if File.exist?(path)
+      require_models!
       project = Twenty::Project.create(
         name: File.basename(path),
         path:
