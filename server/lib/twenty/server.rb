@@ -5,6 +5,7 @@ module Twenty
   require "sequel"
 
   extend Module.new {
+    extend self
     extend FileUtils
     require "tmpdir"
 
