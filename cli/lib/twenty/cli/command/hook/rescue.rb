@@ -3,6 +3,7 @@
 module Twenty::Command::Hook
   module Rescue
     FRAME_MAX = 15
+    INDENT_BY = 2
 
     def run(...)
       super(...)
@@ -11,7 +12,8 @@ module Twenty::Command::Hook
       $stderr.print "\n",
                     "  ", Paint[" Exception ", :white, :red, :bold], "\n",
                     "  ", Paint[ex.class.to_s, :bold], "\n",
-                    "  ", ex.message, "\n\n",
+                    ex.message.each_line.map { [" " * INDENT_BY, _1] }.join,
+                    "\n\n",
                     "  ", Paint[" Backtrace ", :white, :blue, :bold], "\n",
                     format_backtrace(ex.backtrace), "\n",
                     "\n"
@@ -20,8 +22,8 @@ module Twenty::Command::Hook
     private
 
     def format_backtrace(backtrace)
-      backtrace.last(FRAME_MAX).map do
-        "  #{_1.gsub(Dir.getwd, "")}"
+      backtrace[0..FRAME_MAX-1].map do
+        [" " * INDENT_BY, _1.gsub(Dir.getwd, "")].join
       end.join("\n")
     end
   end

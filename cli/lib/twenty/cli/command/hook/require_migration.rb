@@ -2,11 +2,12 @@
 
 module Twenty::Command::Hook
   module RequireMigration
+    Error = Class.new(RuntimeError)
+
     def run_command(...)
       if pending_migrations?
-        warn "There are pending migrations.\n" \
-             "Run \"twenty migrate\" first.\n"
-        exit(1)
+        raise Error, "There are pending database migrations to run. \n" \
+                     "Try 'twenty migrate'"
       else
         super(...)
       end
