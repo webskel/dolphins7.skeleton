@@ -7,21 +7,21 @@ import { Task } from "~/components/Task";
 
 (function () {
   const components = {
-    "Task": () => (
+    Task: () => (
       <App>
         <Task />
       </App>
     ),
-    "Tasks": () => (
+    Tasks: () => (
       <App>
         <Tasks />
       </App>
     ),
-    "Projects": () => (
+    Projects: () => (
       <App>
         <Projects />
       </App>
-    )
+    ),
   };
   const ents = Object.entries(components);
   for (let i = 0; i < ents.length; i++) {
