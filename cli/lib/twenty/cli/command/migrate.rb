@@ -24,6 +24,7 @@ class Twenty::Command::Migrate < Twenty::Command
   private
 
   def run_command(options)
-    Twenty::Migration.run!(target: options.target)
+    run_options = options.to_h.transform_keys(&:to_sym)
+    Twenty::Migration.run!(run_options)
   end
 end
