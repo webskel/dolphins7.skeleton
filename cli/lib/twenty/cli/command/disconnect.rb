@@ -19,6 +19,7 @@ class Twenty::Command::Disconnect < Twenty::Command
   private
 
   def run_command(options)
+    require "twenty/server/model"
     path = File.realpath(options.path ? options.path : Dir.getwd)
     Twenty::Project
       .where(path:)

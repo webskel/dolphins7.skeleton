@@ -36,6 +36,7 @@ class Twenty::Command::Up < Twenty::Command
   private
 
   def run_command(options)
+    require "twenty/server/model"
     File.binwrite(pid, Process.pid.to_s)
     thr = Twenty::Rack.server(options).start
     thr.join

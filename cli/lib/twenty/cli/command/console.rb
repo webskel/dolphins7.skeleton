@@ -24,6 +24,7 @@ class Twenty::Command::Console < Twenty::Command
   private
 
   def run_command(options)
+    require "twenty/server/model"
     require "irb"
     TOPLEVEL_BINDING.irb
   end
