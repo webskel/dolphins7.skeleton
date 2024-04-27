@@ -7,6 +7,7 @@ class Twenty::Command::Disconnect < Twenty::Command
 
   ##
   # Hooks
+  # Rescue -> SQLiteConn -> RequireMigration -> command
   prepend Hook::RequireMigration
   prepend Hook::SQLiteConn
   prepend Hook::Rescue
