@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 module Twenty::Migration
-  require "sequel/extensions/migration"
+  Sequel.extension(:migration)
+
   ##
   # @return [String]
-  #  Returns the path to twenty's migrations.
+  #  Returns the path to the migrations directory
   def self.migrations_path
     File.join(__dir__, "migration")
   end
@@ -18,8 +19,8 @@ module Twenty::Migration
 
   ##
   # @return [Boolean]
-  #  Returns true when there are pending migrations.
+  #  Returns true when there are pending migrations
   def self.pending_migrations?
-    Sequel::Migrator.is_current?(Twenty.connection, migrations_path)
+    ! Sequel::Migrator.is_current?(Twenty.connection, migrations_path)
   end
 end
