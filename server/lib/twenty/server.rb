@@ -62,6 +62,7 @@ module Twenty
   end
 
   require "sequel"
+  require_relative "server/mixin"
   require_relative "server/migration"
   require_relative "server/graphql"
   require_relative "server/rack"

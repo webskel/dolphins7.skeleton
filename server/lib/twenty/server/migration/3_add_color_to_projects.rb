@@ -2,7 +2,7 @@
 
 Sequel.migration do
   up do
-    default = Twenty::ColorableMixin.random_color
+    default = Twenty::Mixin::Colorable.random_color
     add_column :projects, :color, :string, null: false, default:
   end
 

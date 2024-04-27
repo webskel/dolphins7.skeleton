@@ -2,7 +2,7 @@
 
 class Twenty::Project < Sequel::Model
   include Twenty::Model
-  include Twenty::ColorableMixin
+  include Mixin::Colorable
 
   validates_presence_of :name
   validates_presence_of :path
