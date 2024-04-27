@@ -17,7 +17,7 @@ class Twenty::Command::Connect < Twenty::Command
   private
 
   def run_command(options)
-    path = options.path ? File.expand_path(options.path) : Dir.getwd
+    path = File.realpath(options.path ? options.path : Dir.getwd)
     if File.exist?(path)
       project = Twenty::Project.create(
         name: File.basename(path),

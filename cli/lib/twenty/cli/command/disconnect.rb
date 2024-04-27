@@ -16,7 +16,7 @@ class Twenty::Command::Disconnect < Twenty::Command
   private
 
   def run_command(options)
-    path = options.path ? File.expand_path(options.path) : Dir.getwd
+    path = File.reapath(options.path ? options.path : Dir.getwd)
     Twenty::Project
       .where(path:)
       .first!
