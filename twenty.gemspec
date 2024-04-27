@@ -10,8 +10,9 @@ Gem::Specification.new do |gem|
   gem.files = [
     *Dir.glob(File.join(__dir__, "host", "lib", "*.rb")),
   ].select { File.file?(_1) }
-  gem.summary = "Minimal project management that runs on your computer"
-  gem.description = gem.summary
+  gem.summary = "A standalone web application"
+  gem.description = "#{gem.summary}. " \
+                    "This gem depends on twenty-cli, twenty-client, and twenty-server."
   gem.add_runtime_dependency "twenty-server", "0.5.3"
   gem.add_runtime_dependency "twenty-client", "0.5.3"
   gem.add_runtime_dependency "twenty-cli", "0.5.3"

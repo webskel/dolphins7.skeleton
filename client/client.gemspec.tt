@@ -12,8 +12,10 @@ Gem::Specification.new do |gem|
                   .flat_map { Dir.glob(_1.chomp) }
                   .select { File.file?(_1) }
   gem.require_paths = ["lib"]
-  gem.summary = "HTTP client"
-  gem.description = gem.summary
+  gem.summary = "Provides the client component of <%= parent %>"
+  gem.description = "#{gem.summary}. " \
+                    "Static content (HTML, CSS, JS). " \
+                    "See https://rubygems.org/gems/<%= parent %> for context."
   gem.add_development_dependency "nanoc", "~> 4.12"
   gem.add_development_dependency "sass", "~> 3.7"
   gem.add_development_dependency "rainpress", "~> 1.0"

@@ -10,8 +10,9 @@ Gem::Specification.new do |gem|
   gem.files = [
     *Dir.glob(File.join(__dir__, "host", "lib", "*.rb")),
   ].select { File.file?(_1) }
-  gem.summary = "Minimal project management that runs on your computer"
-  gem.description = gem.summary
+  gem.summary = "A standalone web application"
+  gem.description = "#{gem.summary}. " \
+                    "This gem depends on <%= parent %>-cli, <%= parent %>-client, and <%= parent %>-server."
   gem.add_runtime_dependency "<%= parent %>-server", "<%= version %>"
   gem.add_runtime_dependency "<%= parent %>-client", "<%= version %>"
   gem.add_runtime_dependency "<%= parent %>-cli", "<%= version %>"
