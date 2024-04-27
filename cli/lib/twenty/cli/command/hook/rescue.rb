@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Twenty::Command
-  module RescueMixin
+module Twenty::Command::Hook
+  module Rescue
     FRAME_MAX = 15
 
     def run(...)

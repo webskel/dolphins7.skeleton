@@ -4,9 +4,12 @@ class Twenty::Command::Disconnect < Twenty::Command
   set_banner usage: "twenty disconnect [OPTIONS]",
              description: "Disconnect a project from twenty"
   set_option "-p PATH", "--path PATH", "The path to a project", default: nil
-  prepend Twenty::Command::MigrationMixin
-  prepend Twenty::Command::SQLiteMixin
-  prepend Twenty::Command::RescueMixin
+
+  ##
+  # Hooks
+  prepend Hook::RequireMigration
+  prepend Hook::SQLiteConn
+  prepend Hook::Rescue
 
   def run
     options = parse_options(argv)

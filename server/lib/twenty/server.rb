@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 module Twenty
-  require "fileutils"
-  require "sequel"
-
   extend Module.new {
+    require "tmpdir"
+    require "fileutils"
     extend self
     extend FileUtils
-    require "tmpdir"
 
     ##
     # @return [String]
@@ -63,6 +61,8 @@ module Twenty
     @connection
   end
 
+  require "sequel"
+  require_relative "server/migration"
   require_relative "server/graphql"
   require_relative "server/rack"
 end

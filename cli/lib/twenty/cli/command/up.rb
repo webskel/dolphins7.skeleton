@@ -16,10 +16,17 @@ class Twenty::Command::Up < Twenty::Command
              "--unix PATH",
              "Listen on a UNIX socket"
 
-  include CommonOptionMixin
-  prepend Twenty::Command::MigrationMixin
-  prepend Twenty::Command::SQLiteMixin
-  prepend Twenty::Command::RescueMixin
+  ##
+  # Option(s)
+  include Option::Database
+
+  ##
+  # Hooks
+  # Run order:
+  # Rescue -> SQLiteConn -> RequireMigration -> command
+  prepend Hook::RequireMigration
+  prepend Hook::SQLiteConn
+  prepend Hook::Rescue
 
   def run
     options = parse_options(argv)

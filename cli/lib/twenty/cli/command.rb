@@ -4,14 +4,12 @@ require "cmd"
 
 class Twenty::Command < Cmd
   ##
-  # mixins
-  require_relative "command/mixin/common_option_mixin"
-  require_relative "command/mixin/migration_mixin"
-  require_relative "command/mixin/sqlite_mixin"
-  require_relative "command/mixin/rescue_mixin"
+  # Hooks
+  require_relative "command/option"
+  require_relative "command/hook"
 
   ##
-  # commands
+  # Commands
   require_relative "command/up"
   require_relative "command/down"
   require_relative "command/connect"

@@ -5,9 +5,16 @@ class Twenty::Command::Migrate < Twenty::Command
              description: "Migrate the database"
   set_option "-t TARGET", "--target TARGET", "The target version", default: nil
 
-  include CommonOptionMixin
-  prepend Twenty::Command::SQLiteMixin
-  prepend Twenty::Command::RescueMixin
+  ##
+  # Options
+  include Option::Database
+
+  ##
+  # Hooks
+  # Run order:
+  # Rescue -> SQLiteConn -> command.
+  prepend Hook::SQLiteConn
+  prepend Hook::Rescue
 
   def run
     options = parse_options(argv)
