@@ -6,7 +6,7 @@ class Twenty::Command
       mod.module_eval do
         set_option "-d PATH",
                    "--database PATH",
-                   "The path to an alternate SQLite3 database",
+                   "The path to an alternate SQLite database",
                    as: String,
                    default: nil
       end
