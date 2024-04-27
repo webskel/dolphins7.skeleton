@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
-  gem.version = "0.5.6"
+  gem.version = "0.5.7"
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "host", "lib", "*.rb")),
@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.summary = "A standalone web application"
   gem.description = "#{gem.summary}. " \
                     "This gem depends on twenty-cli, twenty-client, and twenty-server."
-  gem.add_runtime_dependency "twenty-server", "0.5.6"
-  gem.add_runtime_dependency "twenty-client", "0.5.6"
-  gem.add_runtime_dependency "twenty-cli", "0.5.6"
+  gem.add_runtime_dependency "twenty-server", "0.5.7"
+  gem.add_runtime_dependency "twenty-client", "0.5.7"
+  gem.add_runtime_dependency "twenty-cli", "0.5.7"
 end
