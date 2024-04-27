@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twenty-client (0.5.4)
+    twenty-client (0.5.5)
 
 GEM
   remote: https://rubygems.org/
