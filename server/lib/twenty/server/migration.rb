@@ -10,10 +10,10 @@ module Twenty::Migration
   end
 
   ##
-  # Runs migrations (if neccessary).
+  # Run migrations
   # @return [void]
-  def self.run!
-    Sequel::Migrator.run(Twenty.connection, migrations_path)
+  def self.run!(options = {})
+    Sequel::Migrator.run(Twenty.connection, migrations_path, options)
   end
 
   ##

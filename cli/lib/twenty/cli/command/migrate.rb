@@ -3,6 +3,8 @@
 class Twenty::Command::Migrate < Twenty::Command
   set_banner usage: "twenty migrate [OPTIONS]",
              description: "Migrate the database"
+  set_option "-t TARGET", "--target TARGET", "The target version", default: nil
+
   include CommonOptionMixin
   prepend Twenty::Command::SQLiteMixin
   prepend Twenty::Command::RescueMixin
@@ -15,6 +17,6 @@ class Twenty::Command::Migrate < Twenty::Command
   private
 
   def run_command(options)
-    Twenty::Migration.run!
+    Twenty::Migration.run!(target: options.target)
   end
 end
