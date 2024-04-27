@@ -3,14 +3,42 @@
 module Twenty
   require "fileutils"
   require "sequel"
-  require_relative "server/path"
 
-  ##
-  # @return [String]
-  #  Returns the default path for the SQLite database
-  def self.default_database
-    @default_database ||= File.join(Path.datadir, "database.sqlite")
-  end
+  extend Module.new {
+    extend FileUtils
+    require "tmpdir"
+
+    ##
+    # @return [String]
+    #  Returns the path for the default SQLite database
+    def default_database
+      @default_database ||= File.join(datadir, "database.sqlite")
+    end
+
+    ##
+    # @return [String]
+    #  Returns the directory where twenty stores data
+    def datadir
+      File.join(Dir.home, ".local", "share", "twenty")
+    end
+
+    ##
+    # @return [String]
+    #  Returns the directory where twenty stores temporary data
+    def tmpdir
+      File.join(Dir.tmpdir, "twenty")
+    end
+
+    ##
+    # @return [String]
+    #  Returns the path to a PID file
+    def pid
+      File.join(tmpdir, "server.pid")
+    end
+
+    mkdir_p(datadir)
+    mkdir_p(tmpdir)
+  }
 
   ##
   # Establishes a database connection
@@ -34,7 +62,6 @@ module Twenty
     @connection
   end
 
-  FileUtils.touch(default_database)
   require_relative "server/graphql"
   require_relative "server/rack"
 end

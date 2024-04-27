@@ -17,7 +17,6 @@ class Twenty::Command::Up < Twenty::Command
              "Listen on a UNIX socket"
 
   include CommonOptionMixin
-  include Twenty::Path
   prepend Twenty::Command::MigrationMixin
   prepend Twenty::Command::SQLiteMixin
   prepend Twenty::Command::RescueMixin
@@ -30,12 +29,16 @@ class Twenty::Command::Up < Twenty::Command
   private
 
   def run_command(options)
-    File.binwrite(pidfile, Process.pid.to_s)
+    File.binwrite(pid, Process.pid.to_s)
     thr = Twenty::Rack.server(options).start
     thr.join
   rescue Interrupt
     thr.kill
   ensure
-    FileUtils.rm(pidfile)
+    FileUtils.rm(pid)
+  end
+
+  def pid
+    Twenty.pid
   end
 end
