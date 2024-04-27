@@ -2,6 +2,7 @@
 
 Sequel.migration do
   up do
+    next if table_exists?(:tasks)
     create_table(:tasks) do |t|
       primary_key :id
       String :title, null: false

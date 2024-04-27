@@ -2,6 +2,7 @@
 
 Sequel.migration do
   up do
+    next if table_exists?(:projects)
     create_table(:projects) do
       primary_key :id
       String :name, null: false
