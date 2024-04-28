@@ -25,4 +25,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "yard", "~> 0.9"
   gem.add_development_dependency "redcarpet", "~> 3.5"
   gem.add_development_dependency "standard", "~> 1.35"
+  gem.metadata = { "source_code_uri" => "https://github.com/0x1eef/twenty#readme" }
 end

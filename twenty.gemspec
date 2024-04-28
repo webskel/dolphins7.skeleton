@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "twenty-server", "0.5.7"
   gem.add_runtime_dependency "twenty-client", "0.5.7"
   gem.add_runtime_dependency "twenty-cli", "0.5.7"
+  gem.metadata = { "source_code_uri" => "https://github.com/0x1eef/twenty#readme" }
 end

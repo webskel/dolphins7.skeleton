@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "<%= parent %>-server", "<%= version %>"
   gem.add_runtime_dependency "<%= parent %>-client", "<%= version %>"
   gem.add_runtime_dependency "<%= parent %>-cli", "<%= version %>"
+  gem.metadata = { "source_code_uri" => "https://github.com/0x1eef/<%= parent %>#readme" }
 end

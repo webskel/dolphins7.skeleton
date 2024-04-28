@@ -23,4 +23,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "server.rb", "~> 0.1"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "standard", "~> 1.35"
+  gem.metadata = { "source_code_uri" => "https://github.com/0x1eef/<%= parent %>#readme" }
 end

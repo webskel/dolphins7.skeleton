@@ -22,4 +22,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "nanoc-webpack.rb", "~> 0.10"
   gem.add_development_dependency "listen", "~> 3.8"
   gem.add_development_dependency "standard", "~> 1.35"
+  gem.metadata = { "source_code_uri" => "https://github.com/0x1eef/twenty#readme" }
 end
