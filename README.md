@@ -1,9 +1,9 @@
 ## About
 
-Twenty is a standalone web application with its own practical
-purpose: management of my open source projects. It's also a place
-where I can experiment with a new model for the development of
-[web] applications in Ruby. See **Design** for more info.
+Twenty is a standalone web application with a practical
+purpose. But it's also a place where I can experiment with
+a different stack for the development of [web] applications
+in Ruby. See **Design** for more info.
 
 ## Features
 
