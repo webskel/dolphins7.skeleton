@@ -1,11 +1,8 @@
 *.gem
 .gems/
-.bundle
-Gemfile.lock
+.bundle/
 .yardoc/
 .dev/
 .doc/
 pkg/
-.gems/
 stage/
-packages/

@@ -5,8 +5,8 @@ module Twenty::Rack
   require_relative "rack/graphql"
 
   ##
-  # @param [Hash] options
-  #  A hash of server options.
+  # @param [Hash, #to_h] options
+  #  Hash of server options
   #
   # @return [Thread]
   def self.server(options = {})
