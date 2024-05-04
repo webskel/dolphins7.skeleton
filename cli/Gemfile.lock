@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twenty-cli (0.5.7)
+    twenty-cli (0.5.8)
       cmd.rb (~> 0.5)
       paint (~> 2.3)
 

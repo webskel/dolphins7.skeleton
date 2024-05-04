@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors = ["0x1eef"]
   gem.email = ["0x1eef@protonmail.com"]
   gem.homepage = "https://github.com/0x1eef/twenty#readme"
-  gem.version = "0.5.7"
+  gem.version = "0.5.8"
   gem.licenses = ["0BSD"]
   gem.files = [
     *Dir.glob(File.join(__dir__, "lib", "*.rb")),
@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "sequel", "~> 5.78"
   gem.add_runtime_dependency "sqlite3", "~> 1.6"
   gem.add_runtime_dependency "graphql", "~> 2.2"
-  gem.add_runtime_dependency "server.rb", "~> 0.1"
+  gem.add_runtime_dependency "server.rb", "~> 0.2.2"
   gem.add_development_dependency "test-unit", "~> 3.5.7"
   gem.add_development_dependency "standard", "~> 1.35"
   gem.metadata = { "source_code_uri" => "https://github.com/0x1eef/twenty#readme" }
