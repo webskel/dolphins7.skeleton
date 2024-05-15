@@ -18,7 +18,13 @@ export function ProjectSelect({ onChange, selected }: Props) {
           style={{ backgroundColor: project.color }}
           className="flex w-2/8 rounded w-8 h-8 mr-3 cursor-pointer"
         ></span>
-        <span className="flex">{project.name}</span>
+        <div className="flex flex-col">
+          <span className="flex">{project.name}</span>
+          <span className="text-sm">
+            {project.openTaskCount} open{" "}
+            {project.openTaskCount === 1 ? "task" : "tasks"}
+          </span>
+        </div>
       </div>
     ),
     value: project.name,
