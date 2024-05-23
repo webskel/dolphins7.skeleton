@@ -8,4 +8,5 @@ module Twenty::Model
 
   require_relative "model/project"
   require_relative "model/task"
+  require_relative "model/milestone"
 end

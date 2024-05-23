@@ -20,7 +20,11 @@ class Twenty::Task < Sequel::Model
   validates_presence_of :content
   validates_presence_of :project
   validates_inclusion_of :status, in: [STATUS_KEYS, *STATUS_KEYS.map(&:to_s)]
+
   many_to_one :project, class_name: "Twenty::Project"
+  many_to_many :milestones,
+               class_name: "Twenty::Milestone",
+               join_table: :tasks_milestones
 
   def status=(v)
     super(v.to_sym)
