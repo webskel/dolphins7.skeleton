@@ -59,7 +59,7 @@ module Twenty
   end
 
   require "sequel"
-  require_relative "server/migration"
-  require_relative "server/graphql"
-  require_relative "server/rack"
+  require_relative "server/migration/init"
+  require_relative "server/graphql/init"
+  require_relative "server/rack/init"
 end

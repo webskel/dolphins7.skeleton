@@ -20,6 +20,6 @@ class Twenty::Command < Cmd
   private
 
   def require_models!
-    require "twenty/server/model"
+    require "twenty/server/model/init"
   end
 end

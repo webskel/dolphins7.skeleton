@@ -2,7 +2,7 @@
 
 module Twenty::Rack
   require "server"
-  require_relative "rack/graphql"
+  require_relative "graphql"
 
   ##
   # @param [Hash, #to_h] options

@@ -7,7 +7,7 @@ module Twenty::Migration
   # @return [String]
   #  Returns the path to the migrations directory
   def self.migrations_path
-    File.join(__dir__, "migration")
+    __dir__
   end
 
   ##

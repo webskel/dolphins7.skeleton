@@ -6,8 +6,8 @@ module Twenty::Model
     model.plugin(:timestamps, update_on_create: true)
   end
 
-  require_relative "model/mixin/colorable"
-  require_relative "model/project"
-  require_relative "model/task"
-  require_relative "model/milestone"
+  require_relative "mixin/colorable"
+  require_relative "project"
+  require_relative "task"
+  require_relative "milestone"
 end
