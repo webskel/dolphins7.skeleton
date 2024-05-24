@@ -2,5 +2,5 @@
 
 module Twenty::GraphQL::Input
   include GraphQL::Types
-  require_relative "input/task_input"
+  require_relative "task_input"
 end

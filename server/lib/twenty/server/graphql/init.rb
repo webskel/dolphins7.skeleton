@@ -2,8 +2,8 @@
 
 module Twenty::GraphQL
   require "graphql"
-  require_relative "input"
-  require_relative "mutation"
-  require_relative "type"
-  require_relative "schema"
+  require_relative "input/init"
+  require_relative "mutation/init"
+  require_relative "type/init"
+  require_relative "schema/init"
 end
