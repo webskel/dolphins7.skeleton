@@ -47,7 +47,7 @@ module Twenty
   #
   # @return [void]
   def self.establish_connection(path:)
-    @connection = Sequel.connect(
+    @db = Sequel.connect(
       adapter: "sqlite",
       database: path
     )
@@ -55,10 +55,10 @@ module Twenty
 
   ##
   # @return [Sequel::Database::SQLite]
-  #  Returns the connection to a database
-  def self.connection
-    establish_connection unless @connection
-    @connection
+  #  Returns a database object
+  def self.db
+    establish_connection unless @db
+    @db
   end
 
   require "sequel"

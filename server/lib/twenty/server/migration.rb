@@ -14,13 +14,13 @@ module Twenty::Migration
   # Run migrations
   # @return [void]
   def self.run!(options = {})
-    Sequel::Migrator.run(Twenty.connection, migrations_path, options)
+    Sequel::Migrator.run(Twenty.db, migrations_path, options)
   end
 
   ##
   # @return [Boolean]
   #  Returns true when there are pending migrations
   def self.pending_migrations?
-    ! Sequel::Migrator.is_current?(Twenty.connection, migrations_path)
+    ! Sequel::Migrator.is_current?(Twenty.db, migrations_path)
   end
 end
