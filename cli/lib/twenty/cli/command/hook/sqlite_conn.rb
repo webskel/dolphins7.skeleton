@@ -3,9 +3,16 @@
 module Twenty::Command::Hook
   module SQLiteConn
     def run_command(options)
-      path = options.database || Twenty.default_database
-      Twenty.establish_connection(path:)
+      connect!(options)
       super(options)
+    end
+
+    private
+
+    def connect!(options)
+      Twenty.connect(
+        database: options.database || Twenty.default_database
+      )
     end
   end
 end

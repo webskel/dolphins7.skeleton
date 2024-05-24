@@ -20,7 +20,7 @@ class Twenty::Command::Disconnect < Twenty::Command
   private
 
   def run_command(options)
-    path = File.realpath(options.path ? options.path : Dir.getwd)
+    path = File.realpath(options.path || Dir.getwd)
     require_models!
     Twenty::Project
       .where(path:)

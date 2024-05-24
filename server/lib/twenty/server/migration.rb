@@ -21,6 +21,6 @@ module Twenty::Migration
   # @return [Boolean]
   #  Returns true when there are pending migrations
   def self.pending_migrations?
-    ! Sequel::Migrator.is_current?(Twenty.db, migrations_path)
+    !Sequel::Migrator.is_current?(Twenty.db, migrations_path)
   end
 end

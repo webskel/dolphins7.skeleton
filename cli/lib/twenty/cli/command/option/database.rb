@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twenty::Command::Option
   module Database
     def self.included(mod)

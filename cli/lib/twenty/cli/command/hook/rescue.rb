@@ -22,7 +22,7 @@ module Twenty::Command::Hook
     private
 
     def format_backtrace(backtrace)
-      backtrace[0..FRAME_MAX-1].map do
+      backtrace[0..FRAME_MAX - 1].map do
         [" " * INDENT_BY, _1.gsub(Dir.getwd, "")].join
       end.join("\n")
     end

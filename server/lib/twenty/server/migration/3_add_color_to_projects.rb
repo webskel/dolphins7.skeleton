@@ -3,7 +3,7 @@
 Sequel.migration do
   column_exists = ->(table, column) do
     schema = Twenty.db.schema(table)
-    schema.find { |(key,_)| key == column }
+    schema.find { |(key, _)| key == column }
   end
 
   up do

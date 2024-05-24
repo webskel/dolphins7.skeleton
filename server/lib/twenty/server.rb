@@ -42,22 +42,19 @@ module Twenty
   ##
   # Establishes a database connection
   #
-  # @param [String] path
-  #  The path to a SQLite database
+  # @param [Hash] options
+  #  'Sequel.connect' options
   #
   # @return [void]
-  def self.establish_connection(path:)
-    @db = Sequel.connect(
-      adapter: "sqlite",
-      database: path
-    )
+  def self.connect(options = {})
+    @db = Sequel.connect({adapter: "sqlite"}.merge(options))
   end
 
   ##
   # @return [Sequel::Database::SQLite]
   #  Returns a database object
   def self.db
-    establish_connection unless @db
+    connect unless @db
     @db
   end
 
