@@ -14,3 +14,10 @@ data_sources:
     encoding: utf-8
     content_dir: src/
     layouts_dir: src/layouts
+
+server:
+  unix:
+    path: /tmp/github.com.0x1eef.twenty
+  tcp:
+    host: 127.0.0.1
+    port: 7777
