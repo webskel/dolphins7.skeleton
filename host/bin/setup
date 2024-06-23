@@ -1,17 +1,45 @@
 #!/bin/sh
-# About:
-# bin/setup installs rubygem & npm dependencies in each
-# sub-directory / sub-package (cli, client, server).
 set -e
-wrkdir=$(pwd)
+
+##
+# functions
+printok()
+{
+    echo "ok: ${1}" > /dev/stdout
+}
+
+printerr()
+{
+    echo "error: ${1}" > /dev/stderr
+}
+
+require_dependency()
+{
+    for i in $(seq 1 $#); do
+        eval "cmd=\$${i}"
+        if which ${cmd} > /dev/null 2>&1; then
+            printok "${cmd} found"
+        else
+            printerr "${cmd} is required but was not found on \$PATH"
+            exit 1
+        fi
+    done
+}
+
+##
+# main
+require_dependency git bundle npm
 subdir=". cli client server"
+cwd=$(pwd)
 for dir in ${subdir}; do
-    cd ${dir}
+    cd "${dir}"
     bundle install
+    printok "ruby dependencies installed"
     if [ -e "package.json" ]; then
         npm i
+        printok "nodejs dependencies installed"
     fi
-    cd ${wrkdir}
+    cd "${cwd}"
 done
 git submodule update --init --recursive
-echo OK
+printok "submodules checked out"
