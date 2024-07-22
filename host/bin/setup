@@ -39,6 +39,10 @@ for dir in ${subdir}; do
         npm i
         printok "nodejs dependencies installed"
     fi
+    if [ -e "nanoc.yaml.sample" ]; then
+        cp nanoc.yaml.sample nanoc.yaml
+        printok "nanoc.yaml.sample -> nanoc.yaml"
+    fi
     cd "${cwd}"
 done
 git submodule update --init --recursive

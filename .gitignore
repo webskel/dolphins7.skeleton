@@ -1,8 +1,6 @@
 *.gem
+nanoc.yaml
+/.yardoc/
+/stage/
 .gems/
 .bundle/
-.yardoc/
-.dev/
-.doc/
-pkg/
-stage/
