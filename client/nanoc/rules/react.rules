@@ -16,8 +16,10 @@ end
 
 compile "/js/main/main.tsx" do
   buildenv = ENV["buildenv"] || "development"
-  filter(:webpack,
-         argv: ["--mode", buildenv, "--config", "webpack.#{buildenv}.js"],
-         depend_on: %w[/js/components/ /js/hooks/ /js/types/ /js/lib/])
+  filter(
+    :webpack,
+    argv: ["--mode", buildenv, "--config", "webpack.#{buildenv}.js"],
+    depend_on: %w[/js/components /js/hooks /js/types /js/lib /css]
+  )
   write("/js/main.js")
 end

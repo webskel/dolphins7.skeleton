@@ -4,6 +4,7 @@ import { App } from "~/components/App";
 import { Tasks } from "~/components/Tasks";
 import { Projects } from "~/components/Projects";
 import { Task } from "~/components/Task";
+import "@css/main.scss";
 
 (function () {
   const components = {

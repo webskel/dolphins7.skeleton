@@ -4,9 +4,10 @@ const path = require('path');
 module.exports = {
   resolve: {
     alias: {
-      '~': [path.resolve('src/js')]
+      '~': [path.resolve('src/js')],
+      '@css': [path.resolve('src/css')]
     },
-    extensions: ['.ts', '.tsx']
+    extensions: ['.ts', '.tsx', '.scss']
   },
   module: {
     rules: [
@@ -18,6 +19,15 @@ module.exports = {
           target: 'es2015'
         }
       },
+      {
+        test: /\.(scss|css)$/i,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ]
+      }
     ],
   },
   plugins: [
