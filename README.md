@@ -23,7 +23,7 @@ in Ruby. See **Design** for more info.
     - The client provides static files (HTML, JS, CSS, ...)
     - The client provides routes via [react-router](https://reactrouter.com/en/main)
     - The client communicates with the server via [@apollo/client (GraphQL client)](https://www.apollographql.com/docs/react/)
-* The [cli](cli/) is powered by Ruby
+* The [cli/](cli/) is powered by Ruby
     - Start / stop web server
     - Run database migrations
     - Run developer console
