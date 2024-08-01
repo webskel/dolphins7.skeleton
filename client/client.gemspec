@@ -16,9 +16,6 @@ Gem::Specification.new do |gem|
   gem.description = "#{gem.summary}. " \
                     "Static content (HTML, CSS, JS). " \
                     "See https://rubygems.org/gems/twenty for context."
-  gem.add_development_dependency "nanoc", "~> 4.12"
-  gem.add_development_dependency "nanoc-webpack.rb", "~> 0.10.6"
-  gem.add_development_dependency "listen", "~> 3.8"
   gem.add_development_dependency "standard", "~> 1.35"
   gem.metadata = { "source_code_uri" => "https://github.com/0x1eef/twenty#readme" }
 end

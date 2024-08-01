@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AppContext } from "~/Context";
 import { useForm } from "react-hook-form";
 import { useCreateTask } from "~/hooks/mutations/useCreateTask";
@@ -35,7 +35,11 @@ export function Task() {
       const res = await createTask({ variables: { input } });
       const payload = res?.data?.createTask;
       const { errors } = payload;
-      errors.length ? alert(errors) : (location.href = "/tasks");
+      if (errors.length) {
+        alert(errors);
+      } else {
+        location.href = "/tasks";
+      }
     }
   };
 
@@ -78,7 +82,11 @@ export function Task() {
             labels={["Editor", "Preview"]}
             defaultLabel={taskId ? "preview" : "editor"}
             onChange={(tab: Tab) => {
-              tab.id === "editor" ? setIsEditable(true) : setIsEditable(false);
+              if (tab.id === "editor") {
+                setIsEditable(true);
+              } else {
+                setIsEditable(false);
+              }
             }}
           />
           {isEditable ? (

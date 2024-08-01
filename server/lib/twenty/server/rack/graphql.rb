@@ -2,30 +2,54 @@
 
 module Twenty::Rack
   module GraphQL
+    extend self
+    STATIC  = [%r|/static|, %r|/favicon.ico|]
+
     ##
-    # Extends {Server::Dir Server::Dir} (a static file
-    # Rack application) with a /graphql endpoint
-    #
     # @param [Hash] env
     #  Environment hash
-    #
-    # @return [Array<Integer, Hash, #each>]
+    # @return [[Integer, Hash, #each]
     #  Returns a response
     def call(env)
       req = Rack::Request.new(env)
-      if req.post? &&
-          req.path == "/graphql"
+      if req.post?
+        graphql(req)
+      elsif req.get? || req.head?
+        file(req)
+      else
+        [404, {}, "".each_line]
+      end
+    end
+
+    private
+
+    def graphql(req)
+      if req.path =~ %r|/graphql|
         params = JSON.parse(req.body.string)
-        result = Twenty::GraphQL::Schema.execute(
+        body = Twenty::GraphQL::Schema.execute(
           params["query"],
           variables: params["variables"],
           context: {}
-        )
-        [200, {"content-type" => "application/json"}, [result.to_json]]
+        ).to_json
+        head = { "content-length" => body.bytesize, "content-type" => "application/json" }
+        [200, head, body.each_line]
       else
-        super(env)
+        body = { errors: ["Request path was not found"] }.to_json
+        head = { "content-length" => body.bytesize, "content-type" => "application/json" }
+        [404, {}, body.each_line]
       end
     end
-    Server::Dir.prepend(self)
+
+    def file(req)
+      if STATIC.find { req.path =~ _1 }
+        dir = Server::Dir.new(Twenty.build)
+        dir.call(req.env)
+      else
+        path = File.join(Twenty.build, "index.html")
+        body = File.binread(path)
+        head = { "content-length" => body.bytesize, "content-type" => "text/html" }
+        [200, head, body.each_line]
+      end
+    end
   end
 end

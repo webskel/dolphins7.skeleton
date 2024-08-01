@@ -5,26 +5,29 @@ purpose. But it's also a place where I can experiment with
 a different stack for the development of [web] applications
 in Ruby. See **Design** for more info.
 
-## Features
-
-* Provides a command-line utility to start / stop a web server
-* Connect / disconnect a project from the command line
-* Designed to work offline
-* Lightweight stack
-* Easy to install, easy to use
-
 ## Design
 
-* The server is powered by [rack](https://github.com/rack/rack) and [puma](https://github.com/puma/puma):
-    - Accepts GraphQL requests at `/graphql`
-    - Serves client (HTML, JS, CSS)
-    - Dependencies: Sequel, SQLite3, ruby-graphql
-* The client is a statically compiled [nanoc](https://github.com/nanoc/nanoc) website:
-    - Dependencies: webpack, typescript, react
-* The CLI controls the web server:
+* The [server/](server/) is powered by Ruby
+    - [rack](https://github.com/rack/rack#readmne),
+      [graphql-ruby](https://github.com/rmosolgo/graphql-ruby#readme),
+      and [puma](https://github.com/puma/puma#readme)
+    - The server provides the /graphql endpoint for client &lt;-&gt; server communication
+    - The server serves static files (HTML, JS, CSS, ...) via [puma (Ruby HTTP server)](https://github.com/puma/puma#readme)
+    - The /graphql endpoint enters the [graphql-ruby](https://github.com/rmosolgo/graphql-ruby#readme) stack
+* The [client/](client/) is powered by NodeJS
+    - [webpack](https://webpack.js.org/),
+      [typescript](https://www.typescriptlang.org/),
+      [react](https://react.dev/),
+      and [react-router](https://reactrouter.com/en/main)
+    - The client produces a build/ directory
+    - The client provides static files (HTML, JS, CSS, ...)
+    - The client provides routes via [react-router](https://reactrouter.com/en/main)
+    - The client communicates with the server via [@apollo/client (GraphQL client)](https://www.apollographql.com/docs/react/)
+* The [cli](cli/) is powered by Ruby
     - Start / stop web server
     - Run database migrations
     - Run developer console
+    - Available as a RubyGem executable
 * Each component (server, client, cli) are separate packages
   in a monorepo
 * Easy to distribute as a RubyGem

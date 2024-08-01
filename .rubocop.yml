@@ -17,14 +17,10 @@ AllCops:
     - lib/**/*.rb
     - libexec/*
     - libexec/*/**
-    - nanoc/rules/*
-    - nanoc/lib/*
     - bin/*
     - test/*
   Exclude:
     - src/css/vendor/tail.css/bin/*
-    - src/tmp/*
-    - src/tmp/**/*
 
 ##
 # Enabled

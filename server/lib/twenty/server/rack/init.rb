@@ -7,9 +7,11 @@ module Twenty::Rack
   ##
   # @param [Hash, #to_h] options
   #  Hash of server options
-  #
   # @return [Thread]
   def self.server(options = {})
-    Server.dir(Twenty.build, options.to_h)
+    Server.new Rack::Builder.app {
+      use Server::ETag
+      run Twenty::Rack::GraphQL
+    }, Server.prepare(options)
   end
 end

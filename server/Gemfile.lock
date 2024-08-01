@@ -1,10 +1,16 @@
 PATH
+  remote: ../../../libs/ruby/server.rb
+  specs:
+    server.rb (0.2.2)
+      puma (~> 6.3)
+      rack (~> 3.0)
+
+PATH
   remote: .
   specs:
     twenty-server (0.5.8)
       graphql (~> 2.2)
       sequel (~> 5.78)
-      server.rb (~> 0.2.2)
       sqlite3 (~> 1.6)
 
 GEM
@@ -52,9 +58,6 @@ GEM
     ruby-progressbar (1.13.0)
     sequel (5.78.0)
       bigdecimal
-    server.rb (0.2.2)
-      puma (~> 6.3)
-      rack (~> 3.0)
     sqlite3 (1.7.3)
       mini_portile2 (~> 2.8.0)
     sqlite3 (1.7.3-aarch64-linux)
@@ -91,6 +94,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  server.rb!
   standard (~> 1.35)
   test-unit (~> 3.5.7)
   twenty-server!

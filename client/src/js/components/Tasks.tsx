@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { AppContext } from "~/Context";
 import { NavBar } from "~/components/NavBar";
 import { Group } from "~/components/Group";

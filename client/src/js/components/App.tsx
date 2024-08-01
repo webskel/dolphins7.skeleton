@@ -1,8 +1,12 @@
-import { PropsWithChildren } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 import { AppContext } from "~/Context";
+import { Tasks } from "~/components/Tasks";
+import { Task } from "~/components/Task";
 
-export function App({ children }: PropsWithChildren<{}>) {
+export function App() {
   const client = new ApolloClient({
     uri: "/graphql",
     cache: new InMemoryCache(),
@@ -16,6 +20,24 @@ export function App({ children }: PropsWithChildren<{}>) {
   const cookies = Object.fromEntries(
     document.cookie.split(";").map(e => e.split("=")),
   );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Tasks />,
+    },
+    {
+      path: "/tasks",
+      element: <Tasks />
+    },
+    {
+      path: "/tasks/new",
+      element: <Task />
+    },
+    {
+      path: "/tasks/edit",
+      element: <Task />
+    }
+  ]);
   /* allowlist: param keys acceptable as cookie keys */
   const allowlist = ["projectId"];
   Object.entries(params).forEach(([key, value]) => {
@@ -27,9 +49,12 @@ export function App({ children }: PropsWithChildren<{}>) {
       document.cookie = `${key}=${value}; path=/`;
     }
   });
+  loadDevMessages();
+  loadErrorMessages();
   return (
-    <AppContext.Provider value={{ params, cookies }}>
-      <ApolloProvider client={client}>{children}</ApolloProvider>
-    </AppContext.Provider>
+    <ApolloProvider client={client}>
+      <AppContext.Provider value={{ params, cookies }}/>
+      <RouterProvider router={router} />
+    </ApolloProvider>
   );
 }
