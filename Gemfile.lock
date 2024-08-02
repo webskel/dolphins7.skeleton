@@ -1,11 +1,4 @@
 PATH
-  remote: ../../libs/ruby/server.rb
-  specs:
-    server.rb (0.2.2)
-      puma (~> 6.3)
-      rack (~> 3.0)
-
-PATH
   remote: .
   specs:
     twenty (0.5.8)
@@ -31,6 +24,7 @@ PATH
     twenty-server (0.5.8)
       graphql (~> 2.2)
       sequel (~> 5.78)
+      server.rb (~> 0.3)
       sqlite3 (~> 1.6)
 
 GEM
@@ -61,6 +55,9 @@ GEM
     ryo.rb (0.5.5)
     sequel (5.80.0)
       bigdecimal
+    server.rb (0.3.0)
+      puma (~> 6.3)
+      rack (~> 3.0)
     sqlite3 (1.7.3)
       mini_portile2 (~> 2.8.0)
 
@@ -71,7 +68,6 @@ PLATFORMS
 DEPENDENCIES
   listen
   rake (~> 13.2)
-  server.rb!
   twenty!
   twenty-cli!
   twenty-client!
