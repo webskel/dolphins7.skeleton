@@ -18,12 +18,10 @@ when "console"
   wait spawn("console", *ARGV[1..])
   exit $?.exitstatus
 else
-  warn "Usage: twenty COMMAND [OPTIONS]\n\n" \
+  warn "Usage: cli [OPTIONS]\n\n" \
        "Commands:\n" \
-       "  up             Start the twenty web server\n" \
-       "  down           Stop the twenty web server\n" \
-       "  connect        Connect a project to twenty\n" \
-       "  disconnect     Disconnect a project from twenty\n" \
+       "  up             Start the web server\n" \
+       "  down           Stop the web server\n" \
        "  migrate        Migrate the database\n" \
-       "  console        Start the twenty developer console\n" \
+       "  console        Start the developer console\n" \
 end
