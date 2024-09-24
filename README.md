@@ -1,9 +1,7 @@
 ## About
 
-Twenty is a standalone web application with a practical
-purpose. But it's also a place where I can experiment with
-a different stack for the development of [web] applications
-in Ruby. See **Design** for more info.
+dolphins7 is a [webskel](https://github.com/webskel/cli) skeleton.
+The **Design** section describes how it is organized.
 
 ## Design
 
@@ -36,7 +34,7 @@ in Ruby. See **Design** for more info.
 
 **CLI**
 
-    Usage: twenty COMMAND [OPTIONS]
+    Usage: cli COMMAND [OPTIONS]
 
     Commands:
       up             Start the twenty web server
@@ -46,14 +44,13 @@ in Ruby. See **Design** for more info.
 
 ## Install
 
-Twenty is distributed as a RubyGem:
-
-    $ gem install twenty
+	user@localhost$ webskel new myapp dolphins7
 
 ## Sources
 
-* [GitHub](https://github.com/0x1eef/twenty)
-* [GitLab](https://gitlab.com/0x1eef/twenty)
+* [GitHub](https://github.com/webskel/dolphins7.skeleton#readme)
+* [GitLab](https://gitlab.com/0x1eef/dolphins7.skeleton#about)
+* [brew.bsd.cafe/@webskel](https://brew.bsd.cafe/webskel/dolphins7.skeleton#about)
 
 ## License
 
