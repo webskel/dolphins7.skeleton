@@ -11,12 +11,6 @@ when "up"
 when "down"
   wait spawn("down", *ARGV[1..])
   exit $?.exitstatus
-when "connect"
-  wait spawn("connect", *ARGV[1..])
-  exit $?.exitstatus
-when "disconnect"
-  wait spawn("disconnect", *ARGV[1..])
-  exit $?.exitstatus
 when "migrate"
   wait spawn("migrate", *ARGV[1..])
   exit $?.exitstatus

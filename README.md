@@ -41,8 +41,6 @@ in Ruby. See **Design** for more info.
     Commands:
       up             Start the twenty web server
       down           Stop the twenty web server
-      connect        Connect a project to twenty
-      disconnect     Disconnect a project from twenty
       migrate        Migrate the database
       console        Start the twenty developer console
 

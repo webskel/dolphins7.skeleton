@@ -12,8 +12,6 @@ class Twenty::Command < Cmd
   # Commands
   require_relative "command/up"
   require_relative "command/down"
-  require_relative "command/connect"
-  require_relative "command/disconnect"
   require_relative "command/migrate"
   require_relative "command/console"
 
